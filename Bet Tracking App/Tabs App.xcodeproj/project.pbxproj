@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -50,14 +50,13 @@
 				2A62A5EF646BC1A1EE9C63E9 /* Pods-Bet Tracking App.debug.xcconfig */,
 				A123365B18A58A7DADFC2823 /* Pods-Bet Tracking App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		8D0BDE4224E33326003EA29D = {
 			isa = PBXGroup;
 			children = (
-				8D0BDE4D24E33326003EA29D /* Bet Tracking App */,
+				8D0BDE4D24E33326003EA29D /* Tabs App */,
 				8D0BDE4C24E33326003EA29D /* Products */,
 				8B82D0002B35E007128F6D24 /* Pods */,
 				99BD3E2836C4FCB0EBB1FF12 /* Frameworks */,
@@ -72,7 +71,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8D0BDE4D24E33326003EA29D /* Bet Tracking App */ = {
+		8D0BDE4D24E33326003EA29D /* Tabs App */ = {
 			isa = PBXGroup;
 			children = (
 				8D0BDE4E24E33326003EA29D /* AppDelegate.swift */,
@@ -84,7 +83,7 @@
 				8D0BDE5F24E3332B003EA29D /* Info.plist */,
 				8D0BDE5724E33326003EA29D /* Bet_Tracking_App.xcdatamodeld */,
 			);
-			path = "Bet Tracking App";
+			path = "Tabs App";
 			sourceTree = "<group>";
 		};
 		99BD3E2836C4FCB0EBB1FF12 /* Frameworks */ = {
@@ -98,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D0BDE4A24E33326003EA29D /* Bet Tracking App */ = {
+		8D0BDE4A24E33326003EA29D /* Tabs App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8D0BDE6224E3332B003EA29D /* Build configuration list for PBXNativeTarget "Bet Tracking App" */;
+			buildConfigurationList = 8D0BDE6224E3332B003EA29D /* Build configuration list for PBXNativeTarget "Tabs App" */;
 			buildPhases = (
 				B94D16DD0CC1844D48B7BF56 /* [CP] Check Pods Manifest.lock */,
 				8D0BDE4724E33326003EA29D /* Sources */,
@@ -112,7 +111,7 @@
 			);
 			dependencies = (
 			);
-			name = "Bet Tracking App";
+			name = "Tabs App";
 			productName = "Bet Tracking App";
 			productReference = 8D0BDE4B24E33326003EA29D /* Tabs.app */;
 			productType = "com.apple.product-type.application";
@@ -132,7 +131,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8D0BDE4624E33326003EA29D /* Build configuration list for PBXProject "Bet Tracking App" */;
+			buildConfigurationList = 8D0BDE4624E33326003EA29D /* Build configuration list for PBXProject "Tabs App" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D0BDE4A24E33326003EA29D /* Bet Tracking App */,
+				8D0BDE4A24E33326003EA29D /* Tabs App */,
 			);
 		};
 /* End PBXProject section */
@@ -394,7 +393,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8D0BDE4624E33326003EA29D /* Build configuration list for PBXProject "Bet Tracking App" */ = {
+		8D0BDE4624E33326003EA29D /* Build configuration list for PBXProject "Tabs App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D0BDE6024E3332B003EA29D /* Debug */,
@@ -403,7 +402,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8D0BDE6224E3332B003EA29D /* Build configuration list for PBXNativeTarget "Bet Tracking App" */ = {
+		8D0BDE6224E3332B003EA29D /* Build configuration list for PBXNativeTarget "Tabs App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8D0BDE6324E3332B003EA29D /* Debug */,
