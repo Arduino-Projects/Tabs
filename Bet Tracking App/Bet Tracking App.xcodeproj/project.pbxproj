@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		408F0F347EF15A96505295CA /* Pods_Bet_Tracking_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461FEC4C1858ACDDB4255045 /* Pods_Bet_Tracking_App.framework */; };
 		8D0BDE4F24E33326003EA29D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE4E24E33326003EA29D /* AppDelegate.swift */; };
 		8D0BDE5124E33326003EA29D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE5024E33326003EA29D /* SceneDelegate.swift */; };
 		8D0BDE5324E33326003EA29D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0BDE5224E33326003EA29D /* ViewController.swift */; };
@@ -17,7 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D0BDE4B24E33326003EA29D /* Bet Tracking App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bet Tracking App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A62A5EF646BC1A1EE9C63E9 /* Pods-Bet Tracking App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bet Tracking App.debug.xcconfig"; path = "Target Support Files/Pods-Bet Tracking App/Pods-Bet Tracking App.debug.xcconfig"; sourceTree = "<group>"; };
+		461FEC4C1858ACDDB4255045 /* Pods_Bet_Tracking_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bet_Tracking_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D0BDE4B24E33326003EA29D /* Tabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D0BDE4E24E33326003EA29D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D0BDE5024E33326003EA29D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8D0BDE5224E33326003EA29D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		8D0BDE5A24E3332B003EA29D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D0BDE5D24E3332B003EA29D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D0BDE5F24E3332B003EA29D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A123365B18A58A7DADFC2823 /* Pods-Bet Tracking App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bet Tracking App.release.xcconfig"; path = "Target Support Files/Pods-Bet Tracking App/Pods-Bet Tracking App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,24 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408F0F347EF15A96505295CA /* Pods_Bet_Tracking_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B82D0002B35E007128F6D24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A62A5EF646BC1A1EE9C63E9 /* Pods-Bet Tracking App.debug.xcconfig */,
+				A123365B18A58A7DADFC2823 /* Pods-Bet Tracking App.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8D0BDE4224E33326003EA29D = {
 			isa = PBXGroup;
 			children = (
 				8D0BDE4D24E33326003EA29D /* Bet Tracking App */,
 				8D0BDE4C24E33326003EA29D /* Products */,
+				8B82D0002B35E007128F6D24 /* Pods */,
+				99BD3E2836C4FCB0EBB1FF12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		8D0BDE4C24E33326003EA29D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D0BDE4B24E33326003EA29D /* Bet Tracking App.app */,
+				8D0BDE4B24E33326003EA29D /* Tabs.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +87,14 @@
 			path = "Bet Tracking App";
 			sourceTree = "<group>";
 		};
+		99BD3E2836C4FCB0EBB1FF12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				461FEC4C1858ACDDB4255045 /* Pods_Bet_Tracking_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D0BDE6224E3332B003EA29D /* Build configuration list for PBXNativeTarget "Bet Tracking App" */;
 			buildPhases = (
+				B94D16DD0CC1844D48B7BF56 /* [CP] Check Pods Manifest.lock */,
 				8D0BDE4724E33326003EA29D /* Sources */,
 				8D0BDE4824E33326003EA29D /* Frameworks */,
 				8D0BDE4924E33326003EA29D /* Resources */,
+				3A02CBF305F0A0A7DE4F9092 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -87,7 +114,7 @@
 			);
 			name = "Bet Tracking App";
 			productName = "Bet Tracking App";
-			productReference = 8D0BDE4B24E33326003EA29D /* Bet Tracking App.app */;
+			productReference = 8D0BDE4B24E33326003EA29D /* Tabs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A02CBF305F0A0A7DE4F9092 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bet Tracking App/Pods-Bet Tracking App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bet Tracking App/Pods-Bet Tracking App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bet Tracking App/Pods-Bet Tracking App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B94D16DD0CC1844D48B7BF56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bet Tracking App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D0BDE4724E33326003EA29D /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		8D0BDE6324E3332B003EA29D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A62A5EF646BC1A1EE9C63E9 /* Pods-Bet Tracking App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,8 +365,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.araadshams.Bet-Tracking-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.araadshams.Tabs;
+				PRODUCT_NAME = Tabs;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,6 +374,7 @@
 		};
 		8D0BDE6424E3332B003EA29D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A123365B18A58A7DADFC2823 /* Pods-Bet Tracking App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,8 +384,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.araadshams.Bet-Tracking-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.araadshams.Tabs;
+				PRODUCT_NAME = Tabs;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
