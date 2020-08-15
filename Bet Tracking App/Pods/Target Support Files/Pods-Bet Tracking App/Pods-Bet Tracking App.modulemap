@@ -1,6 +1,0 @@
-framework module Pods_Bet_Tracking_App {
-  umbrella header "Pods-Bet Tracking App-umbrella.h"
-
-  export *
-  module * { export * }
-}
