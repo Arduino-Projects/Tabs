@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -96,12 +96,11 @@
 		8DE08ED124E88E5E0009D728 /* Tabs App */ = {
 			isa = PBXGroup;
 			children = (
-				8DE08ED224E88E5E0009D728 /* AppDelegate.swift */,
-				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
-				8DE08ED624E88E5E0009D728 /* ViewController.swift */,
-				8DE08ED824E88E5E0009D728 /* Main.storyboard */,
+				8DE08EF724E8947C0009D728 /* Model */,
+				8DE08EF824E894960009D728 /* View */,
+				8DE08EF924E894A60009D728 /* Controller */,
+				8DE08EFA24E894B00009D728 /* Supporting */,
 				8DE08EDE24E88E5F0009D728 /* Assets.xcassets */,
-				8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */,
 				8DE08EE324E88E5F0009D728 /* Info.plist */,
 				8DE08EDB24E88E5E0009D728 /* Tabs_App.xcdatamodeld */,
 			);
@@ -117,13 +116,45 @@
 			path = "Tabs AppTests";
 			sourceTree = "<group>";
 		};
+		8DE08EF724E8947C0009D728 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8DE08EF824E894960009D728 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8DE08ED824E88E5E0009D728 /* Main.storyboard */,
+				8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DE08EF924E894A60009D728 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8DE08ED224E88E5E0009D728 /* AppDelegate.swift */,
+				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
+				8DE08ED624E88E5E0009D728 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8DE08EFA24E894B00009D728 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
 		D8FDB40BCEB308C58FFEA313 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				0C70A2DDC9C45C5EE3B87802 /* Pods-Tabs App.debug.xcconfig */,
 				51AF88D24F5356695D111640 /* Pods-Tabs App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
