@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait" appearance="dark"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--AnimatedIntro-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="AnimatedIntro" id="BYZ-38-t0r" customClass="AnimatedIntroController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jtP-2X-3Xg">
-                                <rect key="frame" x="52" y="304" width="271" height="205"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TabsLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jtP-2X-3Xg" userLabel="FullLogo">
+                                <rect key="frame" x="52" y="361.66666666666669" width="271" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jtP-2X-3Xg" secondAttribute="height" multiplier="271:89" id="gxh-0H-YyC"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TabsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="AvV-8e-hEg" userLabel="RollingIcon">
+                                <rect key="frame" x="143" y="174" width="89" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jtP-2X-3Xg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lkg-lU-AYh"/>
+                            <constraint firstItem="jtP-2X-3Xg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="N6l-8F-Zpf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jtP-2X-3Xg" secondAttribute="trailing" constant="52" id="cuA-xD-wjj"/>
+                            <constraint firstItem="jtP-2X-3Xg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iZC-9R-bfp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="IconImage" destination="AvV-8e-hEg" id="waL-ac-OL4"/>
                         <outlet property="LogoImage" destination="jtP-2X-3Xg" id="D8x-cS-eDN"/>
                     </connections>
                 </viewController>
@@ -33,6 +46,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TabsLogo" width="200" height="65.5"/>
+        <image name="TabsIcon" width="400" height="400"/>
+        <image name="TabsLogo" width="400" height="131"/>
     </resources>
 </document>

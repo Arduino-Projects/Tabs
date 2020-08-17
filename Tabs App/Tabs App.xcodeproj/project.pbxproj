@@ -10,7 +10,7 @@
 		825F9F4700792A41E3D6FABD /* Pods_Tabs_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8E14B737C278C26ABB3683 /* Pods_Tabs_App.framework */; };
 		8DE08ED324E88E5E0009D728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08ED224E88E5E0009D728 /* AppDelegate.swift */; };
 		8DE08ED524E88E5E0009D728 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */; };
-		8DE08ED724E88E5E0009D728 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08ED624E88E5E0009D728 /* ViewController.swift */; };
+		8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */; };
 		8DE08EDA24E88E5E0009D728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08ED824E88E5E0009D728 /* Main.storyboard */; };
 		8DE08EDD24E88E5E0009D728 /* Tabs_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08EDB24E88E5E0009D728 /* Tabs_App.xcdatamodeld */; };
 		8DE08EDF24E88E5F0009D728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EDE24E88E5F0009D728 /* Assets.xcassets */; };
@@ -35,7 +35,7 @@
 		8DE08ECF24E88E5E0009D728 /* Tabs App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tabs App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE08ED224E88E5E0009D728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8DE08ED624E88E5E0009D728 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedIntroController.swift; sourceTree = "<group>"; };
 		8DE08ED924E88E5E0009D728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8DE08EDC24E88E5E0009D728 /* Tabs_App.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tabs_App.xcdatamodel; sourceTree = "<group>"; };
 		8DE08EDE24E88E5F0009D728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 			children = (
 				8DE08ED224E88E5E0009D728 /* AppDelegate.swift */,
 				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
-				8DE08ED624E88E5E0009D728 /* ViewController.swift */,
+				8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DE08ED724E88E5E0009D728 /* ViewController.swift in Sources */,
+				8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */,
 				8DE08ED324E88E5E0009D728 /* AppDelegate.swift in Sources */,
 				8DE08ED524E88E5E0009D728 /* SceneDelegate.swift in Sources */,
 				8DE08EDD24E88E5E0009D728 /* Tabs_App.xcdatamodeld in Sources */,
