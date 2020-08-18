@@ -1,5 +1,5 @@
 //
-//  SignUpController.swift
+//  SignUpFromSigninController.swift
 //
 //  Description: The main sign up screen where users sign up with their name, username, email, and password
 //  Creator: Araad Shams
