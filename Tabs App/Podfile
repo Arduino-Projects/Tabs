@@ -9,6 +9,7 @@ target 'Tabs App' do
 pod 'Firebase'
 pod 'Firebase/Core'
 pod 'Firebase/Crashlytics'
+pod 'Firebase/Firestore'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'SVProgressHUD'

@@ -8,11 +8,14 @@
 
 
 import UIKit
+import Firebase
 
 class SignUpController: UIViewController {
     
     //GLOBALS
     let comingFromSignIn = false    //Used to track whether this controller is opening from the intro or sign-in screen
+    
+    let db = Firestore.firestore()
     
     
     //IBOutlets
@@ -29,6 +32,7 @@ class SignUpController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print(db)
         runAnimation()
     }
     
