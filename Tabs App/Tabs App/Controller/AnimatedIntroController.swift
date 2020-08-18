@@ -18,7 +18,17 @@ class AnimatedIntroController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        runAnimation()
+    }
+    
+    
+    
+    
+    
+    // Used to create the animation sequence of the rolling icon, then fading in logo, and perform some calculations on exact positions of components
+    // Params: NONE
+    // Return: NONE
+    func runAnimation() {
         //Resizing and repositioning the frame for the rolling icon image, just outside of the view, and in vertical center
         IconImage.frame = CGRect(x: -LogoImage.frame.height, y: LogoImage.frame.origin.y, width: LogoImage.frame.height, height: LogoImage.frame.height)
         
@@ -37,9 +47,7 @@ class AnimatedIntroController: UIViewController {
     
     
     
-    
-    
-    // Used to create the animation sequence of the rolling icon, then fading in logo
+    // Used to create the animation sequence of the rolling icon
     // Params: NONE
     // Return: NONE
     func introAnimationSequence() {
@@ -79,6 +87,7 @@ class AnimatedIntroController: UIViewController {
             
             //Once completed, erase the rolling icon image
             self.IconImage.alpha = 0
+            self.performSegue(withIdentifier: "introToSignup", sender: self)
             
         })
     }
