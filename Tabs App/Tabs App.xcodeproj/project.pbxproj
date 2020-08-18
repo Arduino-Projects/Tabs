@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		825F9F4700792A41E3D6FABD /* Pods_Tabs_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8E14B737C278C26ABB3683 /* Pods_Tabs_App.framework */; };
-		8D21928D24EB956600A0A265 /* SignUpFromSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21928C24EB956600A0A265 /* SignUpFromSignInController.swift */; };
+		8D21929024EBB39200A0A265 /* SignUpFromSigninController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */; };
 		8D2CF82C24EAFBCB00B2EDDA /* Barlow-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D2CF82A24EAFBBE00B2EDDA /* Barlow-SemiBold.ttf */; };
 		8D2CF82E24EAFE5700B2EDDA /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2CF82D24EAFE5700B2EDDA /* RoundedButton.swift */; };
 		8DA31DC024EB6819001EFD85 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA31DBF24EB6819001EFD85 /* SignUpController.swift */; };
@@ -37,7 +37,7 @@
 		0C70A2DDC9C45C5EE3B87802 /* Pods-Tabs App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tabs App.debug.xcconfig"; path = "Target Support Files/Pods-Tabs App/Pods-Tabs App.debug.xcconfig"; sourceTree = "<group>"; };
 		3F8E14B737C278C26ABB3683 /* Pods_Tabs_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tabs_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51AF88D24F5356695D111640 /* Pods-Tabs App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tabs App.release.xcconfig"; path = "Target Support Files/Pods-Tabs App/Pods-Tabs App.release.xcconfig"; sourceTree = "<group>"; };
-		8D21928C24EB956600A0A265 /* SignUpFromSignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFromSignInController.swift; sourceTree = "<group>"; };
+		8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFromSigninController.swift; sourceTree = "<group>"; };
 		8D2CF82A24EAFBBE00B2EDDA /* Barlow-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-SemiBold.ttf"; sourceTree = "<group>"; };
 		8D2CF82D24EAFE5700B2EDDA /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		8DA31DBF24EB6819001EFD85 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
 				8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */,
 				8DA31DBF24EB6819001EFD85 /* SignUpController.swift */,
-				8D21928C24EB956600A0A265 /* SignUpFromSignInController.swift */,
 				8DA31DC324EB8814001EFD85 /* SignInController.swift */,
+				8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */,
 				8D21928E24EBA99200A0A265 /* Custom Elements */,
 			);
 			path = Controller;
@@ -337,9 +337,9 @@
 			files = (
 				8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */,
 				8D2CF82E24EAFE5700B2EDDA /* RoundedButton.swift in Sources */,
+				8D21929024EBB39200A0A265 /* SignUpFromSigninController.swift in Sources */,
 				8DE08ED324E88E5E0009D728 /* AppDelegate.swift in Sources */,
 				8DE08ED524E88E5E0009D728 /* SceneDelegate.swift in Sources */,
-				8D21928D24EB956600A0A265 /* SignUpFromSignInController.swift in Sources */,
 				8DA31DC424EB8814001EFD85 /* SignInController.swift in Sources */,
 				8DE08EDD24E88E5E0009D728 /* Tabs_App.xcdatamodeld in Sources */,
 				8DA31DC024EB6819001EFD85 /* SignUpController.swift in Sources */,
