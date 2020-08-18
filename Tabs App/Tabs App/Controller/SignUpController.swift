@@ -9,13 +9,14 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
+import FirebaseCore
 
 class SignUpController: UIViewController {
     
     //GLOBALS
     let comingFromSignIn = false    //Used to track whether this controller is opening from the intro or sign-in screen
     
-    let db = Firestore.firestore()
     
     
     //IBOutlets
@@ -31,9 +32,20 @@ class SignUpController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+
         super.viewDidAppear(animated)
-        print(db)
         runAnimation()
+        let db = Firestore.firestore()
+        
+        db.collection("Bets").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
     }
     
     
