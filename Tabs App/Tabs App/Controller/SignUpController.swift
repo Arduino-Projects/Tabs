@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseCore
 
-class SignUpController: UIViewController {
+class SignUpController: UIViewController, UITextFieldDelegate {
     
     //GLOBALS
     let comingFromSignIn = false    //Used to track whether this controller is opening from the intro or sign-in screen
@@ -30,12 +30,31 @@ class SignUpController: UIViewController {
     @IBOutlet weak var btnRegister: RoundedButton!      //IBOutlet for the final register button
     @IBOutlet weak var btnAlreadyAUser: UIButton!       //IBOutlet in case user already has an existing account
     
+    @IBOutlet weak var stsFullNameWrong: UIImageView!
+    @IBOutlet weak var stsFullNameRight: UIImageView!
+    @IBOutlet weak var stsFullNameLoading: UIActivityIndicatorView!
+    @IBOutlet weak var stsUsernameWrong: UIImageView!
+    @IBOutlet weak var stsUsernameRight: UIImageView!
+    @IBOutlet weak var stsUsernameLoading: UIActivityIndicatorView!
+    @IBOutlet weak var stsEmailWrong: UIImageView!
+    @IBOutlet weak var stsEmailRight: UIImageView!
+    @IBOutlet weak var stsEmailLoading: UIActivityIndicatorView!
+    @IBOutlet weak var stsPasswordWrong: UIImageView!
+    @IBOutlet weak var stsPasswordRight: UIImageView!
+    @IBOutlet weak var stsPasswordLoading: UIActivityIndicatorView!
+    @IBOutlet weak var lblErrorIndicator: UILabel!
+
+    
     
     override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(animated)
+        keyboardManagerInit()
         runAnimation()
+        
         let db = Firestore.firestore()
+        
+        
         
         db.collection("Bets").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -48,6 +67,64 @@ class SignUpController: UIViewController {
         }
     }
     
+    
+    
+    func keyboardManagerInit() {
+        
+        self.txtFullName.delegate = self
+        self.txtUsername.delegate = self
+        self.txtEmail.delegate = self
+        self.txtPassword.delegate = self
+        
+        self.hideKeyboardWhenTappedAround()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    
+    
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height/4
+            }
+        }
+    }
+
+    
+    
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("oof")
+        switchBasedNextTextField(textField)
+        return true
+    }
+    
+    
+    
+    
+    private func switchBasedNextTextField(_ textField: UITextField) {
+        switch textField {
+        case self.txtFullName:
+            self.txtUsername.becomeFirstResponder()
+        case self.txtUsername:
+            self.txtEmail.becomeFirstResponder()
+        case self.txtEmail:
+            self.txtPassword.becomeFirstResponder()
+        default:
+            self.txtPassword.resignFirstResponder()
+        }
+    }
     
     
     
@@ -155,7 +232,9 @@ class SignUpController: UIViewController {
     
     //IBActions
     @IBAction func btnRegisterClicked(_ sender: Any) {
-        
+//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//          // ...
+//        }
     }
     
     
@@ -164,3 +243,22 @@ class SignUpController: UIViewController {
     }
 }
 
+
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        let swipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        
+        tap.cancelsTouchesInView = false
+        swipe.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(swipe)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

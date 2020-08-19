@@ -26,6 +26,22 @@ class SignUpFromSignInController: UIViewController {
     @IBOutlet weak var btnRegister: RoundedButton!      //IBOutlet for the final register button
     @IBOutlet weak var btnAlreadyAUser: UIButton!       //IBOutlet in case user already has an existing account
     
+
+    
+    @IBOutlet weak var stsFullNameWrong: UIImageView!
+    @IBOutlet weak var stsFullNameRight: UIImageView!
+    @IBOutlet weak var stsFullNameLoading: UIActivityIndicatorView!
+    @IBOutlet weak var stsUsernameWrong: UIImageView!
+    @IBOutlet weak var stsUsernameRight: UIImageView!
+    @IBOutlet weak var stsUsernameLoading: UIActivityIndicatorView!
+    @IBOutlet weak var stsEmailWrong: UIImageView!
+    @IBOutlet weak var stsEmailRight: UIImageView!
+    @IBOutlet weak var stsEmailLoading: UIActivityIndicatorView!
+    @IBOutlet weak var stsPasswordWrong: UIImageView!
+    @IBOutlet weak var stsPasswordRight: UIImageView!
+    @IBOutlet weak var stsPasswordLoading: UIActivityIndicatorView!
+    @IBOutlet weak var lblErrorIndicator: UILabel!
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
