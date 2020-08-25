@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import Firebase
-
+import FirebaseFirestore
 class User {
 
     //MARK: Properties
@@ -16,7 +15,7 @@ class User {
     var username: String    //The users chosen username
     var email: String   //The users email
     var verified: Bool  //The users email verification status
-    var accountCreated: Firebase.Timestamp  //When the user created their account
+    var accountCreated: FirebaseFirestore.Timestamp //When the user created their account
 
     
     
@@ -29,7 +28,7 @@ class User {
         self.username = username
         self.email = email
         self.verified = verified
-        self.accountCreated = Firebase.Timestamp.init(date: accountCreated)
+        self.accountCreated = FirebaseFirestore.Timestamp.init(date: accountCreated)
     }
     
     
