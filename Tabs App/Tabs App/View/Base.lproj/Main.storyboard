@@ -362,11 +362,12 @@
                         <outlet property="lblForgottenDescription" destination="HJl-Ls-7kM" id="Rcy-5p-t5p"/>
                         <outlet property="lblResetTitle" destination="9l2-2p-1fL" id="6ik-A6-P9u"/>
                         <outlet property="txtEmail" destination="irq-H8-hRL" id="WiN-eA-gmn"/>
+                        <segue destination="pKQ-pB-rtM" kind="presentation" identifier="forgotPasswordToSignin" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="JUk-D8-cop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nn-ON-i1s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3352.8000000000002" y="-2086.5067466266869"/>
+            <point key="canvasLocation" x="3319" y="-2085"/>
         </scene>
         <!--SignupScreen-->
         <scene sceneID="Zrr-xK-eWv">
@@ -1242,8 +1243,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kNp-cy-uvw"/>
-        <segue reference="qcV-r3-93D"/>
+        <segue reference="JUk-D8-cop"/>
+        <segue reference="eCZ-Uw-gdb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TabsIcon" width="400" height="400"/>

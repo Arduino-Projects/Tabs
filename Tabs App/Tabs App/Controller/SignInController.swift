@@ -14,7 +14,7 @@ import FirebaseFirestore
 class SignInController: UIViewController, UITextFieldDelegate {
     
     //Defined in the prepareForSegue method in previous VC
-    var comingFromVerification = false
+    var comingFromVerificationOrForgotPassword = false
 
     
 
@@ -204,7 +204,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
     // Return: NONE
     func performComingFromVerifyComponentSetup() {
         //Setup all of these components in advance for different appearance when coming from verify VC
-        if(comingFromVerification) {
+        if(comingFromVerificationOrForgotPassword) {
             imgToBeMoved.alpha = 0
             imgPlaceholder.alpha = 1
             txtEmail.alpha = 1
@@ -237,7 +237,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
     // Params: NONE
     // Return: NONE
     func runAnimationOnCondition() {
-        if(!comingFromVerification) {
+        if(!comingFromVerificationOrForgotPassword) {
             runAnimation()
         }
         else {
@@ -276,7 +276,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
             NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: Notification.Name.reachabilityChanged, object: reachability)
             try reachability.startNotifier()
         } catch {
-            print("This is not working.")
+            //UNKNOWN ERROR
         }
         
     }

@@ -288,7 +288,7 @@ class SignUpFromSignInController: UIViewController, UITextFieldDelegate {
             NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: Notification.Name.reachabilityChanged, object: reachability)
             try reachability.startNotifier()
         } catch {
-            print("This is not working.")
+            //UNKNOWN ERROR
         }
         
     }

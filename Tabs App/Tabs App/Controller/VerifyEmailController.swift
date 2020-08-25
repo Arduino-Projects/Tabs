@@ -59,7 +59,7 @@ class VerifyEmailController : UIViewController {
         //if going to signin screen, make sure it knows to do all necessary changes
         if segue.identifier == "verifyToSignin" {
             if let nextViewController = segue.destination as? SignInController {
-                    nextViewController.comingFromVerification = true
+                    nextViewController.comingFromVerificationOrForgotPassword = true
             }
         }
     }
@@ -90,7 +90,7 @@ class VerifyEmailController : UIViewController {
             NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: Notification.Name.reachabilityChanged, object: reachability)
             try reachability.startNotifier()
         } catch {
-            print("This is not working.")
+            //UNKNOWN ERROR
         }
         
     }
