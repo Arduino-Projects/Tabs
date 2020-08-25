@@ -498,7 +498,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func btnForgotPasswordPressed(_ sender: Any) {
-        //TODO: Create forgot password screen!
+        performSegue(withIdentifier: "signinToForgotPassword", sender: self)
     }
     
     
