@@ -37,7 +37,7 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lblForgottenDescription: UILabel!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var btnResetPassword: RoundedButton!
-    
+    @IBOutlet weak var stsLoadingIndicator: UIActivityIndicatorView!
     
     
     
@@ -197,6 +197,12 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     
     
     
+    //MARK: Forgot Password Manangement
+    
+    
+    
+    
+    
     
     
     //MARK: IBActions
@@ -206,7 +212,48 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func resetPasswordButtonPressed(_ sender: Any) {
+        let emailStr = txtEmail.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        btnCloseForgotPassword.isEnabled = false
+        btnResetPassword.isEnabled = false
+        txtEmail.isEnabled = false
+        stsLoadingIndicator.alpha = 1
+        
+        
+        if (emailStr == "") {
+            btnCloseForgotPassword.isEnabled = true
+            btnResetPassword.isEnabled = true
+            txtEmail.isEnabled = true
+            stsLoadingIndicator.alpha = 0
+            lblErrorIndicator.text = "Email field is empty!"
+        }
+        else {
+            Auth.auth().sendPasswordReset(withEmail: emailStr) { (error) in
+                if (error != nil) {
+                    
+                    self.btnCloseForgotPassword.isEnabled = true
+                    self.btnResetPassword.isEnabled = true
+                    self.txtEmail.isEnabled = true
+                    self.stsLoadingIndicator.alpha = 0
+                    
+                    if(error!._code == 17020) {
+                        self.lblErrorIndicator.text! = "No internet connection!"
+                    }
+                    else if (error!._code == 17010) {
+                        self.lblErrorIndicator.text! = "Too many requests, try again in a bit!"
+                    }
+                    else {
+                        self.lblErrorIndicator.text! = "Unknown error code: " + String(error!._code)
+                    }
+                }
+                else {
+                    self.btnCloseForgotPassword.isEnabled = true
+                    self.stsLoadingIndicator.alpha = 0
+                    
+                    self.lblErrorIndicator.text! = "Success!"
+                }
+            }
+        }
     }
     
     

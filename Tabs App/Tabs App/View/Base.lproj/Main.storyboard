@@ -287,7 +287,7 @@
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email does not exist!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGx-ez-bQA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGx-ez-bQA">
                                                 <rect key="frame" x="3" y="110.66666666666666" width="307" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="6VK-1Z-0bx"/>
@@ -312,6 +312,13 @@
                                                     <constraint firstAttribute="height" constant="5" id="leN-16-njX"/>
                                                 </constraints>
                                             </view>
+                                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gSX-WM-SBJ">
+                                                <rect key="frame" x="131.66666666666666" y="440.66666666666663" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="QHU-gT-PrH"/>
+                                                    <constraint firstAttribute="width" constant="50" id="gwK-Zn-0Ly"/>
+                                                </constraints>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -323,12 +330,14 @@
                                             <constraint firstItem="irq-H8-hRL" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="29" id="EWR-i5-0mF"/>
                                             <constraint firstItem="HJl-Ls-7kM" firstAttribute="top" secondItem="9l2-2p-1fL" secondAttribute="bottom" constant="9" id="Hjj-9i-pmW"/>
                                             <constraint firstItem="9l2-2p-1fL" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="12" id="KfM-NR-zek"/>
+                                            <constraint firstItem="gSX-WM-SBJ" firstAttribute="centerX" secondItem="wIe-du-DZ1" secondAttribute="centerX" id="KgI-wM-3Ui"/>
                                             <constraint firstItem="irq-H8-hRL" firstAttribute="top" secondItem="M3z-wv-h0O" secondAttribute="bottom" constant="11.5" id="MVM-Oo-IGd"/>
                                             <constraint firstAttribute="trailing" secondItem="Snx-qq-fEr" secondAttribute="trailing" constant="53" id="OIQ-Cu-M11"/>
                                             <constraint firstItem="HJl-Ls-7kM" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="3" id="SF7-0o-lj1"/>
                                             <constraint firstItem="M3z-wv-h0O" firstAttribute="centerY" secondItem="wIe-du-DZ1" secondAttribute="centerY" id="ad0-ZM-aMf"/>
                                             <constraint firstItem="M3z-wv-h0O" firstAttribute="centerX" secondItem="wIe-du-DZ1" secondAttribute="centerX" id="jKt-NC-AeF"/>
                                             <constraint firstAttribute="trailing" secondItem="HJl-Ls-7kM" secondAttribute="trailing" constant="3" id="opO-Cl-3oR"/>
+                                            <constraint firstItem="gSX-WM-SBJ" firstAttribute="top" secondItem="Snx-qq-fEr" secondAttribute="bottom" constant="27.329999999999998" id="tms-cW-2y2"/>
                                             <constraint firstItem="hGx-ez-bQA" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="3" id="uNR-iG-sZi"/>
                                             <constraint firstAttribute="trailing" secondItem="9l2-2p-1fL" secondAttribute="trailing" constant="13" id="w29-G4-Ji4"/>
                                             <constraint firstItem="M3z-wv-h0O" firstAttribute="top" secondItem="HJl-Ls-7kM" secondAttribute="bottom" constant="16.5" id="zTl-7K-fa5"/>
@@ -361,13 +370,14 @@
                         <outlet property="lblErrorIndicator" destination="hGx-ez-bQA" id="oG5-Ch-9wP"/>
                         <outlet property="lblForgottenDescription" destination="HJl-Ls-7kM" id="Rcy-5p-t5p"/>
                         <outlet property="lblResetTitle" destination="9l2-2p-1fL" id="6ik-A6-P9u"/>
+                        <outlet property="stsLoadingIndicator" destination="gSX-WM-SBJ" id="5qF-qr-wuz"/>
                         <outlet property="txtEmail" destination="irq-H8-hRL" id="WiN-eA-gmn"/>
                         <segue destination="pKQ-pB-rtM" kind="presentation" identifier="forgotPasswordToSignin" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="JUk-D8-cop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8nn-ON-i1s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3319" y="-2085"/>
+            <point key="canvasLocation" x="3317.5999999999999" y="-2085.2216748768474"/>
         </scene>
         <!--SignupScreen-->
         <scene sceneID="Zrr-xK-eWv">
