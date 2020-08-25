@@ -408,6 +408,11 @@ class SignInController: UIViewController, UITextFieldDelegate {
                     //IF NOT VERIFIED, SEND VERIFICATION EMAIL!
                     Auth.auth().currentUser!.sendEmailVerification(completion: { (error) in
                       if(error != nil) {
+                        if(error!._code == 17010) {
+                            //Means verification email was just sent, so it won't send another one too fast
+                            self.performSegue(withIdentifier: "signinToVerify", sender: self)
+                        }
+                        else {
                             //UNKNOWN ERROR
                             self.setEmailPasswordStatusIndicators(emailRight: 1, passwordRight: 1)
                             self.lblErrorIndicator.text = "Unknown Error Code: " + String(error!._code)
@@ -418,6 +423,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
                             self.btnForgottenPassword.isEnabled = true
                             self.txtEmail.isEnabled = true
                             self.txtPassword.isEnabled = true
+                        }
                       }
                       else {
                           //If all successful, open the verification screen
@@ -437,7 +443,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
 
     
     
-    // Run when the login butotn is pressed, to handle all of the condition checking, and disabling components
+    // Run when the login button is pressed, to handle all of the condition checking, and disabling components
     // Params: NONE
     // Return: NONE
     @IBAction func btnLoginPressed(_ sender: Any) {
