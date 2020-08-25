@@ -504,12 +504,11 @@ class SignInController: UIViewController, UITextFieldDelegate {
     
     //TODO: Remove un-necessary outlets
     @IBAction func txtEmailEdited(_ sender: Any) {
-        //ooffff
+
     }
     
     @IBAction func txtPasswordEdited(_ sender: Any) {
-        //ooffff
-        //sdfdfsdfsd
+        
     }
     
     
