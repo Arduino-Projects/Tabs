@@ -224,6 +224,106 @@
             </objects>
             <point key="canvasLocation" x="2460" y="-2085"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="D3E-wH-M8L">
+            <objects>
+                <viewController id="eWg-zF-J7O" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mE6-sX-J5J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEJ-tb-JPw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKf-Y7-2Sl">
+                                        <rect key="frame" x="22" y="55" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="7It-JY-tip"/>
+                                            <constraint firstAttribute="width" constant="50" id="Epe-l4-WHX"/>
+                                        </constraints>
+                                        <state key="normal" image="multiply" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
+                                        </state>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIe-du-DZ1">
+                                        <rect key="frame" x="31" y="138" width="313" height="391"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="irq-H8-hRL">
+                                                <rect key="frame" x="29" y="192" width="254" height="34"/>
+                                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="q03-uA-bJp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snx-qq-fEr" customClass="RoundedButton" customModule="Tabs_App" customModuleProvider="target">
+                                                <rect key="frame" x="51" y="240" width="208" height="53"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Snx-qq-fEr" secondAttribute="height" multiplier="181:53" id="X3v-fB-UUM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Barlow-SemiBold" family="Barlow" pointSize="22"/>
+                                                <state key="normal" title="Reset Password">
+                                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="18"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reset Password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9l2-2p-1fL">
+                                                <rect key="frame" x="11" y="46" width="288" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Barlow-SemiBold" family="Barlow" pointSize="41"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To reset your password, enter your email below and we'll send a link to your email for resetting your password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJl-Ls-7kM">
+                                                <rect key="frame" x="2" y="98" width="307" height="64"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Barlow-SemiBold" family="Barlow" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Snx-qq-fEr" firstAttribute="width" secondItem="Snx-qq-fEr" secondAttribute="height" multiplier="181:53" id="ucN-nT-koZ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="wIe-du-DZ1" firstAttribute="top" secondItem="wEJ-tb-JPw" secondAttribute="top" constant="138" id="9iv-V5-A7A"/>
+                                    <constraint firstAttribute="bottom" secondItem="wIe-du-DZ1" secondAttribute="bottom" constant="138" id="MC2-Tr-cpo"/>
+                                    <constraint firstItem="hKf-Y7-2Sl" firstAttribute="leading" secondItem="wEJ-tb-JPw" secondAttribute="leading" constant="22" id="VDI-Dt-l4t"/>
+                                    <constraint firstAttribute="trailing" secondItem="wIe-du-DZ1" secondAttribute="trailing" constant="31" id="eLd-SN-byk"/>
+                                    <constraint firstItem="hKf-Y7-2Sl" firstAttribute="top" secondItem="wEJ-tb-JPw" secondAttribute="top" constant="55" id="tSp-yy-DjN"/>
+                                    <constraint firstItem="wIe-du-DZ1" firstAttribute="leading" secondItem="wEJ-tb-JPw" secondAttribute="leading" constant="31" id="xQH-bC-Tqd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wEJ-tb-JPw" firstAttribute="trailing" secondItem="txK-oo-HZA" secondAttribute="trailing" id="4k8-vx-4JH"/>
+                            <constraint firstItem="wEJ-tb-JPw" firstAttribute="bottom" secondItem="txK-oo-HZA" secondAttribute="bottom" id="9jQ-hz-eRd"/>
+                            <constraint firstItem="wEJ-tb-JPw" firstAttribute="leading" secondItem="txK-oo-HZA" secondAttribute="leading" id="BZP-97-aYI"/>
+                            <constraint firstItem="wEJ-tb-JPw" firstAttribute="top" secondItem="txK-oo-HZA" secondAttribute="top" id="yq9-qn-xJA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="txK-oo-HZA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8nn-ON-i1s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3352.8000000000002" y="-2086.5067466266869"/>
+        </scene>
         <!--SignupScreen-->
         <scene sceneID="Zrr-xK-eWv">
             <objects>
@@ -1098,7 +1198,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kNp-cy-uvw"/>
-        <segue reference="eCZ-Uw-gdb"/>
+        <segue reference="qcV-r3-93D"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TabsIcon" width="400" height="400"/>
