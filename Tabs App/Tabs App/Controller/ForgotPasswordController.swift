@@ -228,7 +228,7 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
                         else if (error!._code == 17010) {
                             self.lblErrorIndicator.text! = "Too many requests, try again in a bit!"
                         }
-                        else if (error!._code == 17011) {
+                        else if (error!._code == 17011 || error!._code == 17008) {
                             self.lblErrorIndicator.text! = "There is no account with this email!"
                         }
                         else {
