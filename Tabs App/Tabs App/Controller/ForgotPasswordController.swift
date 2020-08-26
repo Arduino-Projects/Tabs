@@ -203,7 +203,7 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
             btnResetPassword.isEnabled = false
             txtEmail.isEnabled = false
             stsLoadingIndicator.alpha = 1
-            
+            lblErrorIndicator.text = ""
             
             if (emailStr == "") {
                 btnCloseForgotPassword.isEnabled = true
