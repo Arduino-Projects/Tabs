@@ -13,8 +13,6 @@ import FirebaseFirestore
 
 class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     
-    
-    
     //MARK: Global Variables
     
     //MARK: Internet Connection Globals
@@ -27,21 +25,20 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     //MARK: Database Globals
     let db = Firestore.firestore()      //The Database reference which allows reading and writing to the database
     
-    var isDoneSending = false
+    var isDoneSending = false           //Referenced by btnResetPassword IBAction for segue back to sign in
     
     
     //MARK: IBOutlets
     
-    @IBOutlet weak var btnCloseForgotPassword: UIButton!
-    @IBOutlet weak var lblErrorIndicator: UILabel!
-    @IBOutlet weak var lblResetTitle: UILabel!
-    @IBOutlet weak var lblForgottenDescription: UILabel!
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var btnResetPassword: RoundedButton!
-    @IBOutlet weak var stsLoadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var lblEmailSentSuccessfully: UILabel!
-    @IBOutlet weak var icnEmailSentSuccessfully: UIImageView!
-    
+    @IBOutlet weak var btnCloseForgotPassword: UIButton!                    //IBOutlet for X button that closes forgot password screen: goes back to sign in
+    @IBOutlet weak var lblErrorIndicator: UILabel!                          //IBOutlet for displaying errors
+    @IBOutlet weak var lblResetTitle: UILabel!                              //IBOutlet for the title of screen
+    @IBOutlet weak var lblForgottenDescription: UILabel!                    //IBOutlet for describing screen to user + instructions
+    @IBOutlet weak var txtEmail: UITextField!                               //IBOutlet for getting email input from user
+    @IBOutlet weak var btnResetPassword: RoundedButton!                     //IBOutlet for button that resets password/takes user back to sign in
+    @IBOutlet weak var stsLoadingIndicator: UIActivityIndicatorView!        //IBOutlet for spinning status
+    @IBOutlet weak var icnEmailSentSuccessfully: UIImageView!               //IBOutlet for checkmark icon
+    @IBOutlet weak var lblEmailSent: UILabel!                               //IBOutlet for aligning the lblResetTitle to the center location
     
     
     //MARK: Overridden Functions
@@ -61,10 +58,6 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    
-    
-    
     
     
     //MARK: Keyboard + TextField UI Management
@@ -93,7 +86,6 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     
     
     
-    
     // Used to determine which textfield should be set as focus when return key is pressed
     // Params: textField : The text field object that return was pressed on
     // Return: NONE
@@ -106,10 +98,7 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
-    
-    
+
     
     //MARK: Network Management
     
@@ -160,7 +149,6 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     
     
     
-    
     // The async function that keeps track of the current network connection status
     // Params: note : contains information about the connectivity status
     // Return: NONE
@@ -187,6 +175,7 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     }
     
     
+    
     // Used to call the function that removes in the no internet view
     // Params: NONE
     // Return: NONE
@@ -197,25 +186,14 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     
     
     
-    
-    
-    
     //MARK: Forgot Password Manangement
     
-    
-    
-    
-    
-    
-    
-    //MARK: IBActions
-    
-    @IBAction func closeForgotPasswordScreen(_ sender: Any) {
-        performSegue(withIdentifier: "forgotPasswordToSignin", sender: self)
-    }
-    
-    @IBAction func resetPasswordButtonPressed(_ sender: Any) {
-        if(isDoneSending) {
+    // Used to call the function that sends the reset password email to user
+    // Params: NONE
+    // Return: NONE
+    func resetPasswordManager(){
+        
+        if(isDoneSending) { //if email has been send + animations finished, segue back to Sign In
             performSegue(withIdentifier: "forgotPasswordToSignin", sender: self)
         }
         else {
@@ -235,6 +213,7 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
                 lblErrorIndicator.text = "Email field is empty!"
             }
             else {
+                //calls firebase auth to send password reset
                 Auth.auth().sendPasswordReset(withEmail: emailStr) { (error) in
                     if (error != nil) {
                         
@@ -260,20 +239,47 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
                         self.btnCloseForgotPassword.isEnabled = true
                         self.stsLoadingIndicator.alpha = 0
                         self.btnResetPassword.setTitle("Go Back", for: .normal)
-                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                            
-                            self.txtEmail.alpha = 0
-                            self.lblForgottenDescription.alpha = 0
-                            self.lblEmailSentSuccessfully.alpha = 1
-                            self.icnEmailSentSuccessfully.alpha = 1
-                        }, completion: { (err) in
-                            self.btnResetPassword.isEnabled = true
-                            self.isDoneSending = true
-                        })
+                        self.runAnimation()
                     }
                 }
             }
         }
+    }
+    
+    
+    
+    //MARK: Animations
+    
+    // Used to animate elements out of view + move reset title down
+    // Params: NONE
+    // Return: NONE
+    func runAnimation(){
+        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+            self.lblResetTitle.text = "Email Sent"
+            self.lblResetTitle.frame.origin.x = self.lblEmailSent.frame.origin.x
+            self.lblResetTitle.frame.origin.y = self.lblEmailSent.frame.origin.y
+            self.icnEmailSentSuccessfully.alpha = 1
+            self.lblForgottenDescription.alpha = 0
+            self.txtEmail.alpha = 0
+            
+        }) { (err) in
+            self.btnResetPassword.isEnabled = true
+            self.lblResetTitle.alpha = 0
+            self.lblEmailSent.alpha = 1
+            self.isDoneSending = true
+        }
+    }
+    
+    
+    
+    //MARK: IBActions
+    
+    @IBAction func closeForgotPasswordScreen(_ sender: Any) {
+        performSegue(withIdentifier: "forgotPasswordToSignin", sender: self)
+    }
+    
+    @IBAction func resetPasswordButtonPressed(_ sender: Any) {
+        resetPasswordManager()
     }
     
     
