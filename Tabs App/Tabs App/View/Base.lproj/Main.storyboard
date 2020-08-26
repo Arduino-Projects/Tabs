@@ -44,6 +44,7 @@
                         <outlet property="IconImage" destination="AvV-8e-hEg" id="waL-ac-OL4"/>
                         <outlet property="LogoImage" destination="jtP-2X-3Xg" id="D8x-cS-eDN"/>
                         <segue destination="GIM-Mw-O9B" kind="presentation" identifier="introToSignup" animates="NO" modalPresentationStyle="fullScreen" id="llT-WB-on6"/>
+                        <segue destination="8FV-tA-2Bo" kind="presentation" identifier="introToMainApp" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="eFM-gB-9gJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -950,11 +951,20 @@
                         <segue destination="wpH-nV-VCy" kind="presentation" identifier="signinToSignup" animates="NO" modalPresentationStyle="fullScreen" id="ezF-IV-fCI"/>
                         <segue destination="r9V-Ia-t21" kind="presentation" identifier="signinToVerify" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="qcV-r3-93D"/>
                         <segue destination="eWg-zF-J7O" kind="presentation" identifier="signinToForgotPassword" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="w16-j4-HOo"/>
+                        <segue destination="8FV-tA-2Bo" kind="presentation" identifier="signinToMainApp" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="gM6-FK-GiO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suA-iF-4Kl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2460" y="-1179.3103448275863"/>
+        </scene>
+        <!--App-->
+        <scene sceneID="ly2-R4-x4i">
+            <objects>
+                <viewControllerPlaceholder storyboardName="App" id="8FV-tA-2Bo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ma-7D-FTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2460" y="-675"/>
         </scene>
         <!--SignupScreen-->
         <scene sceneID="vgS-6K-ahe">
@@ -1273,9 +1283,26 @@
             </objects>
             <point key="canvasLocation" x="3354" y="-1180"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="c4X-uC-7Gf">
+            <objects>
+                <viewController id="c5K-jh-7iP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iu8-5B-MBI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="orO-9c-vmM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="9Xo-BC-1pP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rrl-4a-F8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5529" y="1566"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JUk-D8-cop"/>
+        <segue reference="eFM-gB-9gJ"/>
+        <segue reference="kNp-cy-uvw"/>
         <segue reference="qcV-r3-93D"/>
     </inferredMetricsTieBreakers>
     <resources>

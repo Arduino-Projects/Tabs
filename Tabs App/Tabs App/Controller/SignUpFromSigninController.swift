@@ -83,6 +83,28 @@ class SignUpFromSignInController: UIViewController, UITextFieldDelegate {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if going to signin screen, make sure it knows to do all necessary changes
+        if segue.identifier == "signupToVerify" {
+            if let nextViewController = segue.destination as? VerifyEmailController {
+                nextViewController.userEmail = txtEmail.text!
+                nextViewController.userPassword = txtPassword.text!
+            }
+        }
+        if segue.identifier == "signupFromSignInToVerify" {
+            if let nextViewController = segue.destination as? VerifyEmailController {
+                nextViewController.userEmail = txtEmail.text!
+                nextViewController.userPassword = txtPassword.text!
+            }
+        }
+        if segue.identifier == "signinToVerify" {
+            if let nextViewController = segue.destination as? VerifyEmailController {
+                nextViewController.userEmail = txtEmail.text!
+                nextViewController.userPassword = txtPassword.text!
+            }
+        }
+    }
+    
     
     
     
