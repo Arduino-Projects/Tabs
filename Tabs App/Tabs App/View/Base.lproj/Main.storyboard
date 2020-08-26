@@ -303,7 +303,7 @@
                                                     <constraint firstAttribute="height" constant="34" id="d0E-jj-Cpd"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3z-wv-h0O">
                                                 <rect key="frame" x="36.666666666666686" y="299" width="240" height="5"/>
@@ -319,22 +319,42 @@
                                                     <constraint firstAttribute="width" constant="50" id="gwK-Zn-0Ly"/>
                                                 </constraints>
                                             </activityIndicatorView>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email sent succesfully" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjc-CK-wqC">
+                                                <rect key="frame" x="73" y="291" width="167" height="21"/>
+                                                <fontDescription key="fontDescription" name="Barlow-SemiBold" family="Barlow" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-cx-sYz">
+                                                <rect key="frame" x="136" y="257.33333333333331" width="40" height="32.666666666666686"/>
+                                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="L3C-cx-sYz" secondAttribute="height" multiplier="20:17" id="c3O-Ar-vX0"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="irq-H8-hRL" secondAttribute="trailing" constant="30" id="26I-os-1F8"/>
+                                            <constraint firstItem="mjc-CK-wqC" firstAttribute="centerY" secondItem="wIe-du-DZ1" secondAttribute="centerY" id="3Rh-gW-a3f"/>
+                                            <constraint firstAttribute="trailing" secondItem="mjc-CK-wqC" secondAttribute="trailing" constant="73" id="62n-xG-ZUd"/>
                                             <constraint firstItem="Snx-qq-fEr" firstAttribute="top" secondItem="irq-H8-hRL" secondAttribute="bottom" constant="11" id="6RH-WI-PeI"/>
                                             <constraint firstAttribute="trailing" secondItem="hGx-ez-bQA" secondAttribute="trailing" constant="3" id="9JA-n3-gyF"/>
                                             <constraint firstItem="9l2-2p-1fL" firstAttribute="top" secondItem="hGx-ez-bQA" secondAttribute="bottom" constant="3.5" id="BXi-vu-PDx"/>
                                             <constraint firstItem="Snx-qq-fEr" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="52" id="CXm-GT-Xlu"/>
                                             <constraint firstItem="irq-H8-hRL" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="29" id="EWR-i5-0mF"/>
                                             <constraint firstItem="HJl-Ls-7kM" firstAttribute="top" secondItem="9l2-2p-1fL" secondAttribute="bottom" constant="9" id="Hjj-9i-pmW"/>
+                                            <constraint firstItem="L3C-cx-sYz" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="136" id="IHh-xC-adJ"/>
                                             <constraint firstItem="9l2-2p-1fL" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="12" id="KfM-NR-zek"/>
                                             <constraint firstItem="gSX-WM-SBJ" firstAttribute="centerX" secondItem="wIe-du-DZ1" secondAttribute="centerX" id="KgI-wM-3Ui"/>
+                                            <constraint firstAttribute="trailing" secondItem="L3C-cx-sYz" secondAttribute="trailing" constant="137" id="LEP-eo-UmN"/>
+                                            <constraint firstItem="mjc-CK-wqC" firstAttribute="centerX" secondItem="wIe-du-DZ1" secondAttribute="centerX" id="Lks-iu-URb"/>
+                                            <constraint firstItem="mjc-CK-wqC" firstAttribute="top" secondItem="L3C-cx-sYz" secondAttribute="bottom" constant="0.67000000000000004" id="LtE-oR-hcs"/>
                                             <constraint firstItem="irq-H8-hRL" firstAttribute="top" secondItem="M3z-wv-h0O" secondAttribute="bottom" constant="11.5" id="MVM-Oo-IGd"/>
                                             <constraint firstAttribute="trailing" secondItem="Snx-qq-fEr" secondAttribute="trailing" constant="53" id="OIQ-Cu-M11"/>
                                             <constraint firstItem="HJl-Ls-7kM" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="3" id="SF7-0o-lj1"/>
                                             <constraint firstItem="M3z-wv-h0O" firstAttribute="centerY" secondItem="wIe-du-DZ1" secondAttribute="centerY" id="ad0-ZM-aMf"/>
+                                            <constraint firstItem="mjc-CK-wqC" firstAttribute="leading" secondItem="wIe-du-DZ1" secondAttribute="leading" constant="73" id="dbR-Vg-VlG"/>
                                             <constraint firstItem="M3z-wv-h0O" firstAttribute="centerX" secondItem="wIe-du-DZ1" secondAttribute="centerX" id="jKt-NC-AeF"/>
                                             <constraint firstAttribute="trailing" secondItem="HJl-Ls-7kM" secondAttribute="trailing" constant="3" id="opO-Cl-3oR"/>
                                             <constraint firstItem="gSX-WM-SBJ" firstAttribute="top" secondItem="Snx-qq-fEr" secondAttribute="bottom" constant="27.329999999999998" id="tms-cW-2y2"/>
@@ -367,6 +387,8 @@
                     <connections>
                         <outlet property="btnCloseForgotPassword" destination="hKf-Y7-2Sl" id="b5Q-w8-Ul9"/>
                         <outlet property="btnResetPassword" destination="Snx-qq-fEr" id="tHK-2f-riQ"/>
+                        <outlet property="icnEmailSentSuccessfully" destination="L3C-cx-sYz" id="NCl-hN-Tr1"/>
+                        <outlet property="lblEmailSentSuccessfully" destination="mjc-CK-wqC" id="3PV-nq-PAF"/>
                         <outlet property="lblErrorIndicator" destination="hGx-ez-bQA" id="oG5-Ch-9wP"/>
                         <outlet property="lblForgottenDescription" destination="HJl-Ls-7kM" id="Rcy-5p-t5p"/>
                         <outlet property="lblResetTitle" destination="9l2-2p-1fL" id="6ik-A6-P9u"/>
@@ -1254,7 +1276,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="JUk-D8-cop"/>
-        <segue reference="eCZ-Uw-gdb"/>
+        <segue reference="qcV-r3-93D"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TabsIcon" width="400" height="400"/>

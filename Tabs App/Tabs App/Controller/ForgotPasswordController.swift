@@ -18,15 +18,16 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     //MARK: Global Variables
     
     //MARK: Internet Connection Globals
-     var noInternetNotification : UIView? = nil  //Used to create a UIView to store the noInternet banner
-     var noInternetLabel : UILabel? = nil    //Used to create the label that says no internet on the banner
-     var noInternetConnected : Bool = false  //Keeps track of whether there is an active internet connection
-     var noInternetConnectionViewPresent : Bool = false  //Keeps track of whether the internet connection banner is currently being displayed
-     var reachability: Reachability!     //Used to run an async check of whether there is a live internet connection
+    var noInternetNotification : UIView? = nil  //Used to create a UIView to store the noInternet banner
+    var noInternetLabel : UILabel? = nil    //Used to create the label that says no internet on the banner
+    var noInternetConnected : Bool = false  //Keeps track of whether there is an active internet connection
+    var noInternetConnectionViewPresent : Bool = false  //Keeps track of whether the internet connection banner is currently being displayed
+    var reachability: Reachability!     //Used to run an async check of whether there is a live internet connection
     
     //MARK: Database Globals
     let db = Firestore.firestore()      //The Database reference which allows reading and writing to the database
     
+    var isDoneSending = false
     
     
     //MARK: IBOutlets
@@ -38,7 +39,8 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var btnResetPassword: RoundedButton!
     @IBOutlet weak var stsLoadingIndicator: UIActivityIndicatorView!
-    
+    @IBOutlet weak var lblEmailSentSuccessfully: UILabel!
+    @IBOutlet weak var icnEmailSentSuccessfully: UIImageView!
     
     
     
@@ -47,6 +49,7 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         internetConnectionManagerInit()
+        keyboardManagerInit()
     }
     
     
@@ -212,45 +215,62 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func resetPasswordButtonPressed(_ sender: Any) {
-        let emailStr = txtEmail.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        btnCloseForgotPassword.isEnabled = false
-        btnResetPassword.isEnabled = false
-        txtEmail.isEnabled = false
-        stsLoadingIndicator.alpha = 1
-        
-        
-        if (emailStr == "") {
-            btnCloseForgotPassword.isEnabled = true
-            btnResetPassword.isEnabled = true
-            txtEmail.isEnabled = true
-            stsLoadingIndicator.alpha = 0
-            lblErrorIndicator.text = "Email field is empty!"
+        if(isDoneSending) {
+            performSegue(withIdentifier: "forgotPasswordToSignin", sender: self)
         }
         else {
-            Auth.auth().sendPasswordReset(withEmail: emailStr) { (error) in
-                if (error != nil) {
-                    
-                    self.btnCloseForgotPassword.isEnabled = true
-                    self.btnResetPassword.isEnabled = true
-                    self.txtEmail.isEnabled = true
-                    self.stsLoadingIndicator.alpha = 0
-                    
-                    if(error!._code == 17020) {
-                        self.lblErrorIndicator.text! = "No internet connection!"
-                    }
-                    else if (error!._code == 17010) {
-                        self.lblErrorIndicator.text! = "Too many requests, try again in a bit!"
+            let emailStr = txtEmail.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            btnCloseForgotPassword.isEnabled = false
+            btnResetPassword.isEnabled = false
+            txtEmail.isEnabled = false
+            stsLoadingIndicator.alpha = 1
+            
+            
+            if (emailStr == "") {
+                btnCloseForgotPassword.isEnabled = true
+                btnResetPassword.isEnabled = true
+                txtEmail.isEnabled = true
+                stsLoadingIndicator.alpha = 0
+                lblErrorIndicator.text = "Email field is empty!"
+            }
+            else {
+                Auth.auth().sendPasswordReset(withEmail: emailStr) { (error) in
+                    if (error != nil) {
+                        
+                        self.btnCloseForgotPassword.isEnabled = true
+                        self.btnResetPassword.isEnabled = true
+                        self.txtEmail.isEnabled = true
+                        self.stsLoadingIndicator.alpha = 0
+                        
+                        if(error!._code == 17020) {
+                            self.lblErrorIndicator.text! = "No internet connection!"
+                        }
+                        else if (error!._code == 17010) {
+                            self.lblErrorIndicator.text! = "Too many requests, try again in a bit!"
+                        }
+                        else if (error!._code == 17011) {
+                            self.lblErrorIndicator.text! = "There is no account with this email!"
+                        }
+                        else {
+                            self.lblErrorIndicator.text! = "Unknown error code: " + String(error!._code)
+                        }
                     }
                     else {
-                        self.lblErrorIndicator.text! = "Unknown error code: " + String(error!._code)
+                        self.btnCloseForgotPassword.isEnabled = true
+                        self.stsLoadingIndicator.alpha = 0
+                        self.btnResetPassword.setTitle("Go Back", for: .normal)
+                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+                            
+                            self.txtEmail.alpha = 0
+                            self.lblForgottenDescription.alpha = 0
+                            self.lblEmailSentSuccessfully.alpha = 1
+                            self.icnEmailSentSuccessfully.alpha = 1
+                        }, completion: { (err) in
+                            self.btnResetPassword.isEnabled = true
+                            self.isDoneSending = true
+                        })
                     }
-                }
-                else {
-                    self.btnCloseForgotPassword.isEnabled = true
-                    self.stsLoadingIndicator.alpha = 0
-                    
-                    self.lblErrorIndicator.text! = "Success!"
                 }
             }
         }
