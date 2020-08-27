@@ -34,9 +34,11 @@ class SignInController: UIViewController, UITextFieldDelegate {
     var noInternetConnectionSubviewAdded = false    // Used to track whether the subview has been added yet, in order to cleanly introduce the no internet banner when program starts
     var showNoInternetBannerWhenAvailable = false   // Used to track if the no internet banner was declined as a result of the intro animation!
     
-    
+    let persistentStorage = UserDefaults()
+
     //MARK: Database Globals
     let db = Firestore.firestore()      //The Database reference which allows reading and writing to the database
+    
     
     
     
@@ -74,6 +76,27 @@ class SignInController: UIViewController, UITextFieldDelegate {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if going to signin screen, make sure it knows to do all necessary changes
+        if segue.identifier == "signupToVerify" {
+            if let nextViewController = segue.destination as? VerifyEmailController {
+                nextViewController.userEmail = txtEmail.text!
+                nextViewController.userPassword = txtPassword.text!
+            }
+        }
+        if segue.identifier == "signupFromSignInToVerify" {
+            if let nextViewController = segue.destination as? VerifyEmailController {
+                nextViewController.userEmail = txtEmail.text!
+                nextViewController.userPassword = txtPassword.text!
+            }
+        }
+        if segue.identifier == "signinToVerify" {
+            if let nextViewController = segue.destination as? VerifyEmailController {
+                nextViewController.userEmail = txtEmail.text!
+                nextViewController.userPassword = txtPassword.text!
+            }
+        }
+    }
     
     
     
@@ -362,6 +385,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
     
     
     
+    //MARK: Login Management
     
     // Used to log in the user!
     // Params: emailStr: the users email, passwordStr: the users password
@@ -432,7 +456,9 @@ class SignInController: UIViewController, UITextFieldDelegate {
                     })
                 }
                 else {
-                    //TODO: Verified, open app
+                    self.persistentStorage.set(emailStr, forKey: "UserEmail")
+                    self.persistentStorage.set(passwordStr, forKey: "UserPassword")
+                    self.performSegue(withIdentifier: "signinToMainApp", sender: self)
                 }
             }
             self.stsLoggingIn.alpha = 0

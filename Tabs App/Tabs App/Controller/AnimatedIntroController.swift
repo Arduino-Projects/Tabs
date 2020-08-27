@@ -15,6 +15,8 @@ class AnimatedIntroController: UIViewController {
     @IBOutlet weak var LogoImage: UIImageView!  // IBOutlet for the fixed logo
     @IBOutlet weak var IconImage: UIImageView!  // IBOutlet for the rolling icon
     
+    let persistentData = UserDefaults()
+    let resetUser = false
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -87,8 +89,18 @@ class AnimatedIntroController: UIViewController {
             
             //Once completed, erase the rolling icon image
             self.IconImage.alpha = 0
-            self.performSegue(withIdentifier: "introToSignup", sender: self)
             
+            if(self.resetUser) {
+                self.persistentData.removeObject(forKey: "UserEmail")
+                self.persistentData.removeObject(forKey: "UserPassword")
+            }
+            
+            if((self.persistentData.string(forKey: "UserEmail")) != nil && (self.persistentData.string(forKey: "UserPassword")) != nil ) {
+                self.performSegue(withIdentifier: "introToMainApp", sender: self)
+            }
+            else {
+                self.performSegue(withIdentifier: "introToSignup", sender: self)
+            }
         })
     }
 }

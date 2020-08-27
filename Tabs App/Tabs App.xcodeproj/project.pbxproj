@@ -21,6 +21,10 @@
 		8DA31DC424EB8814001EFD85 /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA31DC324EB8814001EFD85 /* SignInController.swift */; };
 		8DAFD98324F19EB50042B917 /* VerifyEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAFD98224F19EB50042B917 /* VerifyEmailController.swift */; };
 		8DDA252E24F59B0F006C89D6 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */; };
+		8DDA253024F6DB33006C89D6 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA252F24F6DB33006C89D6 /* App.storyboard */; };
+		8DDA253224F6FE12006C89D6 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA253124F6FE12006C89D6 /* FriendsController.swift */; };
+		8DDA253424F701C1006C89D6 /* Barlow-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA253324F701C1006C89D6 /* Barlow-ExtraBold.ttf */; };
+		8DDA253624F70C3F006C89D6 /* Barlow-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA253524F70C3F006C89D6 /* Barlow-Bold.ttf */; };
 		8DE08ED324E88E5E0009D728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08ED224E88E5E0009D728 /* AppDelegate.swift */; };
 		8DE08ED524E88E5E0009D728 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */; };
 		8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */; };
@@ -58,6 +62,10 @@
 		8DA31DC324EB8814001EFD85 /* SignInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		8DAFD98224F19EB50042B917 /* VerifyEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailController.swift; sourceTree = "<group>"; };
 		8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		8DDA252F24F6DB33006C89D6 /* App.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
+		8DDA253124F6FE12006C89D6 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
+		8DDA253324F701C1006C89D6 /* Barlow-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-ExtraBold.ttf"; sourceTree = "<group>"; };
+		8DDA253524F70C3F006C89D6 /* Barlow-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Barlow-Bold.ttf"; sourceTree = "<group>"; };
 		8DE08ECF24E88E5E0009D728 /* Tabs App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tabs App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE08ED224E88E5E0009D728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				8D2CF82A24EAFBBE00B2EDDA /* Barlow-SemiBold.ttf */,
+				8DDA253324F701C1006C89D6 /* Barlow-ExtraBold.ttf */,
+				8DDA253524F70C3F006C89D6 /* Barlow-Bold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -171,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				8DE08ED824E88E5E0009D728 /* Main.storyboard */,
+				8DDA252F24F6DB33006C89D6 /* App.storyboard */,
 				8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -187,6 +198,7 @@
 				8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */,
 				8DAFD98224F19EB50042B917 /* VerifyEmailController.swift */,
 				8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */,
+				8DDA253124F6FE12006C89D6 /* FriendsController.swift */,
 				8D22B22124EE036100EA8C28 /* Extensions.swift */,
 				8D22B22324EEE6BB00EA8C28 /* KeyboardLayoutConstraint.swift */,
 				8D22B22524EEF11D00EA8C28 /* Reachability.swift */,
@@ -300,11 +312,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DE08EE224E88E5F0009D728 /* LaunchScreen.storyboard in Resources */,
+				8DDA253424F701C1006C89D6 /* Barlow-ExtraBold.ttf in Resources */,
 				8DE08EDF24E88E5F0009D728 /* Assets.xcassets in Resources */,
 				8D00E27C24F4EE6A00462733 /* Reference.txt in Resources */,
 				8D9191E024EC7E6400BCACCC /* GoogleService-Info.plist in Resources */,
+				8DDA253024F6DB33006C89D6 /* App.storyboard in Resources */,
 				8D2CF82C24EAFBCB00B2EDDA /* Barlow-SemiBold.ttf in Resources */,
 				8DE08EDA24E88E5E0009D728 /* Main.storyboard in Resources */,
+				8DDA253624F70C3F006C89D6 /* Barlow-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D00E27624F4D91F00462733 /* User.swift in Sources */,
+				8DDA253224F6FE12006C89D6 /* FriendsController.swift in Sources */,
 				8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */,
 				8D22B22224EE036100EA8C28 /* Extensions.swift in Sources */,
 				8DDA252E24F59B0F006C89D6 /* ForgotPasswordController.swift in Sources */,
