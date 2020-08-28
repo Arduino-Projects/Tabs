@@ -33,6 +33,7 @@
 		8DE08EDF24E88E5F0009D728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EDE24E88E5F0009D728 /* Assets.xcassets */; };
 		8DE08EE224E88E5F0009D728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */; };
 		8DE08EED24E88E5F0009D728 /* Tabs_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */; };
+		C2DCC9B924F93B02009C6D08 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		8DE08EE824E88E5F0009D728 /* Tabs AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabs AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs_AppTests.swift; sourceTree = "<group>"; };
 		8DE08EEE24E88E5F0009D728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				8DE08ED224E88E5E0009D728 /* AppDelegate.swift */,
+				C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */,
 				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
 				8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */,
 				8DA31DBF24EB6819001EFD85 /* SignUpController.swift */,
@@ -381,6 +384,7 @@
 			files = (
 				8D00E27624F4D91F00462733 /* User.swift in Sources */,
 				8DDA253224F6FE12006C89D6 /* FriendsController.swift in Sources */,
+				C2DCC9B924F93B02009C6D08 /* HomeScreenController.swift in Sources */,
 				8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */,
 				8D22B22224EE036100EA8C28 /* Extensions.swift in Sources */,
 				8DDA252E24F59B0F006C89D6 /* ForgotPasswordController.swift in Sources */,
