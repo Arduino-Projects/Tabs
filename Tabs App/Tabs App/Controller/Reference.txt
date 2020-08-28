@@ -1,6 +1,15 @@
 Quick Reference For Help!!
 
 
+UserDefaults Codes
+    UserEmail - Users Email
+    UserPassword - Users Password
+    FriendsNamesList - List of Users Friends
+    FriendsUIDsList - List of Users Friends UIDs
+    
+
+
+
 Database Commands
     Adding New Document(without auto-id) - self.db.collection("collectionName").document(newDocumentName).setData([String : Any])
     Updating Existing Document - db.collection("collectionName").document("documentName").updateData([String : Any])

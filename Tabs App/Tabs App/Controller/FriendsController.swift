@@ -7,23 +7,279 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    
+    //MARK: Global Variables
+    
+    //MARK: Internet Connection Globals
+    var noInternetNotification : UIView? = nil  //Used to create a UIView to store the noInternet banner
+    var noInternetLabel : UILabel? = nil    //Used to create the label that says no internet on the banner
+    var noInternetConnected : Bool = false  //Keeps track of whether there is an active internet connection
+    var noInternetConnectionViewPresent : Bool = false  //Keeps track of whether the internet connection banner is currently being displayed
+    var reachability: Reachability!     //Used to run an async check of whether there is a live internet connection
+    
+    
+    //MARK: Friends Variables
+    var arrayOfFriendsUIDs : [String] = []  //Used to contain all of the friends UID's
+    var arrayOfFriends : [String] = []  //Used to contain all of the friends names
+    var differentStartingLetters : [String] = []    //Used to contain all of the different first letters for sectioning
+    var amountOfSpecificStartingLetterTracker : [Int] = []  //Used to contain amt of each first letter for sectioning
+    
+    
+    //MARK: Table Refresh Controller
+    var refreshControl = UIRefreshControl() //Used to perform the drag down to refresh
+    
+    //MARK: Persistent Data Variable
+    let persistentData = UserDefaults() //Used to contain the persistent data in UserDefaults
+    
+    
+    //MARK: Database Globals
+    let db = Firestore.firestore()      //The Database reference which allows reading and writing to the database
     
     
     
-    @IBOutlet weak var tbvFriends: UITableView!
+    //MARK: IBOutlets
+    @IBOutlet weak var tbvFriends: UITableView!                     //The main table view that contains the friends
+    @IBOutlet weak var sbrSearchThroughFriends: UISearchBar!        //The search bar used to search friends
     
     
-    let arrayOfFriends = ["Abed Nadir", "Arthur Coolkid", "Cool Kid", "John White", "White John", "Mark Succerberg"]
-    var differentStartingLetters : [String] = []
-    var amountOfSpecificStartingLetterTracker : [Int] = []
+    //MARK: Overridden Functions
     
     override func viewDidLoad() {
+        internetConnectionManagerInit()
+        keyboardManagerInit()
+        refreshControllerInit()
+        tableViewInit()
+    }
+    
+
+    
+    
+    //MARK: Keyboard + TextField UI Management
+    
+    // Used to manage all keyboard spacing functionality (moving view up, hiding keyboard when tap outside)
+    // Params: NONE
+    // Return: NONE
+    func keyboardManagerInit() {
+        //Setting all text field delegates as SignUpController
+        self.sbrSearchThroughFriends.delegate = self
+        
+        //Added as an extension, to hide the keyboard when tapped outside of the keyboard
+        self.hideKeyboardWhenTappedAround()
+    }
+    
+    
+    
+    
+    // Called through Search Bar Delegate, whenever return key is pressed, move to next text field
+    // Params: textField : The text field object that return was pressed on
+    // Return: NONE
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        switchBasedNextTextField(searchBar)
+    }
+    
+    
+    
+    // Used to determine which textfield should be set as focus when return key is pressed
+    // Params: textField : The text field object that return was pressed on
+    // Return: NONE
+    private func switchBasedNextTextField(_ textField: UISearchBar) {
+        switch textField {
+        case self.sbrSearchThroughFriends:
+            self.sbrSearchThroughFriends.resignFirstResponder()
+        default:
+            self.sbrSearchThroughFriends.resignFirstResponder()
+        }
+    }
+    
+
+    
+    //MARK: Network Management
+    
+    // Used to initialize the no internet connection view, as well as start the observer that keeps track of the network connectivity
+    // Params: NONE
+    // Return: NONE
+    func internetConnectionManagerInit() {
+        noInternetNotification = UIView(frame: CGRect(x: 0, y: -80, width: self.view.frame.width, height: 70))
+        noInternetNotification!.backgroundColor = UIColor.red
+        
+        noInternetLabel = UILabel(frame: CGRect(x: self.view.frame.width/2 - (200)/2, y: 30, width: 200, height: 50))
+        noInternetLabel!.textColor = UIColor.white
+        noInternetLabel!.textAlignment = NSTextAlignment.center
+        noInternetLabel!.font = noInternetLabel!.font.withSize(14)
+        noInternetLabel!.text = "No Internet Connection"
+        
+        noInternetNotification!.addSubview(noInternetLabel!)
+        self.view.addSubview(self.noInternetNotification!)
+        do {
+            try reachability = Reachability()
+            NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged(_:)), name: Notification.Name.reachabilityChanged, object: reachability)
+            try reachability.startNotifier()
+        } catch {
+            //UNKNOWN ERROR
+        }
+        
+    }
+    
+    
+    
+    // Called when the internet connectivity state changes
+    // Params: NONE
+    // Return: NONE
+    func internetConnectionStateChange() {
+        if(noInternetConnected && !noInternetConnectionViewPresent) {
+            noInternetConnectionViewPresent = true
+            UIView.animate(withDuration: 0.5) {
+                self.noInternetNotification!.frame.origin.y += self.noInternetNotification!.frame.height
+            }
+        }
+        else if(!noInternetConnected && noInternetConnectionViewPresent) {
+            noInternetConnectionViewPresent = false
+            UIView.animate(withDuration: 0.5) {
+                self.noInternetNotification!.frame.origin.y -= self.noInternetNotification!.frame.height
+            }
+        }
+    }
+    
+    
+    
+    // The async function that keeps track of the current network connection status
+    // Params: note : contains information about the connectivity status
+    // Return: NONE
+    @objc func reachabilityChanged(_ note: NSNotification) {
+        let reachability = note.object as! Reachability
+        
+        if reachability.connection != .unavailable {
+            self.internetConnectionFound()
+        }
+            
+        else {
+            self.internetConnectionLost()
+        }
+    }
+    
+    
+    
+    // Used to call the function that adds in the no internet view
+    // Params: NONE
+    // Return: NONE
+    func internetConnectionLost() {
+        self.noInternetConnected = true
+        self.internetConnectionStateChange()
+    }
+    
+    
+    
+    // Used to call the function that removes in the no internet view
+    // Params: NONE
+    // Return: NONE
+    func internetConnectionFound() {
+        self.noInternetConnected = false
+        self.internetConnectionStateChange()
+    }
+    
+    
+    
+    
+    
+    //MARK: Table Refresh Management
+    
+    func refreshControllerInit() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tbvFriends.addSubview(refreshControl)
+    }
+    
+    
+    
+    @objc func refresh(_ sender: AnyObject) {
+        checkIfSignedInThenGetData()
+    }
+    
+    
+    
+    
+    
+    
+    
+    // MARK: Database Management
+    
+    func checkIfSignedInThenGetData() {
+        if (!User.loggedIn) {
+            Auth.auth().signIn(withEmail: persistentData.string(forKey: "UserEmail")!, password: persistentData.string(forKey: "UserPassword")!) { (authResult, err) in
+                if (err != nil) {
+                    
+                }
+                else {
+                    User.loggedIn = true
+                    self.pullFriendsFromDB()
+                }
+            }
+        }
+        else {
+            pullFriendsFromDB()
+        }
+    }
+    
+    
+    func pullFriendsFromDB() {
+        db.collection("Users").document(Auth.auth().currentUser!.uid).getDocument { (doc, err) in
+            if(err != nil) {
+                
+            }
+            else {
+                self.arrayOfFriendsUIDs = doc?.data()!["friends"] as! [String]
+                self.db.collection("Users").whereField(FieldPath.documentID(), in: self.arrayOfFriendsUIDs).getDocuments { (docs, err) in
+                    if(err != nil) {
+                        
+                    }
+                    else {
+                        self.arrayOfFriends = []
+                        for doc in docs!.documents {
+                            self.arrayOfFriends.append(doc.data()["displayName"] as! String)
+                        }
+                        
+                        let combined = zip(self.arrayOfFriends, self.arrayOfFriendsUIDs).sorted {$0.0 < $1.0}
+                        self.arrayOfFriends = combined.map {$0.0}
+                        self.arrayOfFriendsUIDs = combined.map {$0.1}
+                        
+                        self.persistentData.set(self.arrayOfFriends, forKey: "FriendsNamesList")
+                        self.persistentData.set(self.arrayOfFriendsUIDs, forKey: "FriendsUIDsList")
+                        self.calculateDifferentFirstLetters()
+                        self.tbvFriends.reloadData()
+                        self.refreshControl.endRefreshing()
+                        User.friendsLoaded = true
+                    }
+                }
+            }   
+        }
+    }
+    
+    
+    
+    
+    
+    //MARK: Table View Management
+    
+    func tableViewInit() {
+        if(persistentData.array(forKey: "FriendsNamesList") != nil && persistentData.array(forKey: "FriendsUIDsList") != nil) {
+            arrayOfFriends = (persistentData.array(forKey: "FriendsNamesList")! as? [String])!
+            arrayOfFriendsUIDs = (persistentData.array(forKey: "FriendsUIDsList")! as? [String])!
+        }
         calculateDifferentFirstLetters()
         tbvFriends.delegate = self
         tbvFriends.dataSource = self
+        
+        if(!User.friendsLoaded) {
+            checkIfSignedInThenGetData()
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return amountOfSpecificStartingLetterTracker[section]
@@ -50,11 +306,19 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
+    
+    
+    
+    //MARK: Data Sorting
+    
     func calculateDifferentFirstLetters() {
         var curIndex = -1
+        differentStartingLetters = []
+        amountOfSpecificStartingLetterTracker = []
+        
         for friend in arrayOfFriends {
-            if(!find(value: friend[0 ..< 1], in: differentStartingLetters)) {
-                differentStartingLetters.append(friend[0 ..< 1])
+            if(!differentStartingLetters.contains(friend[0 ..< 1].uppercased())) {
+                differentStartingLetters.append(friend[0 ..< 1].uppercased())
                 curIndex += 1
                 amountOfSpecificStartingLetterTracker.append(1)
             }
@@ -65,15 +329,5 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
-    
-    func find(value searchValue: String, in array: [String]) -> Bool
-    {
-        for val in array {
-            if val == searchValue {
-                return true
-            }
-        }
-        return false
-    }
     
 }
