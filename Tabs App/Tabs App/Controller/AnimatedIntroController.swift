@@ -11,12 +11,27 @@ import UIKit
 
 class AnimatedIntroController: UIViewController {
     
-    //IBOutlets
+    
+    //MARK: Global Variables
+    
+    //MARK: Persistent Data Variable
+    let persistentData = UserDefaults() //Used to contain the persistent data in UserDefaults
+    
+    //MARK: User Reset Option
+    let resetUser = false   //Used in case you want to reset the user persistent data parameters!
+    
+    
+    
+    
+    //MARK: IBOutlets
     @IBOutlet weak var LogoImage: UIImageView!  // IBOutlet for the fixed logo
     @IBOutlet weak var IconImage: UIImageView!  // IBOutlet for the rolling icon
     
-    let persistentData = UserDefaults()
-    let resetUser = false
+    
+    
+    
+    
+    //MARK: Overridden Functions
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -25,7 +40,7 @@ class AnimatedIntroController: UIViewController {
     
     
     
-    
+    //MARK: Animation Manager
     
     // Used to create the animation sequence of the rolling icon, then fading in logo, and perform some calculations on exact positions of components
     // Params: NONE
@@ -93,6 +108,8 @@ class AnimatedIntroController: UIViewController {
             if(self.resetUser) {
                 self.persistentData.removeObject(forKey: "UserEmail")
                 self.persistentData.removeObject(forKey: "UserPassword")
+                self.persistentData.removeObject(forKey: "FriendsNamesList")
+                self.persistentData.removeObject(forKey: "FriendsUIDsList")
             }
             
             if((self.persistentData.string(forKey: "UserEmail")) != nil && (self.persistentData.string(forKey: "UserPassword")) != nil ) {

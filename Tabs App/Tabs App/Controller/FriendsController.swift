@@ -25,8 +25,10 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     //MARK: Friends Variables
-    var arrayOfFriendsUIDs : [String] = []  //Used to contain all of the friends UID's
-    var arrayOfFriends : [String] = []  //Used to contain all of the friends names
+    var arrayOfFriendsUIDsData : [String] = []  //Used to contain all of the friends UID's
+    var arrayOfFriendsData : [String] = []  //Used to contain all of the friends names
+    var arrayOfFriendsUIDs : [String] = []  //Used to contain all of the friends UID's after filtering
+    var arrayOfFriends : [String] = []  //Used to contain all of the friends names after filtering
     var differentStartingLetters : [String] = []    //Used to contain all of the different first letters for sectioning
     var amountOfSpecificStartingLetterTracker : [Int] = []  //Used to contain amt of each first letter for sectioning
     
@@ -68,7 +70,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     func keyboardManagerInit() {
         //Setting all text field delegates as SignUpController
         self.sbrSearchThroughFriends.delegate = self
-        
+        tbvFriends.keyboardDismissMode = .interactive
         //Added as an extension, to hide the keyboard when tapped outside of the keyboard
         self.hideKeyboardWhenTappedAround()
     }
@@ -189,6 +191,9 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //MARK: Table Refresh Management
     
+    // Used to create and add the refresh functionality on the table view
+    // Params: NONE
+    // Return: NONE
     func refreshControllerInit() {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
@@ -196,7 +201,9 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
-    
+    // Called when actually refreshing the UITableView
+    // Params: sender: the object that is calling to be refreshed
+    // Return: NONE
     @objc func refresh(_ sender: AnyObject) {
         checkIfSignedInThenGetData()
     }
@@ -209,11 +216,14 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     // MARK: Database Management
     
+    // Used to first check if the user is signed in, if they are, read the friends data
+    // Params: NONE
+    // Return: NONE
     func checkIfSignedInThenGetData() {
-        if (!User.loggedIn) {
+        if (!User.loggedIn) {   //If not logged in, log them in, then pull data, else just pull in data
             Auth.auth().signIn(withEmail: persistentData.string(forKey: "UserEmail")!, password: persistentData.string(forKey: "UserPassword")!) { (authResult, err) in
                 if (err != nil) {
-                    
+                    //TODO: Deal with errors (no wifi, invalid pass, invalid email, etc.)
                 }
                 else {
                     User.loggedIn = true
@@ -226,30 +236,39 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    
+    // Read the actual friends data from the DB
+    // Params: NONE
+    // Return: NONE
     func pullFriendsFromDB() {
         db.collection("Users").document(Auth.auth().currentUser!.uid).getDocument { (doc, err) in
             if(err != nil) {
-                
+                //TODO: Deal with errors (no wifi, no document, no access, etc.)
             }
             else {
-                self.arrayOfFriendsUIDs = doc?.data()!["friends"] as! [String]
-                self.db.collection("Users").whereField(FieldPath.documentID(), in: self.arrayOfFriendsUIDs).getDocuments { (docs, err) in
+                self.arrayOfFriendsUIDsData = doc?.data()!["friends"] as! [String]
+                
+                //From the UID list, grab all the friends details
+                self.db.collection("Users").whereField(FieldPath.documentID(), in: self.arrayOfFriendsUIDsData).getDocuments { (docs, err) in
                     if(err != nil) {
-                        
+                        //TODO: Deal with errors (no wifi, no document, no access, etc.)
                     }
                     else {
-                        self.arrayOfFriends = []
+                        self.arrayOfFriendsData = []
+                        self.arrayOfFriendsUIDsData = []
                         for doc in docs!.documents {
-                            self.arrayOfFriends.append(doc.data()["displayName"] as! String)
+                            self.arrayOfFriendsData.append(doc.data()["displayName"] as! String)
+                            self.arrayOfFriendsUIDsData.append(doc.documentID)
                         }
                         
-                        let combined = zip(self.arrayOfFriends, self.arrayOfFriendsUIDs).sorted {$0.0 < $1.0}
-                        self.arrayOfFriends = combined.map {$0.0}
-                        self.arrayOfFriendsUIDs = combined.map {$0.1}
+                        //Sorting the friends array while also keeping UID's array matching
+                        let combined = zip(self.arrayOfFriendsData, self.arrayOfFriendsUIDsData).sorted {$0.0.uppercased() < $1.0.uppercased()}
+                        self.arrayOfFriendsData = combined.map {$0.0}
+                        self.arrayOfFriendsUIDsData = combined.map {$0.1}
                         
-                        self.persistentData.set(self.arrayOfFriends, forKey: "FriendsNamesList")
-                        self.persistentData.set(self.arrayOfFriendsUIDs, forKey: "FriendsUIDsList")
+                        self.persistentData.set(self.arrayOfFriendsData, forKey: "FriendsNamesList")
+                        self.persistentData.set(self.arrayOfFriendsUIDsData, forKey: "FriendsUIDsList")
+                        self.arrayOfFriends = self.arrayOfFriendsData
+                        self.arrayOfFriendsUIDs = self.arrayOfFriendsUIDsData
                         self.calculateDifferentFirstLetters()
                         self.tbvFriends.reloadData()
                         self.refreshControl.endRefreshing()
@@ -266,10 +285,15 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //MARK: Table View Management
     
+    // Initialize the table view, add the delegate declaration, and temporarily read in data from storage if available
+    // Params: NONE
+    // Return: NONE
     func tableViewInit() {
         if(persistentData.array(forKey: "FriendsNamesList") != nil && persistentData.array(forKey: "FriendsUIDsList") != nil) {
-            arrayOfFriends = (persistentData.array(forKey: "FriendsNamesList")! as? [String])!
-            arrayOfFriendsUIDs = (persistentData.array(forKey: "FriendsUIDsList")! as? [String])!
+            arrayOfFriendsData = (persistentData.array(forKey: "FriendsNamesList")! as? [String])!
+            arrayOfFriendsUIDsData = (persistentData.array(forKey: "FriendsUIDsList")! as? [String])!
+            arrayOfFriends = arrayOfFriendsData
+            arrayOfFriendsUIDs = arrayOfFriendsUIDsData
         }
         calculateDifferentFirstLetters()
         tbvFriends.delegate = self
@@ -281,10 +305,17 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
+    // Function to check the number of rows in each section
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return amountOfSpecificStartingLetterTracker[section]
     }
     
+    
+    // Function to retrieve the cell object for each cell at an indexpath
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath)
         
@@ -292,25 +323,35 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         for i in stride(from: 0, to: indexPath.section, by: 1) {
             sumSections += tableView.numberOfRows(inSection: i);
         }
-        
+
         cell.textLabel?.text = arrayOfFriends[indexPath.row + sumSections]
+        
         return cell
     }
     
+    
+    // Function to retrieve the total number of sections eg.("A", "B", "F")
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func numberOfSections(in tableView: UITableView) -> Int {
         return differentStartingLetters.count
     }
     
+    
+    // Function to retrieve the title for each section
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return differentStartingLetters[section]
     }
     
     
     
+    //MARK: Data Sorting & Search Bar
     
-    
-    //MARK: Data Sorting
-    
+    // Function to divide up the names into sections based on first name letters
+    // Params: NONE
+    // Return: NONE
     func calculateDifferentFirstLetters() {
         var curIndex = -1
         differentStartingLetters = []
@@ -327,6 +368,32 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
             }
         }
     }
+    
+    
+    // Function that is called whenever the text in the text bar is changed
+    // Params: UNNEEDED
+    // Return: UNNEEDED
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if(searchText == "") {
+            arrayOfFriends = arrayOfFriendsData
+            arrayOfFriendsUIDs = arrayOfFriendsUIDsData
+        }
+        else {
+            arrayOfFriends = []
+            arrayOfFriendsUIDs = []
+            var counter = 0
+            for element in arrayOfFriendsData {
+                if element.lowercased().contains(searchText.lowercased()) {
+                    arrayOfFriends.append(element)
+                    arrayOfFriendsUIDs.append(arrayOfFriendsUIDsData[counter])
+                }
+                counter += 1
+            }
+        }
+        calculateDifferentFirstLetters()
+        tbvFriends.reloadData()
+    }
+    
     
     
     
