@@ -34,7 +34,8 @@ class SignInController: UIViewController, UITextFieldDelegate {
     var noInternetConnectionSubviewAdded = false    // Used to track whether the subview has been added yet, in order to cleanly introduce the no internet banner when program starts
     var showNoInternetBannerWhenAvailable = false   // Used to track if the no internet banner was declined as a result of the intro animation!
     
-    let persistentStorage = UserDefaults()
+    //MARK: Persistent Data Variable
+    let persistentData = UserDefaults() //Used to contain the persistent data in UserDefaults
 
     //MARK: Database Globals
     let db = Firestore.firestore()      //The Database reference which allows reading and writing to the database
@@ -456,8 +457,8 @@ class SignInController: UIViewController, UITextFieldDelegate {
                     })
                 }
                 else {
-                    self.persistentStorage.set(emailStr, forKey: "UserEmail")
-                    self.persistentStorage.set(passwordStr, forKey: "UserPassword")
+                    self.persistentData.set(emailStr, forKey: "UserEmail")
+                    self.persistentData.set(passwordStr, forKey: "UserPassword")
                     self.performSegue(withIdentifier: "signinToMainApp", sender: self)
                 }
             }

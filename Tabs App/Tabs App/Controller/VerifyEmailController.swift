@@ -28,10 +28,12 @@ class VerifyEmailController : UIViewController {
     //MARK: Database Globals
     let db = Firestore.firestore()      //The Database reference which allows reading and writing to the database
     
-    let persistentStorage = UserDefaults()
+    //MARK: Persistent Data Variable
+    let persistentData = UserDefaults() //Used to contain the persistent data in UserDefaults
     
-    var userEmail = ""
-    var userPassword = ""
+    //MARK: Email & Password Trackers
+    var userEmail = ""  //Will be used to add email to the persistent data
+    var userPassword = ""   //Will be used to add password to the persistent data
     
     
     
@@ -183,8 +185,8 @@ class VerifyEmailController : UIViewController {
                     self.lblEmailVerificationStatus.textColor = UIColor.systemGreen
                     self.lblEmailVerificationStatus.text = "Email IS Verified"
                     
-                    self.persistentStorage.set(self.userEmail, forKey: "UserEmail")
-                    self.persistentStorage.set(self.userPassword, forKey: "UserPassword")
+                    self.persistentData.set(self.userEmail, forKey: "UserEmail")
+                    self.persistentData.set(self.userPassword, forKey: "UserPassword")
                     //TODO: Go to tutorial
                     
                 }
