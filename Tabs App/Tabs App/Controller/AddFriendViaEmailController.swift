@@ -31,13 +31,15 @@ class AddFriendViaEmailController: UIViewController{
     
     
     //MARK: IBOutlets
-    @IBOutlet weak var addFriendTitle: UILabel!                           //IBOutlet where user enters their email
+    @IBOutlet weak var addFriendTitle: UILabel!                         //IBOutlet where user enters their email
     @IBOutlet weak var txtEmail: UITextField!                           //IBOutlet where user enters their email
     @IBOutlet weak var btnRequestFriend: RoundedButton!                 //IBOutlet for the final register button
     @IBOutlet weak var stsEmailWrong: UIImageView!                      //IBOutlet for the Email text field status X mark
     @IBOutlet weak var stsEmailRight: UIImageView!                      //IBOutlet for the Email text field status check mark
     @IBOutlet weak var stsEmailLoading: UIActivityIndicatorView!        //IBOutlet for the Email text field loading sign
+    @IBOutlet weak var viwCenterContainer: UIView!
     
+    @IBOutlet weak var btnCloseAddFriendViaEmail: UIButton!
     
     //MARK: Overridden Functions
     
@@ -130,6 +132,12 @@ class AddFriendViaEmailController: UIViewController{
             btnRequestFriend.isEnabled = false
             checkIfValidEmail(email: txtEmail.text!)
         }
+    }
+    
+    @IBAction func sendFriendRequestPressed(_ sender: Any) {
+    }
+    
+    @IBAction func closeAddFriendViaEmailPressed(_ sender: Any) {
     }
     
     
