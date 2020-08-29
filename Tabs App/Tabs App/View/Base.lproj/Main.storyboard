@@ -1301,9 +1301,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eFM-gB-9gJ"/>
-        <segue reference="JUk-D8-cop"/>
-        <segue reference="qcV-r3-93D"/>
+        <segue reference="gM6-FK-GiO"/>
+        <segue reference="kNp-cy-uvw"/>
+        <segue reference="c8M-3D-IbB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TabsIcon" width="400" height="400"/>
