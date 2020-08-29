@@ -6,7 +6,7 @@ UserDefaults Codes
     UserPassword - Users Password
     FriendsNamesList - List of Users Friends
     FriendsUIDsList - List of Users Friends UIDs
-    
+    FriendsUsernamesAndEmailsList - A list of all of the users friends emails and usernamnes
 
 
 

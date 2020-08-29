@@ -266,7 +266,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuw-dp-JTG">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuw-dp-JTG">
                                                 <rect key="frame" x="312" y="11" width="48" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="h6o-nj-bVd"/>
@@ -346,6 +346,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Friends" image="person.2.fill" catalog="system" id="XZD-tp-OlK"/>
                     <connections>
+                        <outlet property="btnAddFriend" destination="Fuw-dp-JTG" id="1am-bx-gWA"/>
                         <outlet property="sbrSearchThroughFriends" destination="lJH-iM-rfG" id="noY-zh-rAh"/>
                         <outlet property="tbvFriends" destination="m39-tp-gZc" id="FlU-Hg-2KV"/>
                         <segue destination="7PG-oz-s1x" kind="show" identifier="friendsToAddFriend" id="A9S-Ot-vIA"/>
@@ -447,7 +448,6 @@
                                             <constraint firstAttribute="trailing" secondItem="Nkx-62-BZ0" secondAttribute="trailing" constant="76" id="4vm-FP-FgC"/>
                                             <constraint firstItem="Y39-Cl-d5X" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="29" id="6T3-g4-qvz"/>
                                             <constraint firstAttribute="trailing" secondItem="Y39-Cl-d5X" secondAttribute="trailing" constant="30" id="6ig-og-BoB"/>
-                                            <constraint firstItem="58b-g1-CVN" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="21" id="CNs-cj-LXt"/>
                                             <constraint firstItem="Nkx-62-BZ0" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="75" id="EJM-Mb-HYn"/>
                                             <constraint firstAttribute="trailing" secondItem="wwD-rI-bO3" secondAttribute="trailing" constant="34" id="KW4-dp-Qyq"/>
                                             <constraint firstItem="NYa-e3-6Sl" firstAttribute="top" secondItem="58b-g1-CVN" secondAttribute="bottom" constant="7.6699999999999999" id="L1L-9r-QCA"/>
@@ -462,7 +462,6 @@
                                             <constraint firstAttribute="trailing" secondItem="NYa-e3-6Sl" secondAttribute="trailing" constant="33" id="hVk-is-TT0"/>
                                             <constraint firstItem="wwD-rI-bO3" firstAttribute="centerY" secondItem="LUn-62-Lcf" secondAttribute="centerY" id="oTZ-nJ-H7e"/>
                                             <constraint firstItem="NYa-e3-6Sl" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="33" id="qjL-bI-p7F"/>
-                                            <constraint firstAttribute="trailing" secondItem="58b-g1-CVN" secondAttribute="trailing" constant="22" id="uRF-XF-qAI"/>
                                         </constraints>
                                     </view>
                                 </subviews>

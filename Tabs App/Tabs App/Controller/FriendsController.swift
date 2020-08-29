@@ -15,6 +15,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     //MARK: Global Variables
+    var friendsUsernamesAndEmails : [String] = []
     
     //MARK: Internet Connection Globals
     var noInternetNotification : UIView? = nil  //Used to create a UIView to store the noInternet banner
@@ -48,7 +49,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK: IBOutlets
     @IBOutlet weak var tbvFriends: UITableView!                     //The main table view that contains the friends
     @IBOutlet weak var sbrSearchThroughFriends: UISearchBar!        //The search bar used to search friends
-    
+    @IBOutlet weak var btnAddFriend: UIButton!
     
     //MARK: Overridden Functions
     
@@ -62,6 +63,12 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if going to signin screen, make sure it knows to do all necessary changes
+        if segue.identifier == "friendsToAddFriend" {
+            if let nextViewController = segue.destination as? AddFriendController {
+                nextViewController.friendsUsernamesAndEmails = self.friendsUsernamesAndEmails
+            }
+        }
 
     }
     
@@ -248,6 +255,9 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
                 //TODO: Deal with errors (no wifi, no document, no access, etc.)
             }
             else {
+                self.friendsUsernamesAndEmails.append(doc?.data()!["email"] as! String)
+                self.friendsUsernamesAndEmails.append(doc?.data()!["username"] as! String)
+                
                 self.arrayOfFriendsUIDsData = doc?.data()!["friends"] as! [String]
                 
                 //From the UID list, grab all the friends details
@@ -259,10 +269,14 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
                         self.arrayOfFriendsData = []
                         self.arrayOfFriendsUIDsData = []
                         for doc in docs!.documents {
+                            self.friendsUsernamesAndEmails.append(doc.data()["email"] as! String)
+                            self.friendsUsernamesAndEmails.append(doc.data()["username"] as! String)
                             self.arrayOfFriendsData.append(doc.data()["displayName"] as! String)
                             self.arrayOfFriendsUIDsData.append(doc.documentID)
                         }
                         
+                        self.persistentData.set(self.friendsUsernamesAndEmails, forKey: "FriendsUsernamesAndEmailsList")
+                        self.btnAddFriend.isEnabled = true
                         //Sorting the friends array while also keeping UID's array matching
                         let combined = zip(self.arrayOfFriendsData, self.arrayOfFriendsUIDsData).sorted {$0.0.uppercased() < $1.0.uppercased()}
                         self.arrayOfFriendsData = combined.map {$0.0}
@@ -297,6 +311,11 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
             arrayOfFriendsUIDsData = (persistentData.array(forKey: "FriendsUIDsList")! as? [String])!
             arrayOfFriends = arrayOfFriendsData
             arrayOfFriendsUIDs = arrayOfFriendsUIDsData
+        }
+        
+        if(persistentData.array(forKey: "FriendsUsernamesAndEmailsList") != nil) {
+            friendsUsernamesAndEmails = persistentData.array(forKey: "FriendsUsernamesAndEmailsList") as! [String]
+            btnAddFriend.isEnabled = true
         }
         calculateDifferentFirstLetters()
         tbvFriends.delegate = self

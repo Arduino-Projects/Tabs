@@ -21,6 +21,7 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
     
     var validAccounts : [String] = []
     var invalidAccounts : [String] = []
+    var friendsUsernamesAndEmails : [String] = []
     
     //MARK: Persistent Data Variable
     let persistentData = UserDefaults() //Used to contain the persistent data in UserDefaults
@@ -100,12 +101,16 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
             stsEmailWrong.alpha = 0
             stsEmailRight.alpha = 1
             stsEmailLoading.alpha = 0
+            btnRequestFriend.setTitleColor(UIColor.label, for: .normal)
+            btnRequestFriend.borderColor = UIColor.systemBlue
             btnRequestFriend.isEnabled = true
         }
         else if (invalidAccounts.contains(accountEmailOrUsername)) {
             stsEmailWrong.alpha = 1
             stsEmailRight.alpha = 0
             stsEmailLoading.alpha = 0
+            btnRequestFriend.setTitleColor(UIColor.lightGray, for: .normal)
+            btnRequestFriend.borderColor = UIColor.lightGray
             btnRequestFriend.isEnabled = false
         }
         else {
@@ -144,11 +149,25 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
                 self.stsEmailWrong.alpha = 1
                 self.stsEmailRight.alpha = 0
                 self.stsEmailLoading.alpha = 0
+                self.btnRequestFriend.setTitleColor(UIColor.lightGray, for: .normal)
+                self.btnRequestFriend.borderColor = UIColor.lightGray
                 self.btnRequestFriend.isEnabled = false
             }
             else {
                 if(docs!.count > 0) {
-                    self.validAccounts.append(accountEmailOrUsername)
+                    var toAdd = true
+                    for doc in docs!.documents {
+                        if(self.friendsUsernamesAndEmails.contains(doc.data()["email"] as! String)) {
+                            toAdd = false
+                            break;
+                        }
+                    }
+                    if (toAdd) {
+                        self.validAccounts.append(accountEmailOrUsername)
+                    }
+                    else {
+                        self.invalidAccounts.append(accountEmailOrUsername)
+                    }
                 }
                 else {
                     self.invalidAccounts.append(accountEmailOrUsername)
@@ -163,11 +182,25 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
                 self.stsEmailWrong.alpha = 1
                 self.stsEmailRight.alpha = 0
                 self.stsEmailLoading.alpha = 0
+                self.btnRequestFriend.setTitleColor(UIColor.lightGray, for: .normal)
+                self.btnRequestFriend.borderColor = UIColor.lightGray
                 self.btnRequestFriend.isEnabled = false
             }
             else {
                 if(docs!.count > 0) {
-                    self.validAccounts.append(accountEmailOrUsername)
+                    var toAdd = true
+                    for doc in docs!.documents {
+                        if(self.friendsUsernamesAndEmails.contains(doc.data()["username"] as! String)) {
+                            toAdd = false
+                            break;
+                        }
+                    }
+                    if (toAdd) {
+                        self.validAccounts.append(accountEmailOrUsername)
+                    }
+                    else {
+                        self.invalidAccounts.append(accountEmailOrUsername)
+                    }
                 }
                 else {
                     self.invalidAccounts.append(accountEmailOrUsername)
@@ -186,6 +219,8 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
             stsEmailWrong.alpha = 0
             stsEmailRight.alpha = 0
             stsEmailLoading.alpha = 0
+            btnRequestFriend.setTitleColor(UIColor.lightGray, for: .normal)
+            btnRequestFriend.borderColor = UIColor.lightGray
             btnRequestFriend.isEnabled = false
         }
         else {
@@ -193,6 +228,8 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
             stsEmailRight.alpha = 0
             stsEmailLoading.alpha = 1
             btnRequestFriend.isEnabled = false
+            btnRequestFriend.setTitleColor(UIColor.lightGray, for: .normal)
+            btnRequestFriend.borderColor = UIColor.lightGray
             checkIfValidAccount(accountEmailOrUsername: txtUsernameOrEmail.text!)
         }
     }
