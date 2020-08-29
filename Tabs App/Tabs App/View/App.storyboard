@@ -275,6 +275,9 @@
                                                 <state key="normal" image="plus" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="33" scale="large" weight="bold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="btnAddFriendsPressed:" destination="yei-Lb-8do" eventType="touchUpInside" id="rEt-48-6e6"/>
+                                                </connections>
                                             </button>
                                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="lJH-iM-rfG">
                                                 <rect key="frame" x="12" y="68" width="351" height="56"/>
@@ -345,28 +348,29 @@
                     <connections>
                         <outlet property="sbrSearchThroughFriends" destination="lJH-iM-rfG" id="noY-zh-rAh"/>
                         <outlet property="tbvFriends" destination="m39-tp-gZc" id="FlU-Hg-2KV"/>
+                        <segue destination="7PG-oz-s1x" kind="show" identifier="friendsToAddFriend" id="A9S-Ot-vIA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuT-h8-opY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5528.8000000000002" y="699.7536945812808"/>
         </scene>
-        <!--Add Friend Via Email Controller-->
+        <!--Add Friend Controller-->
         <scene sceneID="K2G-3M-hzZ">
             <objects>
-                <viewController id="7PG-oz-s1x" customClass="AddFriendViaEmailController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7PG-oz-s1x" customClass="AddFriendController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Cd-TM-UkN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mT3-TH-xxd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUn-62-Lcf">
-                                        <rect key="frame" x="8" y="201" width="359" height="265"/>
+                                        <rect key="frame" x="8" y="123" width="359" height="426"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Friend's Username" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y39-Cl-d5X">
-                                                <rect key="frame" x="29" y="115.5" width="300" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Friend's Username or Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y39-Cl-d5X">
+                                                <rect key="frame" x="29" y="196" width="300" height="34"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="F7o-mf-bV0"/>
@@ -374,32 +378,26 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="txtEmailEdited:" destination="7PG-oz-s1x" eventType="editingChanged" id="uFF-rs-OfD"/>
+                                                    <action selector="txtUsernameOrEmail:" destination="7PG-oz-s1x" eventType="editingChanged" id="X6x-gK-gt0"/>
                                                 </connections>
                                             </textField>
                                             <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="j3R-eX-Nee">
-                                                <rect key="frame" x="301" y="121" width="22" height="23"/>
+                                                <rect key="frame" x="301" y="201.5" width="22" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="22" id="2r9-bX-OIs"/>
                                                     <constraint firstAttribute="height" constant="23" id="kWP-o0-SJo"/>
                                                 </constraints>
                                             </activityIndicatorView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="multiply.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wwD-rI-bO3">
-                                                <rect key="frame" x="300" y="119.5" width="25" height="26"/>
+                                                <rect key="frame" x="300" y="200" width="25" height="26"/>
                                                 <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="27.333333333333329" id="pxB-jc-ZFt"/>
                                                     <constraint firstAttribute="width" constant="25" id="qYK-9h-mVD"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friend" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="33" translatesAutoresizingMaskIntoConstraints="NO" id="58b-g1-CVN">
-                                                <rect key="frame" x="21" y="4.5" width="316" height="78"/>
-                                                <fontDescription key="fontDescription" name="Barlow-ExtraBold" family="Barlow" pointSize="65"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0LH-Cm-jER">
-                                                <rect key="frame" x="299" y="119.5" width="26" height="26"/>
+                                                <rect key="frame" x="299" y="200" width="26" height="26"/>
                                                 <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="26" id="atP-Sg-oZI"/>
@@ -407,7 +405,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nkx-62-BZ0" customClass="RoundedButton" customModule="Tabs_App" customModuleProvider="target">
-                                                <rect key="frame" x="75" y="165.5" width="208" height="53"/>
+                                                <rect key="frame" x="75" y="245" width="208" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="EXD-yx-xVU"/>
                                                 </constraints>
@@ -427,9 +425,21 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="sendFriendRequestPressed:" destination="7PG-oz-s1x" eventType="touchUpInside" id="K5h-cx-q0w"/>
+                                                    <action selector="sendFriendRequestPressed:" destination="7PG-oz-s1x" eventType="touchUpInside" id="1Zt-H2-twQ"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Friend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="33" translatesAutoresizingMaskIntoConstraints="NO" id="58b-g1-CVN">
+                                                <rect key="frame" x="21" y="51.5" width="316" height="78"/>
+                                                <fontDescription key="fontDescription" name="Barlow-ExtraBold" family="Barlow" pointSize="65"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a friend, enter their email or username below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYa-e3-6Sl">
+                                                <rect key="frame" x="33" y="137.5" width="293" height="36"/>
+                                                <fontDescription key="fontDescription" name="Barlow-SemiBold" family="Barlow" pointSize="15"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Y39-Cl-d5X" firstAttribute="centerY" secondItem="LUn-62-Lcf" secondAttribute="centerY" id="2Rb-hD-qJY"/>
@@ -437,24 +447,29 @@
                                             <constraint firstAttribute="trailing" secondItem="Nkx-62-BZ0" secondAttribute="trailing" constant="76" id="4vm-FP-FgC"/>
                                             <constraint firstItem="Y39-Cl-d5X" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="29" id="6T3-g4-qvz"/>
                                             <constraint firstAttribute="trailing" secondItem="Y39-Cl-d5X" secondAttribute="trailing" constant="30" id="6ig-og-BoB"/>
-                                            <constraint firstItem="Y39-Cl-d5X" firstAttribute="top" secondItem="58b-g1-CVN" secondAttribute="bottom" constant="33" id="6x2-9f-OuD"/>
+                                            <constraint firstItem="58b-g1-CVN" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="21" id="CNs-cj-LXt"/>
                                             <constraint firstItem="Nkx-62-BZ0" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="75" id="EJM-Mb-HYn"/>
                                             <constraint firstAttribute="trailing" secondItem="wwD-rI-bO3" secondAttribute="trailing" constant="34" id="KW4-dp-Qyq"/>
+                                            <constraint firstItem="NYa-e3-6Sl" firstAttribute="top" secondItem="58b-g1-CVN" secondAttribute="bottom" constant="7.6699999999999999" id="L1L-9r-QCA"/>
                                             <constraint firstItem="Y39-Cl-d5X" firstAttribute="centerY" secondItem="LUn-62-Lcf" secondAttribute="centerY" id="NeC-30-hGc"/>
+                                            <constraint firstItem="Y39-Cl-d5X" firstAttribute="top" secondItem="NYa-e3-6Sl" secondAttribute="bottom" constant="22.670000000000002" id="STM-NH-56Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="58b-g1-CVN" secondAttribute="trailing" constant="22" id="VSf-rL-uYD"/>
                                             <constraint firstItem="0LH-Cm-jER" firstAttribute="centerY" secondItem="LUn-62-Lcf" secondAttribute="centerY" id="VzD-rH-75F"/>
                                             <constraint firstItem="58b-g1-CVN" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="21" id="ZNH-Xt-cQi"/>
-                                            <constraint firstItem="Nkx-62-BZ0" firstAttribute="top" secondItem="Y39-Cl-d5X" secondAttribute="bottom" constant="16" id="bpd-pB-3i5"/>
+                                            <constraint firstItem="Nkx-62-BZ0" firstAttribute="top" secondItem="Y39-Cl-d5X" secondAttribute="bottom" constant="15" id="bpd-pB-3i5"/>
                                             <constraint firstAttribute="trailing" secondItem="j3R-eX-Nee" secondAttribute="trailing" constant="36" id="doX-CQ-vLl"/>
                                             <constraint firstAttribute="trailing" secondItem="0LH-Cm-jER" secondAttribute="trailing" constant="34" id="fVd-8h-6AC"/>
+                                            <constraint firstAttribute="trailing" secondItem="NYa-e3-6Sl" secondAttribute="trailing" constant="33" id="hVk-is-TT0"/>
                                             <constraint firstItem="wwD-rI-bO3" firstAttribute="centerY" secondItem="LUn-62-Lcf" secondAttribute="centerY" id="oTZ-nJ-H7e"/>
+                                            <constraint firstItem="NYa-e3-6Sl" firstAttribute="leading" secondItem="LUn-62-Lcf" secondAttribute="leading" constant="33" id="qjL-bI-p7F"/>
                                             <constraint firstAttribute="trailing" secondItem="58b-g1-CVN" secondAttribute="trailing" constant="22" id="uRF-XF-qAI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="LUn-62-Lcf" secondAttribute="bottom" constant="201" id="5hg-jj-QiN"/>
-                                    <constraint firstItem="LUn-62-Lcf" firstAttribute="top" secondItem="mT3-TH-xxd" secondAttribute="top" constant="201" id="E68-Se-0uF"/>
+                                    <constraint firstAttribute="bottom" secondItem="LUn-62-Lcf" secondAttribute="bottom" constant="98" id="5hg-jj-QiN" customClass="KeyboardLayoutConstraint" customModule="Tabs_App" customModuleProvider="target"/>
+                                    <constraint firstItem="LUn-62-Lcf" firstAttribute="top" secondItem="mT3-TH-xxd" secondAttribute="top" constant="123" id="E68-Se-0uF"/>
                                     <constraint firstItem="LUn-62-Lcf" firstAttribute="leading" secondItem="mT3-TH-xxd" secondAttribute="leading" constant="8" id="H1l-89-vf5"/>
                                     <constraint firstAttribute="trailing" secondItem="LUn-62-Lcf" secondAttribute="trailing" constant="8" id="uSH-lh-UcD"/>
                                 </constraints>
@@ -469,7 +484,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="36" scale="large"/>
                                 </state>
                                 <connections>
-                                    <action selector="closeAddFriendViaEmailPressed:" destination="7PG-oz-s1x" eventType="touchUpInside" id="47l-iq-AaC"/>
+                                    <action selector="closeAddFriendViaEmailPressed:" destination="7PG-oz-s1x" eventType="touchUpInside" id="40S-hu-wga"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -484,20 +499,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y8w-ef-aoi"/>
                     </view>
+                    <navigationItem key="navigationItem" id="utO-N8-d4X"/>
                     <connections>
+                        <outlet property="addFriendDescription" destination="NYa-e3-6Sl" id="Iji-19-Gmd"/>
                         <outlet property="addFriendTitle" destination="58b-g1-CVN" id="bTq-g6-mKL"/>
-                        <outlet property="btnCloseAddFriendViaEmail" destination="UHV-zL-aWv" id="wXt-Wj-Ym1"/>
+                        <outlet property="btnCloseAddFriendViaEmail" destination="UHV-zL-aWv" id="6kV-Xu-dcq"/>
                         <outlet property="btnRequestFriend" destination="Nkx-62-BZ0" id="D32-cc-A5H"/>
                         <outlet property="stsEmailLoading" destination="j3R-eX-Nee" id="0Ku-QC-ZMG"/>
                         <outlet property="stsEmailRight" destination="0LH-Cm-jER" id="5qP-y6-7o9"/>
                         <outlet property="stsEmailWrong" destination="wwD-rI-bO3" id="bmO-9J-5FH"/>
-                        <outlet property="txtEmail" destination="Y39-Cl-d5X" id="iZH-3D-pNb"/>
-                        <outlet property="viwCenterContainer" destination="LUn-62-Lcf" id="xZ5-Aq-r9X"/>
+                        <outlet property="txtUsernameOrEmail" destination="Y39-Cl-d5X" id="3z7-mx-Pt8"/>
+                        <outlet property="viwCenterContainer" destination="LUn-62-Lcf" id="y45-Sp-bkk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tc-sG-C6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6236" y="698.27586206896558"/>
+            <point key="canvasLocation" x="6234.7826086956529" y="697.09821428571422"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="F3d-ok-Wo9">

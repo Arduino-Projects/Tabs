@@ -1283,22 +1283,6 @@
             </objects>
             <point key="canvasLocation" x="3354" y="-1180"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="c4X-uC-7Gf">
-            <objects>
-                <viewController id="c5K-jh-7iP" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iu8-5B-MBI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="orO-9c-vmM"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="9Xo-BC-1pP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rrl-4a-F8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5529" y="1566"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="gM6-FK-GiO"/>

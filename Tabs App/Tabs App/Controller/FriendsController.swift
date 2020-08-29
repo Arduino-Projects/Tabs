@@ -396,4 +396,11 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         calculateDifferentFirstLetters()
         tbvFriends.reloadData()
     }
+    
+    
+    
+    @IBAction func btnAddFriendsPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "friendsToAddFriend", sender: self)
+    }
+    
 }
