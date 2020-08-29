@@ -275,7 +275,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
                         User.friendsLoaded = true
                     }
                 }
-            }   
+            }
         }
     }
     
@@ -393,8 +393,4 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         calculateDifferentFirstLetters()
         tbvFriends.reloadData()
     }
-    
-    
-    
-    
 }

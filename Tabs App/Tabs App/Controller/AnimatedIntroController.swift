@@ -111,7 +111,7 @@ class AnimatedIntroController: UIViewController {
                 self.persistentData.removeObject(forKey: "FriendsNamesList")
                 self.persistentData.removeObject(forKey: "FriendsUIDsList")
             }
-            
+
             if((self.persistentData.string(forKey: "UserEmail")) != nil && (self.persistentData.string(forKey: "UserPassword")) != nil ) {
                 self.performSegue(withIdentifier: "introToMainApp", sender: self)
             }
