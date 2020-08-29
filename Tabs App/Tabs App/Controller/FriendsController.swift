@@ -61,6 +61,9 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
 
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    }
     
     //MARK: Keyboard + TextField UI Management
     
