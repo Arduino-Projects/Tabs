@@ -18,7 +18,7 @@ class User {
     var accountCreated: FirebaseFirestore.Timestamp //When the user created their account
     static var loggedIn = false
     static var friendsLoaded = false
-    
+    static var friendsList : [String: [String : String]] = [:]
     
     
     
