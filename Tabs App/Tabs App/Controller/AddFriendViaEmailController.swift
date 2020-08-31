@@ -288,7 +288,7 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
                 //CODE 5 - DOC NOT FOUND - to sign in
                 
                 else if(err!._code == FirebaseFirestore.FirestoreErrorCode.alreadyExists.rawValue) {
-                    
+
                 }
                 //CODE 6 - ATTEMPT TO ADD DOCUMENT THAT ALREADY EXISTS - ignore for this
                 
