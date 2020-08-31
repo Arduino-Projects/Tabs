@@ -15,12 +15,11 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tbvTabs: UITableView!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tbvTabs.register(UINib(nibName: "TabsCell", bundle: nil), forCellReuseIdentifier: "TabsCell")
         tbvTabs.delegate = self
         tbvTabs.dataSource = self
-        print("I AM HERE!")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
