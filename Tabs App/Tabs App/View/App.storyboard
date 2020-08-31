@@ -248,7 +248,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="signInScreen" id="BNK-D5-kWW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YM-vH-5vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7249" y="766"/>
+            <point key="canvasLocation" x="8869" y="430"/>
         </scene>
         <!--Friends-->
         <scene sceneID="9S8-ps-NxW">
@@ -518,6 +518,7 @@
                         <outlet property="stsEmailWrong" destination="wwD-rI-bO3" id="bmO-9J-5FH"/>
                         <outlet property="txtUsernameOrEmail" destination="Y39-Cl-d5X" id="3z7-mx-Pt8"/>
                         <outlet property="viwCenterContainer" destination="LUn-62-Lcf" id="y45-Sp-bkk"/>
+                        <segue destination="BNK-D5-kWW" kind="presentation" identifier="addFriendToSignIn" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="TUY-rY-SRD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tc-sG-C6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -541,6 +542,9 @@
             <point key="canvasLocation" x="5529" y="1424"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TUY-rY-SRD"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="app.badge.fill" catalog="system" width="128" height="118"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>

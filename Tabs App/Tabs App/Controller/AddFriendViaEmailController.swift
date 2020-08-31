@@ -409,7 +409,7 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
         persistentData.removeObject(forKey: "FriendsNamesList")
         persistentData.removeObject(forKey: "FriendsUIDsList")
         persistentData.removeObject(forKey: "FriendsUsernamesAndEmailsList")
-        performSegue(withIdentifier: "friendsToSignIn", sender: self)
+        performSegue(withIdentifier: "addFriendToSignIn", sender: self)
     }
     
     
