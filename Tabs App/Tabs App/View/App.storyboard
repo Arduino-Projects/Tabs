@@ -242,6 +242,14 @@
             </objects>
             <point key="canvasLocation" x="5529" y="18"/>
         </scene>
+        <!--signInScreen-->
+        <scene sceneID="EkO-no-yf4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="signInScreen" id="BNK-D5-kWW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3YM-vH-5vr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7249" y="766"/>
+        </scene>
         <!--Friends-->
         <scene sceneID="9S8-ps-NxW">
             <objects>
@@ -350,6 +358,7 @@
                         <outlet property="sbrSearchThroughFriends" destination="lJH-iM-rfG" id="noY-zh-rAh"/>
                         <outlet property="tbvFriends" destination="m39-tp-gZc" id="FlU-Hg-2KV"/>
                         <segue destination="7PG-oz-s1x" kind="show" identifier="friendsToAddFriend" id="A9S-Ot-vIA"/>
+                        <segue destination="BNK-D5-kWW" kind="presentation" identifier="friendsToSignIn" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Onh-Qt-Ddd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuT-h8-opY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -513,7 +522,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0tc-sG-C6y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6234.7826086956529" y="697.09821428571422"/>
+            <point key="canvasLocation" x="7249" y="414"/>
         </scene>
         <!--Inbox-->
         <scene sceneID="F3d-ok-Wo9">

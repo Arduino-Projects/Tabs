@@ -723,7 +723,7 @@
         <!--SigninScreen-->
         <scene sceneID="4ID-iQ-89W">
             <objects>
-                <viewController id="pKQ-pB-rtM" userLabel="SigninScreen" customClass="SignInController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signInScreen" id="pKQ-pB-rtM" userLabel="SigninScreen" customClass="SignInController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcC-wh-x71">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1285,9 +1285,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="w16-j4-HOo"/>
         <segue reference="gM6-FK-GiO"/>
         <segue reference="JUk-D8-cop"/>
-        <segue reference="c8M-3D-IbB"/>
+        <segue reference="qcV-r3-93D"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="TabsIcon" width="400" height="400"/>
