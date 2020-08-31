@@ -15,7 +15,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     //MARK: Global Variables
-    var friendsUsernamesAndEmails : [String] = []
+    var friendsUsernamesAndEmails : [String] = []   //Used to keep track of the users current friends
     
     //MARK: Internet Connection Globals
     var noInternetNotification : UIView? = nil  //Used to create a UIView to store the noInternet banner
@@ -515,6 +515,9 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     //MARK: Persistent Data Wipe
     
+    // Wipe all the data and go to sign in if there are any errors
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func wipePersistentDataAndGoToSignIn() {
         persistentData.removeObject(forKey: "UserEmail")
         persistentData.removeObject(forKey: "UserPassword")
