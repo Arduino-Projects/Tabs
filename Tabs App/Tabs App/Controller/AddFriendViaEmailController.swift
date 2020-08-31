@@ -216,6 +216,9 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
     
     //TODO: Account gets added as invalid for not username as well
     
+    // Used to first check if the user is signed in, if they are, read the friends data
+    // Params: NONE
+    // Return: NONE
     func checkIfSignedInThenGetData(accountEmailOrUsername : String) {
         if (!User.loggedIn) {   //If not logged in, log them in, then pull data, else just pull in data
             Auth.auth().signIn(withEmail: persistentData.string(forKey: "UserEmail")!, password: persistentData.string(forKey: "UserPassword")!) { (authResult, err) in
@@ -272,7 +275,9 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
     
     
     
-    
+    // Read the actual friends data from the DB, and check if friend being added is new, and existent
+    // Params: accountEmailOrUsername : the entered username or email
+    // Return: NONE
     func checkIfValidFriend(accountEmailOrUsername : String) {
         let accountAsArray = [accountEmailOrUsername]
         db.collection("Users").whereField("email", in: accountAsArray).getDocuments { (docs, err) in
@@ -283,7 +288,7 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
                 //CODE 5 - DOC NOT FOUND - to sign in
                 
                 else if(err!._code == FirebaseFirestore.FirestoreErrorCode.alreadyExists.rawValue) {
-                    
+
                 }
                 //CODE 6 - ATTEMPT TO ADD DOCUMENT THAT ALREADY EXISTS - ignore for this
                 
@@ -377,6 +382,32 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
     
     
     
+    //MARK: Persistent Data Wipe
+    
+    // Wipe all the data and go to sign in if there are any errors
+    // Params: UNNEEDED
+    // Return: UNNEEDED
+    func wipePersistentDataAndGoToSignIn() {
+        persistentData.removeObject(forKey: "UserEmail")
+        persistentData.removeObject(forKey: "UserPassword")
+        persistentData.removeObject(forKey: "FriendsNamesList")
+        persistentData.removeObject(forKey: "FriendsUIDsList")
+        persistentData.removeObject(forKey: "FriendsUsernamesAndEmailsList")
+        performSegue(withIdentifier: "addFriendToSignIn", sender: self)
+    }
+    
+    
+    
+    
+    //MARK: IBActions
+    
+    @IBAction func sendFriendRequestPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func closeAddFriendViaEmailPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     @IBAction func txtUsernameOrEmail(_ sender: Any) {
         if(txtUsernameOrEmail.text! == "") {
@@ -396,30 +427,6 @@ class AddFriendController: UIViewController, UITextFieldDelegate{
             btnRequestFriend.borderColor = UIColor.lightGray
             checkIfValidAccount(accountEmailOrUsername: txtUsernameOrEmail.text!)
         }
-    }
-    
-    
-    
-    
-    //MARK: Persistent Data Wipe
-    
-    func wipePersistentDataAndGoToSignIn() {
-        persistentData.removeObject(forKey: "UserEmail")
-        persistentData.removeObject(forKey: "UserPassword")
-        persistentData.removeObject(forKey: "FriendsNamesList")
-        persistentData.removeObject(forKey: "FriendsUIDsList")
-        persistentData.removeObject(forKey: "FriendsUsernamesAndEmailsList")
-        performSegue(withIdentifier: "addFriendToSignIn", sender: self)
-    }
-    
-    
-    
-    @IBAction func sendFriendRequestPressed(_ sender: Any) {
-        
-    }
-    
-    @IBAction func closeAddFriendViaEmailPressed(_ sender: Any) {
-        self.dismiss(animated: true)
     }
     
     
