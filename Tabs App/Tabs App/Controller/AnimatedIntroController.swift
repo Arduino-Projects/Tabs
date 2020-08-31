@@ -50,7 +50,12 @@ class AnimatedIntroController: UIViewController {
         IconImage.frame = CGRect(x: -LogoImage.frame.height, y: LogoImage.frame.origin.y, width: LogoImage.frame.height, height: LogoImage.frame.height)
         
         //Calculating the rotation amount to rotate the icon, to create the rolling effect, and then rotating the icon
-        let rotationAmount : CGFloat = (((LogoImage.frame.origin.x - IconImage.frame.origin.x)/(IconImage.frame.width*3.141592))*360)
+        var rotationAmount : CGFloat = (((LogoImage.frame.origin.x - IconImage.frame.origin.x)/(IconImage.frame.width*3.141592))*360)
+        
+        if(rotationAmount <= 180) {
+            rotationAmount = 180.01
+        }
+        
         IconImage.transform = CGAffineTransform(rotationAngle: (rotationAmount * .pi) / 180.0)
         
         //Making the icon visible
