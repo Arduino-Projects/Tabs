@@ -23,6 +23,9 @@
 		8DA6565B24FA99D000C73F3A /* IndividualFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6565A24FA99D000C73F3A /* IndividualFriendController.swift */; };
 		8DA6565D24FA9BAD00C73F3A /* AddFriendViaEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA6565C24FA9BAD00C73F3A /* AddFriendViaEmailController.swift */; };
 		8DAFD98324F19EB50042B917 /* VerifyEmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAFD98224F19EB50042B917 /* VerifyEmailController.swift */; };
+		8DC66C5324FD8CB0009FAE87 /* TabsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC66C5224FD8CB0009FAE87 /* TabsCell.xib */; };
+		8DC66C5524FD8DE0009FAE87 /* TabsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC66C5424FD8DE0009FAE87 /* TabsCellController.swift */; };
+		8DC66C5724FD968B009FAE87 /* TabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC66C5624FD968B009FAE87 /* TabsController.swift */; };
 		8DDA252E24F59B0F006C89D6 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */; };
 		8DDA253024F6DB33006C89D6 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DDA252F24F6DB33006C89D6 /* App.storyboard */; };
 		8DDA253224F6FE12006C89D6 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDA253124F6FE12006C89D6 /* FriendsController.swift */; };
@@ -68,6 +71,9 @@
 		8DA6565A24FA99D000C73F3A /* IndividualFriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualFriendController.swift; sourceTree = "<group>"; };
 		8DA6565C24FA9BAD00C73F3A /* AddFriendViaEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViaEmailController.swift; sourceTree = "<group>"; };
 		8DAFD98224F19EB50042B917 /* VerifyEmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailController.swift; sourceTree = "<group>"; };
+		8DC66C5224FD8CB0009FAE87 /* TabsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabsCell.xib; sourceTree = "<group>"; };
+		8DC66C5424FD8DE0009FAE87 /* TabsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCellController.swift; sourceTree = "<group>"; };
+		8DC66C5624FD968B009FAE87 /* TabsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsController.swift; sourceTree = "<group>"; };
 		8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		8DDA252F24F6DB33006C89D6 /* App.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = App.storyboard; sourceTree = "<group>"; };
 		8DDA253124F6FE12006C89D6 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
@@ -133,6 +139,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		8DC66C5124FD8C49009FAE87 /* Custom Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8DC66C5224FD8CB0009FAE87 /* TabsCell.xib */,
+				8DC66C5424FD8DE0009FAE87 /* TabsCellController.swift */,
+			);
+			path = "Custom Table View Cells";
+			sourceTree = "<group>";
+		};
 		8DE08EC624E88E5E0009D728 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +174,7 @@
 				8DE08EF724E8947C0009D728 /* Model */,
 				8DE08EF824E894960009D728 /* View */,
 				8DE08EF924E894A60009D728 /* Controller */,
+				8DC66C5124FD8C49009FAE87 /* Custom Table View Cells */,
 				8DE08EFA24E894B00009D728 /* Supporting */,
 				8DE08EDE24E88E5F0009D728 /* Assets.xcassets */,
 				8DE08EE324E88E5F0009D728 /* Info.plist */,
@@ -208,6 +224,7 @@
 				8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */,
 				8DAFD98224F19EB50042B917 /* VerifyEmailController.swift */,
 				8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */,
+				8DC66C5624FD968B009FAE87 /* TabsController.swift */,
 				8DDA253124F6FE12006C89D6 /* FriendsController.swift */,
 				8DA6565A24FA99D000C73F3A /* IndividualFriendController.swift */,
 				8DA6565C24FA9BAD00C73F3A /* AddFriendViaEmailController.swift */,
@@ -328,6 +345,7 @@
 				8DE08EDF24E88E5F0009D728 /* Assets.xcassets in Resources */,
 				8D00E27C24F4EE6A00462733 /* Reference.txt in Resources */,
 				8D9191E024EC7E6400BCACCC /* GoogleService-Info.plist in Resources */,
+				8DC66C5324FD8CB0009FAE87 /* TabsCell.xib in Resources */,
 				8DDA253024F6DB33006C89D6 /* App.storyboard in Resources */,
 				8D2CF82C24EAFBCB00B2EDDA /* Barlow-SemiBold.ttf in Resources */,
 				8DE08EDA24E88E5E0009D728 /* Main.storyboard in Resources */,
@@ -391,7 +409,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC66C5724FD968B009FAE87 /* TabsController.swift in Sources */,
 				8D00E27624F4D91F00462733 /* User.swift in Sources */,
+				8DC66C5524FD8DE0009FAE87 /* TabsCellController.swift in Sources */,
 				8D71518324F99134000C774A /* Tab.swift in Sources */,
 				8DDA253224F6FE12006C89D6 /* FriendsController.swift in Sources */,
 				8DA6565D24FA9BAD00C73F3A /* AddFriendViaEmailController.swift in Sources */,
