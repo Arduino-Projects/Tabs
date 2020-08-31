@@ -6,9 +6,8 @@ UserDefaults Codes
     UserPassword - Users Password
     FriendsNamesList - List of Users Friends
     FriendsUIDsList - List of Users Friends UIDs
+    FriendsUsernamesAndEmailsList - A list of all of the users friends emails and usernamnes
     
-
-
 
 Database Commands
     Adding New Document(without auto-id) - self.db.collection("collectionName").document(newDocumentName).setData([String : Any])

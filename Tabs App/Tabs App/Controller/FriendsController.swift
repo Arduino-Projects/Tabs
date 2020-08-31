@@ -15,6 +15,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     //MARK: Global Variables
+    var friendsUsernamesAndEmails : [String] = []
     
     //MARK: Internet Connection Globals
     var noInternetNotification : UIView? = nil  //Used to create a UIView to store the noInternet banner
@@ -48,7 +49,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK: IBOutlets
     @IBOutlet weak var tbvFriends: UITableView!                     //The main table view that contains the friends
     @IBOutlet weak var sbrSearchThroughFriends: UISearchBar!        //The search bar used to search friends
-    
+    @IBOutlet weak var btnAddFriend: UIButton!
     
     //MARK: Overridden Functions
     
@@ -59,8 +60,28 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableViewInit()
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        refreshControl.endRefreshing()
+    }
+    
 
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if going to signin screen, make sure it knows to do all necessary changes
+        if segue.identifier == "friendsToAddFriend" {
+            if let nextViewController = segue.destination as? AddFriendController {
+                nextViewController.friendsUsernamesAndEmails = self.friendsUsernamesAndEmails
+            }
+        }
+        if segue.identifier == "friendsToSignIn" {
+            if let nextViewController = segue.destination as? SignInController {
+                nextViewController.comingFromVerificationOrForgotPassword = true
+            }
+        }
+
+    }
     
     //MARK: Keyboard + TextField UI Management
     
@@ -145,6 +166,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
             UIView.animate(withDuration: 0.5) {
                 self.noInternetNotification!.frame.origin.y -= self.noInternetNotification!.frame.height
             }
+            checkIfSignedInThenGetData()
         }
     }
     
@@ -223,7 +245,45 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         if (!User.loggedIn) {   //If not logged in, log them in, then pull data, else just pull in data
             Auth.auth().signIn(withEmail: persistentData.string(forKey: "UserEmail")!, password: persistentData.string(forKey: "UserPassword")!) { (authResult, err) in
                 if (err != nil) {
-                    //TODO: Deal with errors (no wifi, invalid pass, invalid email, etc.)
+                    if (err!._code == FirebaseAuth.AuthErrorCode.networkError.rawValue){
+                        self.internetConnectionLost()
+                    }
+                    //FIRAuthErrorCodeNetworkError
+                    
+                    else if (err!._code == FirebaseAuth.AuthErrorCode.userNotFound.rawValue){
+                        self.wipePersistentDataAndGoToSignIn()
+                    }
+                    //FIRAuthErrorCodeUserNotFound
+                    
+                    else if (err!._code == FirebaseAuth.AuthErrorCode.userTokenExpired.rawValue){
+                        self.wipePersistentDataAndGoToSignIn()
+                    }
+                    //FIRAuthErrorCodeUserTokenExpired
+                    
+                    else if (err!._code == FirebaseAuth.AuthErrorCode.tooManyRequests.rawValue){
+                        self.wipePersistentDataAndGoToSignIn()
+                    }
+                    //FIRAuthErrorCodeTooManyRequests
+                    
+                    else if (err!._code == FirebaseAuth.AuthErrorCode.invalidEmail.rawValue){
+                        self.wipePersistentDataAndGoToSignIn()
+                    }
+                    //FIRAuthErrorCodeInvalidEmail
+                    
+                    else if (err!._code == FirebaseAuth.AuthErrorCode.userDisabled.rawValue){
+                        self.wipePersistentDataAndGoToSignIn()
+                    }
+                    //FIRAuthErrorCodeUserDisabled
+                    
+                    else if (err!._code == FirebaseAuth.AuthErrorCode.wrongPassword.rawValue){
+                        self.wipePersistentDataAndGoToSignIn()
+                    }
+                    //FIRAuthErrorCodeWrongPassword
+                    
+                    else {
+                        //UNKNOWN ERROR
+                    }
+                    self.refreshControl.endRefreshing()
                 }
                 else {
                     User.loggedIn = true
@@ -242,24 +302,76 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     func pullFriendsFromDB() {
         db.collection("Users").document(Auth.auth().currentUser!.uid).getDocument { (doc, err) in
             if(err != nil) {
-                //TODO: Deal with errors (no wifi, no document, no access, etc.)
+                if(err!._code == FirebaseFirestore.FirestoreErrorCode.notFound.rawValue) {
+                    self.wipePersistentDataAndGoToSignIn()
+                }
+                //CODE 5 - DOC NOT FOUND - to sign in
+                
+                else if(err!._code == FirebaseFirestore.FirestoreErrorCode.alreadyExists.rawValue) {
+                    
+                }
+                //CODE 6 - ATTEMPT TO ADD DOCUMENT THAT ALREADY EXISTS - ignore for this
+                
+                else if(err!._code == FirebaseFirestore.FirestoreErrorCode.permissionDenied.rawValue) {
+                    self.wipePersistentDataAndGoToSignIn()
+                }
+                //CODE 7 - INSUFFICIENT PERMISSIONS - to sign in
+                
+                else if(err!._code == FirebaseFirestore.FirestoreErrorCode.unauthenticated.rawValue) {
+                    self.wipePersistentDataAndGoToSignIn()
+                }
+                //CODE 16 - USER UNAUTHENTICATED - to sign in
+                
+                else {
+                    //UNKNOWN ERROR
+                }
+                self.refreshControl.endRefreshing()
             }
             else {
+                self.friendsUsernamesAndEmails.append(doc?.data()!["email"] as! String)
+                self.friendsUsernamesAndEmails.append(doc?.data()!["username"] as! String)
+                
                 self.arrayOfFriendsUIDsData = doc?.data()!["friends"] as! [String]
                 
                 //From the UID list, grab all the friends details
                 self.db.collection("Users").whereField(FieldPath.documentID(), in: self.arrayOfFriendsUIDsData).getDocuments { (docs, err) in
                     if(err != nil) {
-                        //TODO: Deal with errors (no wifi, no document, no access, etc.)
+                        if(err!._code == FirebaseFirestore.FirestoreErrorCode.notFound.rawValue) {
+                            self.wipePersistentDataAndGoToSignIn()
+                        }
+                        //CODE 5 - DOC NOT FOUND - to sign in
+                        
+                        else if(err!._code == FirebaseFirestore.FirestoreErrorCode.alreadyExists.rawValue) {
+                            
+                        }
+                        //CODE 6 - ATTEMPT TO ADD DOCUMENT THAT ALREADY EXISTS - ignore for this
+                        
+                        else if(err!._code == FirebaseFirestore.FirestoreErrorCode.permissionDenied.rawValue) {
+                            self.wipePersistentDataAndGoToSignIn()
+                        }
+                        //CODE 7 - INSUFFICIENT PERMISSIONS - to sign in
+                        
+                        else if(err!._code == FirebaseFirestore.FirestoreErrorCode.unauthenticated.rawValue) {
+                            self.wipePersistentDataAndGoToSignIn()
+                        }
+                        //CODE 16 - USER UNAUTHENTICATED - to sign in
+                        
+                        else {
+                            //UNKNOWN ERROR
+                        }
+                        self.refreshControl.endRefreshing()
                     }
                     else {
                         self.arrayOfFriendsData = []
                         self.arrayOfFriendsUIDsData = []
                         for doc in docs!.documents {
+                            self.friendsUsernamesAndEmails.append(doc.data()["email"] as! String)
+                            self.friendsUsernamesAndEmails.append(doc.data()["username"] as! String)
                             self.arrayOfFriendsData.append(doc.data()["displayName"] as! String)
                             self.arrayOfFriendsUIDsData.append(doc.documentID)
                         }
-                        
+                        self.persistentData.set(self.friendsUsernamesAndEmails, forKey: "FriendsUsernamesAndEmailsList")
+                        self.btnAddFriend.isEnabled = true
                         //Sorting the friends array while also keeping UID's array matching
                         let combined = zip(self.arrayOfFriendsData, self.arrayOfFriendsUIDsData).sorted {$0.0.uppercased() < $1.0.uppercased()}
                         self.arrayOfFriendsData = combined.map {$0.0}
@@ -294,6 +406,11 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
             arrayOfFriendsUIDsData = (persistentData.array(forKey: "FriendsUIDsList")! as? [String])!
             arrayOfFriends = arrayOfFriendsData
             arrayOfFriendsUIDs = arrayOfFriendsUIDsData
+        }
+        
+        if(persistentData.array(forKey: "FriendsUsernamesAndEmailsList") != nil) {
+            friendsUsernamesAndEmails = persistentData.array(forKey: "FriendsUsernamesAndEmailsList") as! [String]
+            btnAddFriend.isEnabled = true
         }
         calculateDifferentFirstLetters()
         tbvFriends.delegate = self
@@ -393,4 +510,32 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
         calculateDifferentFirstLetters()
         tbvFriends.reloadData()
     }
+    
+    
+    
+    //MARK: Persistent Data Wipe
+    
+    func wipePersistentDataAndGoToSignIn() {
+        persistentData.removeObject(forKey: "UserEmail")
+        persistentData.removeObject(forKey: "UserPassword")
+        persistentData.removeObject(forKey: "FriendsNamesList")
+        persistentData.removeObject(forKey: "FriendsUIDsList")
+        persistentData.removeObject(forKey: "FriendsUsernamesAndEmailsList")
+        performSegue(withIdentifier: "friendsToSignIn", sender: self)
+    }
+    
+    
+    
+    
+    
+    
+    //MARK: IBActions
+    
+    @IBAction func btnAddFriendsPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "friendsToAddFriend", sender: self)
+    }
+    
+    
+    
+    
 }

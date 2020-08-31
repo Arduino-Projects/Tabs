@@ -124,7 +124,6 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
         } catch {
             //UNKNOWN ERROR
         }
-        
     }
     
     
@@ -192,7 +191,6 @@ class ForgotPasswordController : UIViewController, UITextFieldDelegate {
     // Params: NONE
     // Return: NONE
     func resetPasswordManager(){
-        
         if(isDoneSending) { //if email has been send + animations finished, segue back to Sign In
             performSegue(withIdentifier: "forgotPasswordToSignin", sender: self)
         }
