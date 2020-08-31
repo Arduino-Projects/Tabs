@@ -18,7 +18,7 @@ class AnimatedIntroController: UIViewController {
     let persistentData = UserDefaults() //Used to contain the persistent data in UserDefaults
     
     //MARK: User Reset Option
-    let resetUser = false   //Used in case you want to reset the user persistent data parameters!
+    let resetUser = true   //Used in case you want to reset the user persistent data parameters!
     
     
     
