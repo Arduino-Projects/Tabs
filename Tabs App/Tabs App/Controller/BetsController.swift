@@ -51,6 +51,7 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
           super.viewDidLoad()
           internetConnectionManagerInit()
           keyboardManagerInit()
+          refreshControllerInit()
           tableViewInit()
       }
       
