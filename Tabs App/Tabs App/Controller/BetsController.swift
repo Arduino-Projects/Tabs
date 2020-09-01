@@ -394,7 +394,6 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 betsData[counter]["docID"] = doc.documentID
                 betsData[counter]["status"] = (doc.data()["status"] as! String)
                 betsData[counter]["time"] = (doc.data()["time"] as! FirebaseFirestore.Timestamp).dateValue()
-                print(betsData[counter]["time"])
                 betsData[counter]["title"] = (doc.data()["title"] as! String)
                 counter += 1
             }
@@ -471,6 +470,7 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 cell.lblBetAmount.text! = String(Int((currentCellData["amount"] as! Float)*100)) + currencyMinor
             }
             else if((currentCellData["amount"] as! Float) < 100) {
+                
                 cell.lblBetAmount.text! = currencyMajor + String((currentCellData["amount"] as! Float))
             }
             else {
@@ -498,33 +498,34 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     cell.lblBetDate.text! = String(dateInSeconds) + " seconds ago"
                 }
             }
-            else if(dateInSeconds  % 60 < 60){
-                if(dateInSeconds % 60 == 1){
+            else if(dateInSeconds  / 60 < 60){
+                if(dateInSeconds / 60 == 1){
                     cell.lblBetDate.text! = String(dateInSeconds)  + " minute ago"
                 }
                 else{
-                    cell.lblBetDate.text! = String(dateInSeconds % 60) + " minutes ago"
+                    cell.lblBetDate.text! = String(dateInSeconds / 60) + " minutes ago"
                 }
             }
-            else if(dateInSeconds % 3600 < 24){
-                if(dateInSeconds % 3600 == 1){
-                    cell.lblBetDate.text! = String(dateInSeconds % 3600)  + " hour ago"
+            else if(dateInSeconds / (3600) < 24){
+                print(dateInSeconds / 3600)
+                if(dateInSeconds / (3600) == 1){
+                    cell.lblBetDate.text! = String(dateInSeconds / 3600)  + " hour ago"
                 }
                 else{
-                    cell.lblBetDate.text! = String(dateInSeconds % 3600) + " hours ago"
+                    cell.lblBetDate.text! = String(dateInSeconds / 3600) + " hours ago"
                 }
             }
-            else if(dateInSeconds % 86400 < 7){
-                if(dateInSeconds % 86400 == 1){
-                    cell.lblBetDate.text! = String(dateInSeconds % 86400)  + " day ago"
+            else if(dateInSeconds / 86400 < 7){
+                if(dateInSeconds / 86400 == 1){
+                    cell.lblBetDate.text! = String(dateInSeconds / 86400)  + " day ago"
                 }
                 else{
-                    cell.lblBetDate.text! = String(dateInSeconds % 86400) + " days ago"
+                    cell.lblBetDate.text! = String(dateInSeconds / 86400) + " days ago"
                 }
             }
             else if(Calendar.current.component(.year, from: date) < currentYear){
 
-                dateFormatter.dateStyle = .medium
+                dateFormatter.dateStyle = .short
                 dateFormatter.timeStyle = .none
                 cell.lblBetDate.text! = dateFormatter.string(from: date)
             }
