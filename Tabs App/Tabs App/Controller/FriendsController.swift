@@ -54,6 +54,7 @@ class FriendsController: UIViewController, UITableViewDelegate, UITableViewDataS
     //MARK: Overridden Functions
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         internetConnectionManagerInit()
         keyboardManagerInit()
         refreshControllerInit()
