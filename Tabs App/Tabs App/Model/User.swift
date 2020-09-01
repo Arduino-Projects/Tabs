@@ -19,6 +19,8 @@ class User {
     static var loggedIn = false
     static var friendsLoaded = false
     static var tabsLoaded = false
+    static var betsLoaded = false
+    
     
     
     
