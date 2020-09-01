@@ -469,7 +469,7 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if((currentCellData["amount"] as! Float) < 1) {
                 cell.lblBetAmount.text! = String(Int((currentCellData["amount"] as! Float)*100)) + currencyMinor
             }
-            else if((currentCellData["totalAmount"] as! Float) < 100) {
+            else if((currentCellData["amount"] as! Float) < 100) {
                 cell.lblBetAmount.text! = currencyMajor + String((currentCellData["amount"] as! Float))
             }
             else {
@@ -484,10 +484,11 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //more than a year ago: date, year
             
             var date = (currentCellData["time"] as! Date)
-            var dateInSeconds = (currentCellData["time"] as! Date).timeIntervalSinceNow
+            var dateInSeconds = Int(abs((currentCellData["time"] as! Date).timeIntervalSinceNow))
             let currentYear = Calendar.current.component(.year, from: Date())
             let dateFormatter = DateFormatter()
 
+            print(dateInSeconds)
             if(dateInSeconds < 60){
                 if(dateInSeconds == 1){
                     cell.lblBetDate.text! = String(dateInSeconds) + " second ago"
@@ -496,28 +497,28 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     cell.lblBetDate.text! = String(dateInSeconds) + " seconds ago"
                 }
             }
-            else if(dateInSeconds.truncatingRemainder(dividingBy: 60) < 60){
-                if(dateInSeconds.truncatingRemainder(dividingBy: 60) == 1){
+            else if(dateInSeconds  % 60 < 60){
+                if(dateInSeconds % 60 == 1){
                     cell.lblBetDate.text! = String(dateInSeconds)  + " minute ago"
                 }
                 else{
-                    cell.lblBetDate.text! = String(dateInSeconds.truncatingRemainder(dividingBy: 60)) + " minutes ago"
+                    cell.lblBetDate.text! = String(dateInSeconds % 60) + " minutes ago"
                 }
             }
-            else if(dateInSeconds.truncatingRemainder(dividingBy: 60).truncatingRemainder(dividingBy: 60) < 24){
-                if(dateInSeconds.truncatingRemainder(dividingBy: 3600) == 1){
-                    cell.lblBetDate.text! = String(dateInSeconds.truncatingRemainder(dividingBy: 3600))  + " hour ago"
+            else if(dateInSeconds % 3600 < 24){
+                if(dateInSeconds % 3600 == 1){
+                    cell.lblBetDate.text! = String(dateInSeconds % 3600)  + " hour ago"
                 }
                 else{
-                    cell.lblBetDate.text! = String(dateInSeconds.truncatingRemainder(dividingBy: 3600)) + " hours ago"
+                    cell.lblBetDate.text! = String(dateInSeconds % 3600) + " hours ago"
                 }
             }
-            else if(dateInSeconds.truncatingRemainder(dividingBy: 86400) < 7){
-                if(dateInSeconds.truncatingRemainder(dividingBy: 86400) == 1){
-                    cell.lblBetDate.text! = String(dateInSeconds.truncatingRemainder(dividingBy: 86400))  + " day ago"
+            else if(dateInSeconds % 86400 < 7){
+                if(dateInSeconds % 86400 == 1){
+                    cell.lblBetDate.text! = String(dateInSeconds % 86400)  + " day ago"
                 }
                 else{
-                    cell.lblBetDate.text! = String(dateInSeconds.truncatingRemainder(dividingBy: 86400)) + " days ago"
+                    cell.lblBetDate.text! = String(dateInSeconds % 86400) + " days ago"
                 }
             }
             else if(Calendar.current.component(.year, from: date) < currentYear){
@@ -525,9 +526,6 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 dateFormatter.dateStyle = .medium
                 dateFormatter.timeStyle = .none
                 cell.lblBetDate.text! = dateFormatter.string(from: date)
-            }
-            else if(dateInSeconds < 0){
-                print("Something has gone very wrong")
             }
             else{
                 dateFormatter.dateStyle = .long
