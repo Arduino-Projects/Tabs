@@ -39,6 +39,9 @@
 		8DE08EDF24E88E5F0009D728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EDE24E88E5F0009D728 /* Assets.xcassets */; };
 		8DE08EE224E88E5F0009D728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */; };
 		8DE08EED24E88E5F0009D728 /* Tabs_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */; };
+		C2B33BBA24FE7E370033950E /* BetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B33BB924FE7E370033950E /* BetsCell.xib */; };
+		C2B33BBC24FE86430033950E /* BetsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBB24FE86430033950E /* BetsCellController.swift */; };
+		C2B33BBE24FE87F40033950E /* BetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBD24FE87F40033950E /* BetsController.swift */; };
 		C2DCC9B924F93B02009C6D08 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +94,9 @@
 		8DE08EE824E88E5F0009D728 /* Tabs AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabs AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs_AppTests.swift; sourceTree = "<group>"; };
 		8DE08EEE24E88E5F0009D728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2B33BB924FE7E370033950E /* BetsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetsCell.xib; sourceTree = "<group>"; };
+		C2B33BBB24FE86430033950E /* BetsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCellController.swift; sourceTree = "<group>"; };
+		C2B33BBD24FE87F40033950E /* BetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsController.swift; sourceTree = "<group>"; };
 		C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +150,8 @@
 			children = (
 				8DC66C5224FD8CB0009FAE87 /* TabsCell.xib */,
 				8DC66C5424FD8DE0009FAE87 /* TabsCellController.swift */,
+				C2B33BB924FE7E370033950E /* BetsCell.xib */,
+				C2B33BBB24FE86430033950E /* BetsCellController.swift */,
 			);
 			path = "Custom Table View Cells";
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 				8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */,
 				8DC66C5624FD968B009FAE87 /* TabsController.swift */,
 				8DDA253124F6FE12006C89D6 /* FriendsController.swift */,
+				C2B33BBD24FE87F40033950E /* BetsController.swift */,
 				8DA6565A24FA99D000C73F3A /* IndividualFriendController.swift */,
 				8DA6565C24FA9BAD00C73F3A /* AddFriendViaEmailController.swift */,
 				8D22B22124EE036100EA8C28 /* Extensions.swift */,
@@ -347,6 +356,7 @@
 				8D9191E024EC7E6400BCACCC /* GoogleService-Info.plist in Resources */,
 				8DC66C5324FD8CB0009FAE87 /* TabsCell.xib in Resources */,
 				8DDA253024F6DB33006C89D6 /* App.storyboard in Resources */,
+				C2B33BBA24FE7E370033950E /* BetsCell.xib in Resources */,
 				8D2CF82C24EAFBCB00B2EDDA /* Barlow-SemiBold.ttf in Resources */,
 				8DE08EDA24E88E5E0009D728 /* Main.storyboard in Resources */,
 				8DDA253624F70C3F006C89D6 /* Barlow-Bold.ttf in Resources */,
@@ -415,6 +425,7 @@
 				8D71518324F99134000C774A /* Tab.swift in Sources */,
 				8DDA253224F6FE12006C89D6 /* FriendsController.swift in Sources */,
 				8DA6565D24FA9BAD00C73F3A /* AddFriendViaEmailController.swift in Sources */,
+				C2B33BBE24FE87F40033950E /* BetsController.swift in Sources */,
 				C2DCC9B924F93B02009C6D08 /* HomeScreenController.swift in Sources */,
 				8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */,
 				8D22B22224EE036100EA8C28 /* Extensions.swift in Sources */,
@@ -428,6 +439,7 @@
 				8DE08ED524E88E5E0009D728 /* SceneDelegate.swift in Sources */,
 				8D22B22624EEF11D00EA8C28 /* Reachability.swift in Sources */,
 				8DA31DC424EB8814001EFD85 /* SignInController.swift in Sources */,
+				C2B33BBC24FE86430033950E /* BetsCellController.swift in Sources */,
 				8DE08EDD24E88E5E0009D728 /* Tabs_App.xcdatamodeld in Sources */,
 				8DA31DC024EB6819001EFD85 /* SignUpController.swift in Sources */,
 			);

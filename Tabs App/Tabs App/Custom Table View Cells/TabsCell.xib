@@ -59,7 +59,7 @@
                 <outlet property="lblName" destination="6ol-fR-rYX" id="AAR-S9-sAB"/>
                 <outlet property="lblWhoOwes" destination="Z4y-bM-ltm" id="2eM-tW-NLA"/>
             </connections>
-            <point key="canvasLocation" x="104" y="129.53523238380811"/>
+            <point key="canvasLocation" x="103.2" y="129.53523238380811"/>
         </view>
     </objects>
 </document>
