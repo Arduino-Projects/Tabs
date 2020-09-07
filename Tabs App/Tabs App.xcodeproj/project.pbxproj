@@ -43,6 +43,7 @@
 		C2B33BBA24FE7E370033950E /* BetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B33BB924FE7E370033950E /* BetsCell.xib */; };
 		C2B33BBC24FE86430033950E /* BetsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBB24FE86430033950E /* BetsCellController.swift */; };
 		C2B33BBE24FE87F40033950E /* BetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBD24FE87F40033950E /* BetsController.swift */; };
+		C2D589322506A894009C48C6 /* AddTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D589312506A894009C48C6 /* AddTabController.swift */; };
 		C2DCC9B924F93B02009C6D08 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		C2B33BB924FE7E370033950E /* BetsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetsCell.xib; sourceTree = "<group>"; };
 		C2B33BBB24FE86430033950E /* BetsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCellController.swift; sourceTree = "<group>"; };
 		C2B33BBD24FE87F40033950E /* BetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsController.swift; sourceTree = "<group>"; };
+		C2D589312506A894009C48C6 /* AddTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTabController.swift; sourceTree = "<group>"; };
 		C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +231,7 @@
 				C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */,
 				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
 				8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */,
+				C2D589312506A894009C48C6 /* AddTabController.swift */,
 				C2673D4525067BB20036CFD6 /* AddBetController.swift */,
 				8DA31DBF24EB6819001EFD85 /* SignUpController.swift */,
 				8DA31DC324EB8814001EFD85 /* SignInController.swift */,
@@ -433,6 +436,7 @@
 				8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */,
 				8D22B22224EE036100EA8C28 /* Extensions.swift in Sources */,
 				8DDA252E24F59B0F006C89D6 /* ForgotPasswordController.swift in Sources */,
+				C2D589322506A894009C48C6 /* AddTabController.swift in Sources */,
 				8D2CF82E24EAFE5700B2EDDA /* RoundedButton.swift in Sources */,
 				8DA6565B24FA99D000C73F3A /* IndividualFriendController.swift in Sources */,
 				8DAFD98324F19EB50042B917 /* VerifyEmailController.swift in Sources */,
