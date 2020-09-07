@@ -1057,9 +1057,8 @@
                                                     <constraint firstAttribute="height" constant="31" id="cK6-jb-ZZz"/>
                                                 </constraints>
                                                 <segments>
-                                                    <segment title="Won"/>
-                                                    <segment title="Ongoing"/>
-                                                    <segment title="Lost"/>
+                                                    <segment title="I Lent Them"/>
+                                                    <segment title="They Lent Me"/>
                                                 </segments>
                                                 <color key="selectedSegmentTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </segmentedControl>
@@ -1091,7 +1090,7 @@
                                                     <constraint firstAttribute="height" constant="53" id="Y2F-me-h8h"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Barlow-SemiBold" family="Barlow" pointSize="22"/>
-                                                <state key="normal" title="Request Bet">
+                                                <state key="normal" title="Request Tabs">
                                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -1183,7 +1182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2d-PV-hVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6545" y="-42"/>
+            <point key="canvasLocation" x="6561" y="18"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
