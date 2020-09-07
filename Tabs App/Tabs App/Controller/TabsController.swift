@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
@@ -360,8 +361,8 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                 uids.append(doc.documentID)
                                 names.append(doc.data()["displayName"] as! String)
                             }
-
-                            self.usePersistentDataToPresentAndStoreTabs(tabs: docs!, friendsUIDs: self.persistentData.array(forKey: "FriendsUIDsList")!, friendsNames: self.persistentData.array(forKey: "FriendsNamesList")!)
+                            //TODO: ERROR, change below to appropriate params
+                            self.usePersistentDataToPresentAndStoreTabs(tabs: docs!, friendsUIDs: uids, friendsNames: names)
                         }
                     }
                 }
@@ -482,6 +483,33 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let modifyAction = UIContextualAction(style: .normal, title:  "Add", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            success(true)
+        })
+        modifyAction.image = UIImage(systemName: "plus")
+        modifyAction.backgroundColor = UIColor.systemBlue
+        
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
+    
+    
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let modifyAction = UIContextualAction(style: .normal, title:  "Add New Tab", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            success(true)
+        })
+        modifyAction.image = UIImage(systemName: "plus")
+        modifyAction.backgroundColor = UIColor.systemBlue
+        
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
+    
+    
+    
     
     //MARK: Data Sorting & Search Bar
     
@@ -520,7 +548,7 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
         persistentData.removeObject(forKey: "FriendsNamesList")
         persistentData.removeObject(forKey: "FriendsUIDsList")
         persistentData.removeObject(forKey: "FriendsUsernamesAndEmailsList")
-        performSegue(withIdentifier: "friendsToSignIn", sender: self)
+        performSegue(withIdentifier: "tabsToSignIn", sender: self)
     }
     
     
