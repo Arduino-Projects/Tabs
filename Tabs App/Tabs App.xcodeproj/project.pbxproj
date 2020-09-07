@@ -39,6 +39,7 @@
 		8DE08EDF24E88E5F0009D728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EDE24E88E5F0009D728 /* Assets.xcassets */; };
 		8DE08EE224E88E5F0009D728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */; };
 		8DE08EED24E88E5F0009D728 /* Tabs_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */; };
+		C2673D4625067BB20036CFD6 /* AddBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2673D4525067BB20036CFD6 /* AddBetController.swift */; };
 		C2B33BBA24FE7E370033950E /* BetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B33BB924FE7E370033950E /* BetsCell.xib */; };
 		C2B33BBC24FE86430033950E /* BetsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBB24FE86430033950E /* BetsCellController.swift */; };
 		C2B33BBE24FE87F40033950E /* BetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBD24FE87F40033950E /* BetsController.swift */; };
@@ -94,6 +95,7 @@
 		8DE08EE824E88E5F0009D728 /* Tabs AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabs AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs_AppTests.swift; sourceTree = "<group>"; };
 		8DE08EEE24E88E5F0009D728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2673D4525067BB20036CFD6 /* AddBetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBetController.swift; sourceTree = "<group>"; };
 		C2B33BB924FE7E370033950E /* BetsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetsCell.xib; sourceTree = "<group>"; };
 		C2B33BBB24FE86430033950E /* BetsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCellController.swift; sourceTree = "<group>"; };
 		C2B33BBD24FE87F40033950E /* BetsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsController.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */,
 				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
 				8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */,
+				C2673D4525067BB20036CFD6 /* AddBetController.swift */,
 				8DA31DBF24EB6819001EFD85 /* SignUpController.swift */,
 				8DA31DC324EB8814001EFD85 /* SignInController.swift */,
 				8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */,
@@ -436,6 +439,7 @@
 				8D22B22424EEE6BB00EA8C28 /* KeyboardLayoutConstraint.swift in Sources */,
 				8D21929024EBB39200A0A265 /* SignUpFromSigninController.swift in Sources */,
 				8DE08ED324E88E5E0009D728 /* AppDelegate.swift in Sources */,
+				C2673D4625067BB20036CFD6 /* AddBetController.swift in Sources */,
 				8DE08ED524E88E5E0009D728 /* SceneDelegate.swift in Sources */,
 				8D22B22624EEF11D00EA8C28 /* Reachability.swift in Sources */,
 				8DA31DC424EB8814001EFD85 /* SignInController.swift in Sources */,
