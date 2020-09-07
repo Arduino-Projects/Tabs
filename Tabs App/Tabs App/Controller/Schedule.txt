@@ -1,0 +1,21 @@
+Sept 7 - add bets & add tabs screens with working dB links, fully done
+
+Sept 8 - individual bets tabs and friends screens all done
+
+Sept 9 - inbox screen with accept, reject and maybe buttons with full database connections done
+
+Sept 10 - finish any left over inbox screen, catch up day
+
+Sept 11 - home screen all except graph
+
+Sept 12 - finish home screen trends graph, start settings menu
+
+Sept 13 - finish settings menu
+
+Sept 14 - catchup day, finish any unfinished work
+
+Sept 15 - final touches, add notification pushes, start adding analytics
+
+Sept 16 - finish adding notifications, anaylytics, comment and clean up all code
+
+Sept 17 - FINISHED

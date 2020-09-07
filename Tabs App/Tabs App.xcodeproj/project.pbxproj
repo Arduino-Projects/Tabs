@@ -39,6 +39,7 @@
 		8DE08EDF24E88E5F0009D728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EDE24E88E5F0009D728 /* Assets.xcassets */; };
 		8DE08EE224E88E5F0009D728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */; };
 		8DE08EED24E88E5F0009D728 /* Tabs_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */; };
+		B92D4ABB2506B1FF008374A8 /* Schedule.txt in Resources */ = {isa = PBXBuildFile; fileRef = B92D4ABA2506B1FF008374A8 /* Schedule.txt */; };
 		C2673D4625067BB20036CFD6 /* AddBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2673D4525067BB20036CFD6 /* AddBetController.swift */; };
 		C2B33BBA24FE7E370033950E /* BetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B33BB924FE7E370033950E /* BetsCell.xib */; };
 		C2B33BBC24FE86430033950E /* BetsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBB24FE86430033950E /* BetsCellController.swift */; };
@@ -96,6 +97,7 @@
 		8DE08EE824E88E5F0009D728 /* Tabs AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tabs AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs_AppTests.swift; sourceTree = "<group>"; };
 		8DE08EEE24E88E5F0009D728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B92D4ABA2506B1FF008374A8 /* Schedule.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Schedule.txt; sourceTree = "<group>"; };
 		C2673D4525067BB20036CFD6 /* AddBetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBetController.swift; sourceTree = "<group>"; };
 		C2B33BB924FE7E370033950E /* BetsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetsCell.xib; sourceTree = "<group>"; };
 		C2B33BBB24FE86430033950E /* BetsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCellController.swift; sourceTree = "<group>"; };
@@ -232,7 +234,6 @@
 				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
 				8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */,
 				C2D589312506A894009C48C6 /* AddTabController.swift */,
-				C2673D4525067BB20036CFD6 /* AddBetController.swift */,
 				8DA31DBF24EB6819001EFD85 /* SignUpController.swift */,
 				8DA31DC324EB8814001EFD85 /* SignInController.swift */,
 				8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */,
@@ -249,6 +250,7 @@
 				8D22B22524EEF11D00EA8C28 /* Reachability.swift */,
 				8D21928E24EBA99200A0A265 /* Custom Elements */,
 				8D00E27B24F4EE6A00462733 /* Reference.txt */,
+				B92D4ABA2506B1FF008374A8 /* Schedule.txt */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -367,6 +369,7 @@
 				8D2CF82C24EAFBCB00B2EDDA /* Barlow-SemiBold.ttf in Resources */,
 				8DE08EDA24E88E5E0009D728 /* Main.storyboard in Resources */,
 				8DDA253624F70C3F006C89D6 /* Barlow-Bold.ttf in Resources */,
+				B92D4ABB2506B1FF008374A8 /* Schedule.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
