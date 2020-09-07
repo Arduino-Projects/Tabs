@@ -374,6 +374,9 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    // Function to organize all the data into array of key value pairs
+    // Params: Bets as query snapshot, 
+    // Return: UNNEEDED
     func usePersistentDataToPresentAndStoreBets(Bets: QuerySnapshot, friendsUIDs : [Any], friendsNames : [Any]) {
         betsData = []
         var counter = 0
@@ -556,7 +559,6 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return cell
     }
-    //
     
     // Function to retrieve the total number of sections eg.("A", "B", "F")
     // Params: UNNEEDED
@@ -565,12 +567,18 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 1
     }
     
+    
+    // Function to retrieve the height for the row
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
     
-    
+    // Function to swipe left on cell
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView,
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -631,6 +639,9 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    // Function to swipe right on cell
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -708,7 +719,7 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
             filterBetsForCorrectMenu()
             var searchFilteredElements : [[String : Any]] = []
             for bet in betsFiltered {
-                if (bet["otherUserName"] as! String).lowercased().contains(searchText.lowercased()) {
+                if ((bet["otherUserName"] as! String).lowercased().contains(searchText.lowercased())) {
                     searchFilteredElements.append(bet)
                 }
             }
@@ -718,7 +729,9 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
+    // Used to filter the bets for the ongoing and completed
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func filterBetsForCorrectMenu() {
         betsFiltered = betsData
         var counter = 0

@@ -374,6 +374,9 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    // Function to perform when swiping right on the cell
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func usePersistentDataToPresentAndStoreTabs(tabs: QuerySnapshot, friendsUIDs : [Any], friendsNames : [Any]) {
         tabsData = []
         var counter = 0
@@ -478,11 +481,18 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 1
     }
     
+    
+    // Function to retrieve the height of the cell
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
     
+    // Function to perform when swiping right on the cell
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView,
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -496,6 +506,9 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
+    // Function to perform when swiping left on the cell
+    // Params: UNNEEDED
+    // Return: UNNEEDED
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
@@ -522,15 +535,14 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tabsFiltered = tabsData
         }
         else {
-            tabsFiltered = []
-//            var counter = 0
-//            for element in arrayOfFriendsData {
-//                if element.lowercased().contains(searchText.lowercased()) {
-//                    arrayOfFriends.append(element)
-//                    arrayOfFriendsUIDs.append(arrayOfFriendsUIDsData[counter])
-//                }
-//                counter += 1
-//            }
+            tabsFiltered = tabsData
+            var searchFilteredElements : [[String : Any]] = []
+            for tab in tabsFiltered {
+                if ((tab["otherUserName"] as! String).lowercased().contains(searchText.lowercased())) {
+                    searchFilteredElements.append(tab)
+                }
+            }
+            tabsFiltered = searchFilteredElements
         }
         tbvTabs.reloadData()
     }
