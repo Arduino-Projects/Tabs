@@ -11,6 +11,9 @@ import UIKit
 class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     
+    let currencyMajor = "$"
+    let currencyMinor = "¢"
+    
     @IBOutlet weak var btnCloseAddTabs: UIButton!
     @IBOutlet weak var lblAddBet: UILabel!
     @IBOutlet weak var lblBetTitle: UITextField!
@@ -24,6 +27,8 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var btnRequestBet: RoundedButton!
     
     let possibleDollarValues = Array(0...20000)
+    let possibleCentValues = Array(0...99)
+    var friendSelected = false
     
     //MARK: Overridden Functions
     
@@ -96,7 +101,14 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return possibleDollarValues.count
+        if (pickerView == pkvDollarValue) {
+            return 20000
+        }
+        
+        else if (pickerView == pkvCentValue) {
+            return 100
+        }
+        return 0
     }
 
     
@@ -105,38 +117,76 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
 
        label.textColor = .label
        label.textAlignment = .center
-       label.font = UIFont(name: "Barlow-Bold", size: 18)
-
-       // where data is an Array of String
-       label.text = "$" + String(possibleDollarValues[row])
-
+       label.font = UIFont(name: "Barlow-SemiBold", size: 25)
+        
+        
+        
+        if (pickerView == pkvDollarValue) {
+            label.text = currencyMajor + String(row)
+        }
+            
+        else if (pickerView == pkvCentValue) {
+            label.text = String(row) + currencyMinor
+        }
        return label
      }
+    
+    
+    
+    
+    func disableButtonWhenFieldsIncomplete() {
+        if(checkIfFieldsComplete()) {
+            btnRequestBet.setTitleColor(UIColor.label, for: .normal)
+            btnRequestBet.borderColor = UIColor.systemBlue
+            btnRequestBet.isEnabled = true
+        }
+        else {
+            btnRequestBet.setTitleColor(UIColor.lightGray, for: .normal)
+            btnRequestBet.borderColor = UIColor.lightGray
+            btnRequestBet.isEnabled = false
+        }
+    }
+    
+    
+    
+    
+    func checkIfFieldsComplete() -> Bool {
+        if(lblBetTitle.text! != "" && friendSelected) {
+            return true
+        }
+        return false
+    }
     
     
     //MARK: IBActions
     
     @IBAction func closeAddBetPressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     @IBAction func titleFieldChanged(_ sender: Any) {
-        
+        disableButtonWhenFieldsIncomplete()
     }
     
     
     @IBAction func descriptionFieldChanged(_ sender: Any) {
+        
     }
     
     
     
     @IBAction func addFriendPressed(_ sender: Any) {
+        //TODO: ADD FRIEND OPTION
+        disableButtonWhenFieldsIncomplete()
     }
     
     @IBAction func betStateChanged(_ sender: Any) {
+        sgvBetState.selectedSegmentTintColor = [UIColor.systemGreen, UIColor.systemGray, UIColor.systemRed][sgvBetState.selectedSegmentIndex]
     }
     
     
     @IBAction func addBetPressed(_ sender: Any) {
+        
     }
     
     
