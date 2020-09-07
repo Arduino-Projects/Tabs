@@ -241,6 +241,7 @@
 				8DC66C5624FD968B009FAE87 /* TabsController.swift */,
 				8DDA253124F6FE12006C89D6 /* FriendsController.swift */,
 				C2B33BBD24FE87F40033950E /* BetsController.swift */,
+				C2673D4525067BB20036CFD6 /* AddBetController.swift */,
 				8DA6565A24FA99D000C73F3A /* IndividualFriendController.swift */,
 				8DA6565C24FA9BAD00C73F3A /* AddFriendViaEmailController.swift */,
 				8D22B22124EE036100EA8C28 /* Extensions.swift */,

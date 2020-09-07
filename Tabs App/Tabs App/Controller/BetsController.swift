@@ -770,6 +770,8 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: IBActions
     
+    
+    
     @IBAction func segmentedControlTouched(_ sender: Any) {
         sbrSearchThroughBets.text! = ""
         sbrSearchThroughBets.resignFirstResponder()
@@ -779,5 +781,8 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tbvBets.reloadData()
     }
     
+    @IBAction func addBetPressed(_ sender: Any) {
+        performSegue(withIdentifier: "betsToAddBet", sender: self)
+    }
 }
 

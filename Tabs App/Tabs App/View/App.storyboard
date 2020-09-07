@@ -54,6 +54,9 @@
                                                 <state key="normal" image="plus" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="27" scale="large" weight="heavy"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="addBetPressed:" destination="u9T-km-iRr" eventType="touchUpInside" id="g5X-RC-yKh"/>
+                                                </connections>
                                             </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XCX-W7-Emb">
                                                 <rect key="frame" x="217" y="24" width="143" height="32"/>
@@ -1165,7 +1168,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CNd-ma-2Pe"/>
+        <segue reference="f0b-dK-BQu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="app.badge.fill" catalog="system" width="128" height="118"/>
