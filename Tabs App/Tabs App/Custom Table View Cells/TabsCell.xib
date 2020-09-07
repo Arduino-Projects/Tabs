@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Madhumita Mocharla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ol-fR-rYX">
-                    <rect key="frame" x="10" y="18" width="236" height="45"/>
+                    <rect key="frame" x="16" y="18" width="228" height="45"/>
                     <fontDescription key="fontDescription" name="Barlow-SemiBold" family="Barlow" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -47,9 +47,9 @@
                 <constraint firstItem="Z4y-bM-ltm" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="11" id="8jo-CE-nGm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OKc-vs-sOR" secondAttribute="bottom" constant="11" id="X1s-nt-KC5"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OKc-vs-sOR" secondAttribute="trailing" constant="12" id="hGP-4f-O8r"/>
-                <constraint firstItem="6ol-fR-rYX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="iNC-n1-ILb"/>
+                <constraint firstItem="6ol-fR-rYX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="iNC-n1-ILb"/>
                 <constraint firstItem="6ol-fR-rYX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="18" id="lsD-0c-0WV"/>
-                <constraint firstItem="OKc-vs-sOR" firstAttribute="leading" secondItem="6ol-fR-rYX" secondAttribute="trailing" constant="8" id="uz9-oE-azX"/>
+                <constraint firstItem="OKc-vs-sOR" firstAttribute="leading" secondItem="6ol-fR-rYX" secondAttribute="trailing" constant="10" id="uz9-oE-azX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Z4y-bM-ltm" secondAttribute="trailing" constant="12" id="voU-bb-38L"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
