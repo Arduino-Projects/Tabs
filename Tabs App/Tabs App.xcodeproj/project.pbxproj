@@ -40,6 +40,7 @@
 		8DE08EE224E88E5F0009D728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DE08EE024E88E5F0009D728 /* LaunchScreen.storyboard */; };
 		8DE08EED24E88E5F0009D728 /* Tabs_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */; };
 		B92D4ABB2506B1FF008374A8 /* Schedule.txt in Resources */ = {isa = PBXBuildFile; fileRef = B92D4ABA2506B1FF008374A8 /* Schedule.txt */; };
+		B96BD78725072C4F007C772F /* ChooseFriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96BD78625072C4F007C772F /* ChooseFriendController.swift */; };
 		C2673D4625067BB20036CFD6 /* AddBetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2673D4525067BB20036CFD6 /* AddBetController.swift */; };
 		C2B33BBA24FE7E370033950E /* BetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B33BB924FE7E370033950E /* BetsCell.xib */; };
 		C2B33BBC24FE86430033950E /* BetsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B33BBB24FE86430033950E /* BetsCellController.swift */; };
@@ -98,6 +99,7 @@
 		8DE08EEC24E88E5F0009D728 /* Tabs_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs_AppTests.swift; sourceTree = "<group>"; };
 		8DE08EEE24E88E5F0009D728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B92D4ABA2506B1FF008374A8 /* Schedule.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Schedule.txt; sourceTree = "<group>"; };
+		B96BD78625072C4F007C772F /* ChooseFriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFriendController.swift; sourceTree = "<group>"; };
 		C2673D4525067BB20036CFD6 /* AddBetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBetController.swift; sourceTree = "<group>"; };
 		C2B33BB924FE7E370033950E /* BetsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetsCell.xib; sourceTree = "<group>"; };
 		C2B33BBB24FE86430033950E /* BetsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetsCellController.swift; sourceTree = "<group>"; };
@@ -233,18 +235,19 @@
 				C2DCC9B824F93B02009C6D08 /* HomeScreenController.swift */,
 				8DE08ED424E88E5E0009D728 /* SceneDelegate.swift */,
 				8DE08ED624E88E5E0009D728 /* AnimatedIntroController.swift */,
-				C2D589312506A894009C48C6 /* AddTabController.swift */,
 				8DA31DBF24EB6819001EFD85 /* SignUpController.swift */,
 				8DA31DC324EB8814001EFD85 /* SignInController.swift */,
 				8D21928F24EBB39200A0A265 /* SignUpFromSigninController.swift */,
 				8DAFD98224F19EB50042B917 /* VerifyEmailController.swift */,
 				8DDA252D24F59B0F006C89D6 /* ForgotPasswordController.swift */,
-				8DC66C5624FD968B009FAE87 /* TabsController.swift */,
 				8DDA253124F6FE12006C89D6 /* FriendsController.swift */,
-				C2B33BBD24FE87F40033950E /* BetsController.swift */,
-				C2673D4525067BB20036CFD6 /* AddBetController.swift */,
 				8DA6565A24FA99D000C73F3A /* IndividualFriendController.swift */,
 				8DA6565C24FA9BAD00C73F3A /* AddFriendViaEmailController.swift */,
+				C2B33BBD24FE87F40033950E /* BetsController.swift */,
+				C2673D4525067BB20036CFD6 /* AddBetController.swift */,
+				8DC66C5624FD968B009FAE87 /* TabsController.swift */,
+				C2D589312506A894009C48C6 /* AddTabController.swift */,
+				B96BD78625072C4F007C772F /* ChooseFriendController.swift */,
 				8D22B22124EE036100EA8C28 /* Extensions.swift */,
 				8D22B22324EEE6BB00EA8C28 /* KeyboardLayoutConstraint.swift */,
 				8D22B22524EEF11D00EA8C28 /* Reachability.swift */,
@@ -437,6 +440,7 @@
 				8DA6565D24FA9BAD00C73F3A /* AddFriendViaEmailController.swift in Sources */,
 				C2B33BBE24FE87F40033950E /* BetsController.swift in Sources */,
 				C2DCC9B924F93B02009C6D08 /* HomeScreenController.swift in Sources */,
+				B96BD78725072C4F007C772F /* ChooseFriendController.swift in Sources */,
 				8DE08ED724E88E5E0009D728 /* AnimatedIntroController.swift in Sources */,
 				8D22B22224EE036100EA8C28 /* Extensions.swift in Sources */,
 				8DDA252E24F59B0F006C89D6 /* ForgotPasswordController.swift in Sources */,

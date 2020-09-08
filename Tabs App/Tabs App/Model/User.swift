@@ -20,8 +20,8 @@ class User {
     static var friendsLoaded = false
     static var tabsLoaded = false
     static var betsLoaded = false
-    
-    
+    static var chosenFriendName = ""
+    static var chosenFriendUID = ""
     
     
     // MARK: Initializer
