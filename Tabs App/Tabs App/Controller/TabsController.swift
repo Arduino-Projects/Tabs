@@ -570,7 +570,7 @@ class TabsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: IBActions
     
     @IBAction func addATabPressed(_ sender: Any) {
-        
+        performSegue(withIdentifier: "tabsToAddTab", sender: self)
     }
     
 }

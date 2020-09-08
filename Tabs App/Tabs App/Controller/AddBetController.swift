@@ -11,8 +11,7 @@ import UIKit
 class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     
-    let currencyMajor = "$"
-    let currencyMinor = "¢"
+   
     
     @IBOutlet weak var btnCloseAddTabs: UIButton!
     @IBOutlet weak var lblAddBet: UILabel!
@@ -26,7 +25,13 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var sgvBetState: UISegmentedControl!
     @IBOutlet weak var btnRequestBet: RoundedButton!
     
+    
+    let currencyMajor = "$"
+    let currencyMinor = "¢"
+    
     var friendSelected = false
+    var chosenFriendName = ""
+    var chosenFriendUID = ""
     
     //MARK: Overridden Functions
     
@@ -35,6 +40,17 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
         keyboardManagerInit()
         pickerViewInit()
     }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //if going to signin screen, make sure it knows to do all necessary changes
+        if segue.identifier == "addBetToChooseFriend" {
+            if let nextViewController = segue.destination as? ChooseFriendController {
+                    nextViewController.createItemVC = self
+            }
+        }
+    }
+    
     
     
     
@@ -80,7 +96,7 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     
-    
+
     
     
     //MARK: Picker View Management
@@ -156,6 +172,19 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     
+    func friendWasChosen() {
+        if(friendSelected) {
+            btnSelectFriend.setTitleColor(.label, for: .normal)
+            btnSelectFriend.setTitle("Friend: " + chosenFriendName, for: .normal)
+        }
+        else {
+            btnSelectFriend.setTitleColor(.systemGray2, for: .normal)
+            btnSelectFriend.setTitle("Tap To Select A Friend", for: .normal)
+        }
+        disableButtonWhenFieldsIncomplete()
+    }
+    
+    
     //MARK: IBActions
     
     @IBAction func closeAddBetPressed(_ sender: Any) {
@@ -174,8 +203,7 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     
     @IBAction func addFriendPressed(_ sender: Any) {
-        //TODO: ADD FRIEND OPTION
-        disableButtonWhenFieldsIncomplete()
+        performSegue(withIdentifier: "addBetToChooseFriend", sender: self)
     }
     
     @IBAction func betStateChanged(_ sender: Any) {
