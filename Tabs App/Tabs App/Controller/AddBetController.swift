@@ -26,8 +26,6 @@ class AddBetController : UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var sgvBetState: UISegmentedControl!
     @IBOutlet weak var btnRequestBet: RoundedButton!
     
-    let possibleDollarValues = Array(0...20000)
-    let possibleCentValues = Array(0...99)
     var friendSelected = false
     
     //MARK: Overridden Functions
