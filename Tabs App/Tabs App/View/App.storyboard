@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UjC-V1-beD">
-    <device id="retina4_7" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UjC-V1-beD">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -768,7 +768,7 @@
                         <outlet property="sbrSearchTabs" destination="okz-5Q-bS1" id="ah3-wH-Yfr"/>
                         <outlet property="tbvTabs" destination="FHo-sR-Ruy" id="UCE-nf-k4V"/>
                         <segue destination="BNK-D5-kWW" kind="presentation" identifier="tabsToSignIn" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="CNd-ma-2Pe"/>
-                        <segue destination="5Us-jS-FBH" kind="show" id="sQh-Qt-os1"/>
+                        <segue destination="5Us-jS-FBH" kind="show" identifier="tabsToAddTab" id="sQh-Qt-os1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dul-Ac-qoi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1287,14 +1287,12 @@
                     <connections>
                         <outlet property="btnCloseAddTab" destination="dyp-PT-4ve" id="tF8-OD-cD2"/>
                         <outlet property="btnFriendSelect" destination="GBx-rG-jDp" id="Wvm-eR-2fx"/>
-                        <outlet property="btnRequestBet" destination="173-eh-s43" id="c00-FG-LaR"/>
                         <outlet property="btnRequestTab" destination="173-eh-s43" id="xU4-id-CdH"/>
                         <outlet property="lblAddTabTitle" destination="tjW-2B-fKK" id="4bc-UY-sBE"/>
                         <outlet property="lblCurrencyMajor" destination="Pam-zo-g9b" id="fsU-cm-CCh"/>
                         <outlet property="lblCurrencySeparator" destination="l70-qk-efq" id="fig-wA-kXO"/>
                         <outlet property="pkvCentAmount" destination="VJc-t5-h8M" id="dtz-QD-2y7"/>
                         <outlet property="pkvDollarAmount" destination="ztQ-Dt-Ikc" id="UCY-ag-rYA"/>
-                        <outlet property="sgvBetState" destination="XG4-DB-u0q" id="hn9-eF-lcp"/>
                         <outlet property="sgvWhoLentMoney" destination="XG4-DB-u0q" id="Ttj-3d-ibi"/>
                         <outlet property="txtTabDescription" destination="hCY-aF-DYw" id="ygA-xW-fPp"/>
                         <outlet property="txtTabTitle" destination="F0f-gI-WK5" id="ZDi-0l-eff"/>
@@ -1305,10 +1303,10 @@
             </objects>
             <point key="canvasLocation" x="8794" y="-117"/>
         </scene>
-        <!--View Controller-->
+        <!--Individual Bet Controller-->
         <scene sceneID="RE0-OD-g2W">
             <objects>
-                <viewController id="zvC-7O-OfK" sceneMemberID="viewController">
+                <viewController id="zvC-7O-OfK" customClass="IndividualBetController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JNg-Su-tWP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1337,13 +1335,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kn2-4s-ohc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="my name is not madhu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kn2-4s-ohc">
                                                 <rect key="frame" x="31" y="253" width="313" height="161"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="313" id="X31-ZC-LC0"/>
                                                     <constraint firstAttribute="height" constant="161" id="nxH-TJ-3Xg"/>
                                                 </constraints>
-                                                <string key="text">my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu. my name is madhu</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1361,7 +1358,7 @@
                                                 </segments>
                                                 <color key="selectedSegmentTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="betStateChanged:" destination="kbD-GS-lMz" eventType="valueChanged" id="AZP-3e-bdv"/>
+                                                    <action selector="betStateChanged:" destination="zvC-7O-OfK" eventType="valueChanged" id="eQL-9h-lUv"/>
                                                 </connections>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once a bet is completed, it is added to your tab " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="213-7l-CWa">
@@ -1383,9 +1380,31 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-CC-DUb">
+                                                <rect key="frame" x="159" y="306" width="57" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="0oy-RJ-Iwz"/>
+                                                    <constraint firstAttribute="width" constant="57" id="MVq-HE-vz8"/>
+                                                </constraints>
+                                            </activityIndicatorView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7S-tE-a4S">
+                                                <rect key="frame" x="305" y="25" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="9nO-KK-M4C"/>
+                                                    <constraint firstAttribute="height" constant="50" id="XZq-FJ-iTd"/>
+                                                </constraints>
+                                                <state key="normal" image="arrow.clockwise" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large" weight="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closeAddBetPressed:" destination="kbD-GS-lMz" eventType="touchUpInside" id="6Xc-i5-nyu"/>
+                                                    <action selector="refreshButtonPressed:" destination="zvC-7O-OfK" eventType="touchUpInside" id="Tpq-11-c5n"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="XJ0-CC-DUb" firstAttribute="centerX" secondItem="G36-Kw-Acs" secondAttribute="centerX" id="13Q-v2-tEr"/>
                                             <constraint firstItem="pgW-4W-5zQ" firstAttribute="leading" secondItem="G36-Kw-Acs" secondAttribute="leading" constant="31" id="Ffj-dR-TI0"/>
                                             <constraint firstItem="Kn2-4s-ohc" firstAttribute="centerX" secondItem="G36-Kw-Acs" secondAttribute="centerX" id="JuQ-NR-1LN"/>
                                             <constraint firstItem="K4D-NG-C46" firstAttribute="centerX" secondItem="G36-Kw-Acs" secondAttribute="centerX" id="KSu-Bw-GQA"/>
@@ -1393,13 +1412,16 @@
                                             <constraint firstItem="Kn2-4s-ohc" firstAttribute="centerY" secondItem="G36-Kw-Acs" secondAttribute="centerY" id="OBP-rK-QHM"/>
                                             <constraint firstAttribute="trailing" secondItem="6NK-tt-Y3c" secondAttribute="trailing" constant="31" id="Ow8-jf-f5t"/>
                                             <constraint firstItem="213-7l-CWa" firstAttribute="top" secondItem="K4D-NG-C46" secondAttribute="bottom" constant="8" id="Px6-lt-4Y8"/>
+                                            <constraint firstItem="XJ0-CC-DUb" firstAttribute="centerY" secondItem="G36-Kw-Acs" secondAttribute="centerY" id="SOJ-7c-zns"/>
                                             <constraint firstAttribute="trailing" secondItem="pgW-4W-5zQ" secondAttribute="trailing" constant="31" id="Smv-ZY-N8k"/>
+                                            <constraint firstItem="A7S-tE-a4S" firstAttribute="top" secondItem="G36-Kw-Acs" secondAttribute="top" constant="25" id="YdE-0f-Emc"/>
                                             <constraint firstItem="K4D-NG-C46" firstAttribute="top" secondItem="Kn2-4s-ohc" secondAttribute="bottom" constant="23" id="Zp9-JG-JvI"/>
                                             <constraint firstItem="6NK-tt-Y3c" firstAttribute="top" secondItem="IW5-QA-xVh" secondAttribute="bottom" constant="8" id="Zsw-Ps-O9v"/>
                                             <constraint firstItem="6NK-tt-Y3c" firstAttribute="top" secondItem="pgW-4W-5zQ" secondAttribute="bottom" constant="19" id="dhX-cE-7If"/>
                                             <constraint firstItem="Kn2-4s-ohc" firstAttribute="top" secondItem="6NK-tt-Y3c" secondAttribute="bottom" constant="8" id="mYl-Jm-G15"/>
                                             <constraint firstItem="6NK-tt-Y3c" firstAttribute="leading" secondItem="G36-Kw-Acs" secondAttribute="leading" constant="31" id="rbf-rB-1Kq"/>
                                             <constraint firstItem="213-7l-CWa" firstAttribute="centerX" secondItem="G36-Kw-Acs" secondAttribute="centerX" id="v57-4q-NbC"/>
+                                            <constraint firstAttribute="trailing" secondItem="A7S-tE-a4S" secondAttribute="trailing" constant="20" id="vkI-Oz-I9t"/>
                                             <constraint firstItem="IW5-QA-xVh" firstAttribute="leading" secondItem="G36-Kw-Acs" secondAttribute="leading" constant="31" id="wZd-3Q-ELf"/>
                                         </constraints>
                                     </view>
@@ -1423,6 +1445,7 @@
                                 </state>
                                 <connections>
                                     <action selector="closeAddBetPressed:" destination="kbD-GS-lMz" eventType="touchUpInside" id="dFo-yN-BN6"/>
+                                    <action selector="closeBetPressed:" destination="zvC-7O-OfK" eventType="touchUpInside" id="xyB-Lw-jgQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1437,10 +1460,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ggF-3C-eim"/>
                     </view>
+                    <connections>
+                        <outlet property="btnCloseBetIndicator" destination="ppS-zM-Rij" id="EBm-fC-YU8"/>
+                        <outlet property="btnRefreshBet" destination="A7S-tE-a4S" id="BR3-Km-8WF"/>
+                        <outlet property="lblAmount" destination="6NK-tt-Y3c" id="70T-of-tDX"/>
+                        <outlet property="lblBetDescription" destination="Kn2-4s-ohc" id="iFy-Wv-iPr"/>
+                        <outlet property="lblFriendName" destination="IW5-QA-xVh" id="2RN-1e-2AF"/>
+                        <outlet property="lblInstructionIndicator" destination="213-7l-CWa" id="lFK-ky-WNo"/>
+                        <outlet property="lblTitle" destination="pgW-4W-5zQ" id="wMo-qh-kB2"/>
+                        <outlet property="sgvBetState" destination="K4D-NG-C46" id="gQO-HO-1qT"/>
+                        <outlet property="stsLoadingIndicator" destination="XJ0-CC-DUb" id="W0G-8O-Gxx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55s-hB-XGe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6559" y="-734"/>
+            <point key="canvasLocation" x="6557.6000000000004" y="-734.48275862068976"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fJN-bS-h30">
@@ -1556,12 +1590,27 @@
                                             <constraint firstAttribute="trailing" secondItem="ZcT-Z0-wze" secondAttribute="trailing" constant="32" id="u8z-xt-xBb"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrf-ws-CEH">
+                                        <rect key="frame" x="305" y="25" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Mbo-Dv-gUy"/>
+                                            <constraint firstAttribute="height" constant="50" id="nrg-Ry-nv6"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow.clockwise" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large" weight="medium"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAddBetPressed:" destination="kbD-GS-lMz" eventType="touchUpInside" id="uLB-v6-zZv"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="beC-Q6-T7K" secondAttribute="trailing" id="8Ep-Qu-iwi"/>
+                                    <constraint firstAttribute="trailing" secondItem="vrf-ws-CEH" secondAttribute="trailing" constant="20" id="CG1-6r-DGN"/>
                                     <constraint firstAttribute="bottom" secondItem="beC-Q6-T7K" secondAttribute="bottom" id="YFd-NC-e0L"/>
                                     <constraint firstItem="beC-Q6-T7K" firstAttribute="leading" secondItem="iNK-U6-thU" secondAttribute="leading" id="bwJ-2t-0mX"/>
+                                    <constraint firstItem="vrf-ws-CEH" firstAttribute="top" secondItem="iNK-U6-thU" secondAttribute="top" constant="25" id="kuT-KJ-7Hm"/>
                                     <constraint firstItem="beC-Q6-T7K" firstAttribute="top" secondItem="iNK-U6-thU" secondAttribute="top" id="wM8-rc-gyn"/>
                                 </constraints>
                             </view>
@@ -1593,7 +1642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHW-JG-0G6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6501.6000000000004" y="17.541229385307346"/>
+            <point key="canvasLocation" x="6558" y="18"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rry-nP-ENr">
@@ -1627,7 +1676,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 big macs 30 chicken mcnuggets" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wS9-0w-UPg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 big macs 30 chicken mcnuggets" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="318" translatesAutoresizingMaskIntoConstraints="NO" id="wS9-0w-UPg" customClass="TopAlignedLabel" customModule="Tabs_App" customModuleProvider="target">
                                                 <rect key="frame" x="31" y="253" width="313" height="161"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="161" id="RMI-Yz-wMi"/>
@@ -1662,12 +1711,27 @@
                                             <constraint firstItem="fCT-jg-Gun" firstAttribute="top" secondItem="aXt-u4-nCP" secondAttribute="bottom" constant="8" id="sTr-gX-ObC"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwh-9e-eNP">
+                                        <rect key="frame" x="305" y="25" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="0wA-Uv-RUx"/>
+                                            <constraint firstAttribute="height" constant="50" id="bWP-E6-GXM"/>
+                                        </constraints>
+                                        <state key="normal" image="arrow.clockwise" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="23" scale="large" weight="medium"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeAddBetPressed:" destination="kbD-GS-lMz" eventType="touchUpInside" id="f9B-fq-jav"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kPr-N5-j2c" secondAttribute="bottom" id="Add-pK-VMW"/>
                                     <constraint firstAttribute="trailing" secondItem="kPr-N5-j2c" secondAttribute="trailing" id="DWP-g7-4Z2"/>
+                                    <constraint firstItem="cwh-9e-eNP" firstAttribute="top" secondItem="61i-rx-ekx" secondAttribute="top" constant="25" id="MYi-IP-vCq"/>
                                     <constraint firstItem="kPr-N5-j2c" firstAttribute="leading" secondItem="61i-rx-ekx" secondAttribute="leading" id="apm-iH-QtM"/>
+                                    <constraint firstAttribute="trailing" secondItem="cwh-9e-eNP" secondAttribute="trailing" constant="20" id="dcN-eE-n6n"/>
                                     <constraint firstItem="kPr-N5-j2c" firstAttribute="top" secondItem="61i-rx-ekx" secondAttribute="top" id="nvX-W0-SPy"/>
                                 </constraints>
                             </view>
@@ -1703,8 +1767,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Onh-Qt-Ddd"/>
-        <segue reference="iDM-Tt-ozQ"/>
+        <segue reference="TUY-rY-SRD"/>
+        <segue reference="S4o-fa-ke0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="app.badge.fill" catalog="system" width="128" height="118"/>

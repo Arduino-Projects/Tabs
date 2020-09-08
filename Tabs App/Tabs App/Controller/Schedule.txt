@@ -8,7 +8,7 @@ Sept 10 - finish any left over inbox screen, catch up day
 
 Sept 11 - home screen all except graph
 
-Sept 12 - finish home screen trends graph, start settings menu
+Sept 12 - finish home screen trends graph, and tabs graph, start settings menu
 
 Sept 13 - finish settings menu
 
