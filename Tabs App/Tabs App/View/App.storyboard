@@ -18,7 +18,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Bets-->
+        <!--Bets Controller-->
         <scene sceneID="kI8-mp-q0i">
             <objects>
                 <viewController id="u9T-km-iRr" customClass="BetsController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,7 +113,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qBx-C7-sdX"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Bets" id="bKp-Zp-Ntv"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="hEo-M1-UKR"/>
                     <connections>
                         <outlet property="btnAddBet" destination="fSw-DS-viR" id="MEp-6N-bGW"/>
                         <outlet property="lblBets" destination="14j-PL-xNK" id="hoo-Te-Fq2"/>
@@ -121,12 +121,12 @@
                         <outlet property="sgvOngoingOrFinished" destination="XCX-W7-Emb" id="jmj-ye-zSE"/>
                         <outlet property="tbvBets" destination="MWC-HP-sUK" id="qoL-je-ezR"/>
                         <segue destination="BNK-D5-kWW" kind="presentation" identifier="betsToSignIn" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="f0b-dK-BQu"/>
-                        <segue destination="kbD-GS-lMz" kind="show" identifier="betsToAddBet" id="xDd-Lx-Tbf"/>
+                        <segue destination="zvC-7O-OfK" kind="show" identifier="oof" id="nZY-mQ-sww"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ong-CD-nXG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5528.8000000000002" y="-734.48275862068976"/>
+            <point key="canvasLocation" x="6468" y="-734.48275862068976"/>
         </scene>
         <!--Add Bet Controller-->
         <scene sceneID="8xG-NY-wS3">
@@ -356,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Imq-j3-4FP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8007" y="-828"/>
+            <point key="canvasLocation" x="8944.7999999999993" y="-828.03598200899557"/>
         </scene>
         <!--Choose Friend Controller-->
         <scene sceneID="gqd-Xe-4GP">
@@ -475,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyf-d6-0y4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9918" y="-653"/>
+            <point key="canvasLocation" x="10856.799999999999" y="-653.52323838080963"/>
         </scene>
         <!--Home-->
         <scene sceneID="dUO-wB-pHh">
@@ -659,15 +659,16 @@
                     </tabBar>
                     <connections>
                         <segue destination="t68-Id-q4J" kind="relationship" relationship="viewControllers" id="x6V-8P-L5t"/>
-                        <segue destination="u9T-km-iRr" kind="relationship" relationship="viewControllers" id="wM9-HU-fO6"/>
+                        <segue destination="BuR-zn-AaY" kind="relationship" relationship="viewControllers" id="wM9-HU-fO6"/>
                         <segue destination="xaX-Py-dj9" kind="relationship" relationship="viewControllers" id="Z5e-Oe-pgh"/>
                         <segue destination="yei-Lb-8do" kind="relationship" relationship="viewControllers" id="Kdn-zg-0Nx"/>
                         <segue destination="dmc-FE-BVB" kind="relationship" relationship="viewControllers" id="wwD-n5-19s"/>
+                        <segue destination="kbD-GS-lMz" kind="show" identifier="betsToAddBet" id="Bwj-o7-UFc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LjJ-X9-Fhp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4431" y="18"/>
+            <point key="canvasLocation" x="4583" y="18"/>
         </scene>
         <!--Tabs-->
         <scene sceneID="u6a-cN-ILD">
@@ -1301,24 +1302,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OO5-v0-v0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8794" y="-117"/>
+            <point key="canvasLocation" x="9732" y="-117.39130434782609"/>
         </scene>
         <!--Individual Bet Controller-->
         <scene sceneID="RE0-OD-g2W">
             <objects>
-                <viewController id="zvC-7O-OfK" customClass="IndividualBetController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IndividualBetScreen" id="zvC-7O-OfK" customClass="IndividualBetController" customModule="Tabs_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JNg-Su-tWP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qI1-m1-V0f">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G36-Kw-Acs">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NK-tt-Y3c">
-                                                <rect key="frame" x="31" y="196" width="313" height="49"/>
+                                                <rect key="frame" x="31" y="171.5" width="313" height="49"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="49" id="p4I-ea-IwT"/>
                                                 </constraints>
@@ -1327,7 +1328,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="with Abed White" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW5-QA-xVh">
-                                                <rect key="frame" x="31" y="166" width="313" height="22"/>
+                                                <rect key="frame" x="31" y="141.5" width="313" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="22" id="KA6-ZE-bm9"/>
                                                 </constraints>
@@ -1336,7 +1337,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="my name is not madhu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kn2-4s-ohc">
-                                                <rect key="frame" x="31" y="253" width="313" height="161"/>
+                                                <rect key="frame" x="31" y="228.5" width="313" height="161"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="313" id="X31-ZC-LC0"/>
                                                     <constraint firstAttribute="height" constant="161" id="nxH-TJ-3Xg"/>
@@ -1346,7 +1347,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="K4D-NG-C46">
-                                                <rect key="frame" x="80" y="437" width="215" height="32"/>
+                                                <rect key="frame" x="80" y="412.5" width="215" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="sbc-RG-IH5"/>
                                                     <constraint firstAttribute="width" constant="215" id="uCe-G5-Uoa"/>
@@ -1362,7 +1363,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once a bet is completed, it is added to your tab " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="213-7l-CWa">
-                                                <rect key="frame" x="80" y="476" width="215" height="21"/>
+                                                <rect key="frame" x="80" y="451.5" width="215" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="215" id="H3R-YS-qdu"/>
                                                     <constraint firstAttribute="height" constant="21" id="ekR-nF-bg7"/>
@@ -1372,7 +1373,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abed Cant Run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="33" translatesAutoresizingMaskIntoConstraints="NO" id="pgW-4W-5zQ">
-                                                <rect key="frame" x="31" y="99" width="313" height="78"/>
+                                                <rect key="frame" x="31" y="74.5" width="313" height="78"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="78" id="7xA-2O-eMM"/>
                                                 </constraints>
@@ -1381,7 +1382,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XJ0-CC-DUb">
-                                                <rect key="frame" x="159" y="306" width="57" height="55"/>
+                                                <rect key="frame" x="159" y="281.5" width="57" height="55"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="0oy-RJ-Iwz"/>
                                                     <constraint firstAttribute="width" constant="57" id="MVq-HE-vz8"/>
@@ -1460,6 +1461,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ggF-3C-eim"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Oic-Is-T5Z"/>
                     <connections>
                         <outlet property="btnCloseBetIndicator" destination="ppS-zM-Rij" id="EBm-fC-YU8"/>
                         <outlet property="btnRefreshBet" destination="A7S-tE-a4S" id="BR3-Km-8WF"/>
@@ -1474,7 +1476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="55s-hB-XGe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6557.6000000000004" y="-734.48275862068976"/>
+            <point key="canvasLocation" x="7496.8000000000002" y="-914.392803598201"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fJN-bS-h30">
@@ -1765,10 +1767,28 @@
             </objects>
             <point key="canvasLocation" x="7420" y="18"/>
         </scene>
+        <!--Bets-->
+        <scene sceneID="LkZ-xR-OEe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="BuR-zn-AaY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bets" id="bKp-Zp-Ntv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YHk-hL-rIf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u9T-km-iRr" kind="relationship" relationship="rootViewController" id="chT-d7-3vZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PZP-We-fvB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5528.8000000000002" y="-734.48275862068976"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TUY-rY-SRD"/>
-        <segue reference="S4o-fa-ke0"/>
+        <segue reference="f0b-dK-BQu"/>
+        <segue reference="iDM-Tt-ozQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="app.badge.fill" catalog="system" width="128" height="118"/>

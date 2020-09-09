@@ -23,8 +23,6 @@ class IndividualBetController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblBetDescription.numberOfLines = 0;
-        lblBetDescription.sizeToFit()
         
     }
     
