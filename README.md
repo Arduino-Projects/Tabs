@@ -16,7 +16,7 @@ Tabs is an app in development, owned by Araad Shams and Madhumita Mocharla. The 
 * October 2020 - In Progress
 
 # Images
-![Launch Screen](Images/LaunchScreen.png | width=48)
+![Launch Screen](Images/LaunchScreen.png){:height="36px" width="36px"}
 ![Tabs Screen](Images/SignupScreen.png)
 ![Bets Screen](Images/BetsScreen.png)
 ![Tabs Screen](Images/TabsScreen.png)
