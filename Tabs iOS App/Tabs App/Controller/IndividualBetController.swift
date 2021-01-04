@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FDFullscreenPopGesture
 
 class IndividualBetController : UIViewController, UIGestureRecognizerDelegate {
     
@@ -22,20 +23,19 @@ class IndividualBetController : UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var btnRefreshBet: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer!.delegate = self;
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.didSwipe(_:)))
-        self.view.addGestureRecognizer(swipeGestureRecognizer)
         
-    }
-    
-    @objc func didSwipe(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.interactivePopGestureRecognizer!.delegate = self;
+        self.fd_prefersNavigationBarHidden = true;
+        super.viewDidLoad()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true;
+        
+        super.viewDidAppear(true);
     }
+    
     
     @IBAction func closeBetPressed(_ sender: Any) {
     }
@@ -46,4 +46,3 @@ class IndividualBetController : UIViewController, UIGestureRecognizerDelegate {
     }
     
 }
-

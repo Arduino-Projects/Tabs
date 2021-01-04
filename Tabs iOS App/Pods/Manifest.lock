@@ -221,6 +221,7 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
+  - FDFullscreenPopGesture (1.1)
   - Firebase (6.30.0):
     - Firebase/Core (= 6.30.0)
   - Firebase/Auth (6.30.0):
@@ -354,6 +355,7 @@ PODS:
 
 DEPENDENCIES:
   - ChameleonFramework
+  - FDFullscreenPopGesture (= 1.1)
   - Firebase
   - Firebase/Auth
   - Firebase/Core
@@ -368,6 +370,7 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - ChameleonFramework
+    - FDFullscreenPopGesture
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -393,6 +396,7 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Firebase: 210f41ca352067d83b1ba4fd2e7fb49a0c017397
   FirebaseAnalytics: a299a86ef70fcc6aa011418bc65a7e101fb9636c
   FirebaseAuth: 300433de340c1b058dbb8aec224a3f1bcfda5184
@@ -414,6 +418,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: e440ac3b97d4092ad01eecd6da12eaa8e346dac5
+PODFILE CHECKSUM: 0e3e96f1577dd163e16dcbb7fa4dbcfbe7a805c1
 
 COCOAPODS: 1.9.3

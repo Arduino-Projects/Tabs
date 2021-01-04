@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FDFullscreenPopGesture
 
 class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
@@ -57,6 +58,8 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
         keyboardManagerInit()
         refreshControllerInit()
         tableViewInit()
+        self.fd_prefersNavigationBarHidden = true;
+
     }
     
     
@@ -782,8 +785,8 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func addBetPressed(_ sender: Any) {
-//        self.navigationController?.tabBarController?.performSegue(withIdentifier: "betsToAddBet", sender: self)
-        self.performSegue(withIdentifier: "oof", sender: self)
+        self.navigationController?.tabBarController?.performSegue(withIdentifier: "betsToAddBet", sender: self)
+//        self.performSegue(withIdentifier: "oof", sender: self)
     }
 }
 
