@@ -782,8 +782,8 @@ class BetsController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func addBetPressed(_ sender: Any) {
-        self.navigationController?.tabBarController?.performSegue(withIdentifier: "betsToAddBet", sender: self)
-//        self.performSegue(withIdentifier: "oof", sender: self)
+//        self.navigationController?.tabBarController?.performSegue(withIdentifier: "betsToAddBet", sender: self)
+        self.performSegue(withIdentifier: "oof", sender: self)
     }
 }
 

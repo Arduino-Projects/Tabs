@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IndividualBetController : UIViewController {
+class IndividualBetController : UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBOutlet weak var lblTitle: UILabel!
@@ -23,9 +23,19 @@ class IndividualBetController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer!.delegate = self;
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.didSwipe(_:)))
+        self.view.addGestureRecognizer(swipeGestureRecognizer)
         
     }
     
+    @objc func didSwipe(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer!.isEnabled = true;
+    }
     
     @IBAction func closeBetPressed(_ sender: Any) {
     }
@@ -36,3 +46,4 @@ class IndividualBetController : UIViewController {
     }
     
 }
+
